@@ -31,7 +31,7 @@ from datetime import datetime
 # SET AS GLOBAL WIDGETS
 # ///////////////////////////////////////////////////////////////
 widgets = None
-VERSION = "v1.2.0"
+VERSION = "v1.2.1"
 
 GLOBAL_STATE = False
 GLOBAL_TITLE_BAR = True
@@ -50,6 +50,7 @@ class MainWindow(QMainWindow):
         global widgets
         widgets = self.ui
         widgets.version.setText(VERSION)
+        self.status_bar = StatusBar(widgets.errorLabel)
 
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
         # ///////////////////////////////////////////////////////////////
@@ -161,30 +162,15 @@ class MainWindow(QMainWindow):
         if close_dialog.exec():
             sys.exit()
 
-    @staticmethod
-    def display_error(message):
-        widgets.errorLabel.setStyleSheet("color: red")
-        widgets.errorLabel.setText(message)
-
-    @staticmethod
-    def display_warning(message):
-        widgets.errorLabel.setStyleSheet("color: yellow")
-        widgets.errorLabel.setText(message)
-
-    @staticmethod
-    def clear_error():
-        widgets.errorLabel.clear()
-
     def save_file(self):
-        self.clear_error()
-        dialog = QFileDialog()
-        dialog.setNameFilters(["RSLogix L5X files (*.L5X)"])
-        dialog.setAcceptMode(QFileDialog.AcceptSave)
-        dialog.setFileMode(QFileDialog.FileMode(0))
-        if dialog.exec():
-            file_name = dialog.selectedFiles()[0]
-            self.L5XMod.save_file(file_name)
-
+        with self.status_bar:
+            dialog = QFileDialog()
+            dialog.setNameFilters(["RSLogix L5X files (*.L5X)"])
+            dialog.setAcceptMode(QFileDialog.AcceptSave)
+            dialog.setFileMode(QFileDialog.FileMode(0))
+            if dialog.exec():
+                file_name = dialog.selectedFiles()[0]
+                self.L5XMod.save_file(file_name)
 
     def tE_openFile_button(self):
         dialog = QFileDialog()
@@ -196,51 +182,58 @@ class MainWindow(QMainWindow):
             widgets.lineEdit_tE_OpenFile.setText(self.currentFile)
 
     def tE_openFile_changed(self):
-        self.clear_error()
-        text = widgets.lineEdit_tE_OpenFile.text()
-        ext = os.path.splitext(text)[-1].lower()
-        if os.path.exists(text) and ext == ".l5x":
-            self.currentFile = text
-            self.L5XMod.open_file(text)
-            self.tE_chooseScope_populate()
-        else:
-            self.tE_openFile_button()
+        with self.status_bar:
+            text = widgets.lineEdit_tE_OpenFile.text()
+            ext = os.path.splitext(text)[-1].lower()
+            if os.path.exists(text) and ext == ".l5x":
+                self.currentFile = text
+                self.L5XMod.open_file(text)
+                self.tE_chooseScope_populate()
+            else:
+                self.tE_openFile_button()
 
     def tE_chooseScope_populate(self):
+        widgets.comboBox_tE_ChooseScope.blockSignals(True)
         widgets.comboBox_tE_ChooseScope.clear()
         widgets.comboBox_tE_ChooseScope.addItems(self.L5XMod.get_scope())
-        self.tE_ChooseTag_update_list()
+        widgets.comboBox_tE_ChooseScope.blockSignals(False)
+        self.tE_chooseScope_changed()
 
     def tE_chooseScope_changed(self):
-        self.clear_error()
         self.L5XMod.scope_changed(widgets.comboBox_tE_ChooseScope.currentText())
+        self.tE_clear_tree()
         self.tE_ChooseTag_update_list()
 
+    @staticmethod
+    def tE_clear_tree():
+        widgets.treeView_tE_TagTree.setModel(QStandardItemModel())
+
     def tE_ChooseTag_update_list(self):
-        self.clear_error()
+        widgets.listWidget_tE_ChooseTag.blockSignals(True)
         widgets.listWidget_tE_ChooseTag.clear()
         filter_text = self.L5XMod.get_tag_list_filtered(widgets.lineEdit_tE_Filter.text())
         widgets.listWidget_tE_ChooseTag.addItems(filter_text)
+        widgets.listWidget_tE_ChooseTag.blockSignals(False)
 
     def tE_tagTree_populate(self):
-        self.clear_error()
         if widgets.listWidget_tE_ChooseTag.currentItem() is not None:
-            top_most_model = QStandardItemModel(0,3)
-            top_most_model.setHeaderData(0, Qt.Horizontal, "Name")
-            top_most_model.setHeaderData(1, Qt.Horizontal, "Data Type")
-            top_most_model.setHeaderData(2, Qt.Horizontal, "Value")
-            widgets.treeView_tE_TagTree.setModel(top_most_model)
-            tag_name = widgets.listWidget_tE_ChooseTag.currentItem().text()
-            scope = widgets.comboBox_tE_ChooseScope.currentText()
-            encoder = self.tE_radioButtons_get_encoder()
-            print_headers = widgets.checkBox_tE_PrintHeaders.isChecked()
-            concatenate = widgets.checkBox_tE_ConcatenatePath.isChecked()
-            tag_tuple = self.L5XMod.get_tag_info_tuple(tag_name, scope, encoder=encoder)
-            self.L5XMod.insert_into_tree(top_most_model, tag_tuple, print_headers, concatenate, encoder=encoder)
-            widgets.treeView_tE_TagTree.expandAll()
-            widgets.treeView_tE_TagTree.resizeColumnToContents(2)
-            widgets.treeView_tE_TagTree.resizeColumnToContents(1)
-            widgets.treeView_tE_TagTree.resizeColumnToContents(0)
+            with self.status_bar:
+                top_most_model = QStandardItemModel(0,3)
+                top_most_model.setHeaderData(0, Qt.Horizontal, "Name")
+                top_most_model.setHeaderData(1, Qt.Horizontal, "Data Type")
+                top_most_model.setHeaderData(2, Qt.Horizontal, "Value")
+                widgets.treeView_tE_TagTree.setModel(top_most_model)
+                tag_name = widgets.listWidget_tE_ChooseTag.currentItem().text()
+                scope = widgets.comboBox_tE_ChooseScope.currentText()
+                encoder = self.tE_radioButtons_get_encoder()
+                print_headers = widgets.checkBox_tE_PrintHeaders.isChecked()
+                concatenate = widgets.checkBox_tE_ConcatenatePath.isChecked()
+                tag_tuple = self.L5XMod.get_tag_info_tuple(tag_name, scope, encoder=encoder)
+                self.L5XMod.insert_into_tree(top_most_model, tag_tuple, print_headers, concatenate, encoder=encoder)
+                widgets.treeView_tE_TagTree.expandAll()
+                widgets.treeView_tE_TagTree.resizeColumnToContents(2)
+                widgets.treeView_tE_TagTree.resizeColumnToContents(1)
+                widgets.treeView_tE_TagTree.resizeColumnToContents(0)
 
     def tE_radioButtons_get_encoder(self):
         radioButtons = {widgets.radioButton_tE_PL: "Windows-1250", widgets.radioButton_tE_GFS: "Windows-1252",
@@ -263,7 +256,7 @@ class MainWindow(QMainWindow):
     def tE_check_checkboxes_state(self):
         if not widgets.checkBox_tE_PrintHeaders.isChecked() and\
                 not widgets.checkBox_tE_ConcatenatePath.isChecked():
-            self.display_warning("Exporting tag without headers nor path concatenation will make impossible to import "
+            self.status_bar.display_warning("Exporting tag without headers nor path concatenation will make impossible to import "
                                  "this tag")
 
     def RB_radioButtons_get_encoder(self):
@@ -289,7 +282,6 @@ class MainWindow(QMainWindow):
         UIFunctions.open_right_toolbox(self, toolbox_buttons[btn])
 
     def choose_csv_file_save(self):
-        self.clear_error()
         dialog = QFileDialog()
         dialog.setDefaultSuffix("cal")
         dialog.setNameFilters(["CSV (*.csv)", "All files (*.*)"])
@@ -300,14 +292,13 @@ class MainWindow(QMainWindow):
             return dialog.selectedFiles()[0]
 
     def tE_export(self):
-        self.clear_error()
         save_file = self.choose_csv_file_save()
         if save_file:
             output_encoder = self.RB_radioButtons_get_encoder()
-            self.L5XMod.export_tag_to_csv(widgets.treeView_tE_TagTree, save_file, output_encoder)
+            with self.status_bar:
+                self.L5XMod.export_tag_to_csv(widgets.treeView_tE_TagTree, save_file, output_encoder)
 
     def choose_csv_file_load(self):
-        self.clear_error()
         dialog = QFileDialog()
         dialog.setDefaultSuffix("cal")
         dialog.setNameFilters(["CSV (*.csv)", "All files (*.*)"])
@@ -320,11 +311,12 @@ class MainWindow(QMainWindow):
         self.clear_error()
         load_file = self.choose_csv_file_load()
         if load_file:
-            file_encoder = self.RB_radioButtons_get_encoder()
-            tag_encoder = self.tE_radioButtons_get_encoder()
-            scope = widgets.comboBox_tE_ChooseScope.currentText()
-            self.L5XMod.import_tag_from_csv(load_file, scope=scope, file_encoding=file_encoder, encoding=tag_encoder)
-            self.tE_tagTree_populate()
+            with self.status_bar:
+                file_encoder = self.RB_radioButtons_get_encoder()
+                tag_encoder = self.tE_radioButtons_get_encoder()
+                scope = widgets.comboBox_tE_ChooseScope.currentText()
+                self.L5XMod.import_tag_from_csv(load_file, scope=scope, file_encoding=file_encoder, encoding=tag_encoder)
+                self.tE_tagTree_populate()
 
     def tsC_radioButtons_get_encoder(self):
         radioButtons = {widgets.radioButton_tsC_PL: "Windows-1250", widgets.radioButton_tsC_GFS: "Windows-1252",
@@ -344,7 +336,7 @@ class MainWindow(QMainWindow):
             self.tsC_simpleText_translate()
 
     def tsC_simpleText_translate(self):
-        self.clear_error()
+        self.status_bar.clear_error()
         string = widgets.textEdit_tsC_SimpleText.toPlainText()
         encoder = self.tsC_radioButtons_get_encoder()
         widgets.textEdit_tsC_RSLogixText.blockSignals(True)
@@ -352,11 +344,11 @@ class MainWindow(QMainWindow):
             widgets.textEdit_tsC_RSLogixText.setPlainText(self.L5XMod.encode_string(string, encoder))
             if w:
                 print("Warning: " + str(w[-1]))
-                self.display_error(str(w[-1].message))
+                self.status_bar.display_error(str(w[-1].message))
         widgets.textEdit_tsC_RSLogixText.blockSignals(False)
 
     def tsC_RSLText_edited(self):
-        self.clear_error()
+        self.status_bar.clear_error()
         string = widgets.textEdit_tsC_RSLogixText.toPlainText()
         encoder = self.tsC_radioButtons_get_encoder()
         widgets.textEdit_tsC_SimpleText.blockSignals(True)
@@ -365,27 +357,26 @@ class MainWindow(QMainWindow):
 
 
     def tsC_CopyTest_clicked(self):
-        self.clear_error()
-        self.clipboard.setText(widgets.textEdit_tsC_SimpleText.toPlainText())
+        with self.status_bar:
+            self.clipboard.setText(widgets.textEdit_tsC_SimpleText.toPlainText())
 
     def tsC_CopyRSL_clicked(self):
-        self.clear_error()
-        self.clipboard.setText(widgets.textEdit_tsC_RSLogixText.toPlainText())
+        with self.status_bar:
+            self.clipboard.setText(widgets.textEdit_tsC_RSLogixText.toPlainText())
 
     def tsC_PasteText_clicked(self):
-        self.clear_error()
-        widgets.textEdit_tsC_SimpleText.setPlainText(self.clipboard.text())
+        with self.status_bar:
+            widgets.textEdit_tsC_SimpleText.setPlainText(self.clipboard.text())
 
     def tsC_PasteRSL_clicked(self):
-        self.clear_error()
-        widgets.textEdit_tsC_RSLogixText.setPlainText(self.clipboard.text())
-
+        with self.status_bar:
+            widgets.textEdit_tsC_RSLogixText.setPlainText(self.clipboard.text())
 
     # BUTTONS CLICK
     # Post here your functions for clicked buttons
     # ///////////////////////////////////////////////////////////////
     def buttonClick(self):
-        self.clear_error()
+        self.status_bar.clear_error()
 
         # GET BUTTON CLICKED
         btn = self.sender()
@@ -407,13 +398,6 @@ class MainWindow(QMainWindow):
 
         if btnName == "btn_save":
             self.save_file()
-
-        # # SHOW NEW PAGE
-        # if btnName == "btn_new":
-        #     widgets.stackedWidget.setCurrentWidget(widgets.new_page) # SET PAGE
-        #     UIFunctions.resetStyle(self, btnName) # RESET ANOTHERS BUTTONS SELECTED
-        #     btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
-
 
     # RESIZE EVENTS
     # ///////////////////////////////////////////////////////////////
@@ -733,7 +717,9 @@ if __name__ == "__main__":
     if not os.path.isdir(directory + "\\log"):
         os.mkdir(directory + "\\log")
     log_file_path = directory + '\\log\\log_{}.txt'.format(datetime.now().strftime("%Y%m%d_%H%M%S"))
-    sys.stdout = MyLogger(sys.stdout, log_file_path)
+    my_logger = MyLogger(sys.stdout, sys.excepthook, log_file_path)
+    sys.stdout = my_logger
+    sys.excepthook = my_logger.exception_handler
 
     # GUI START
     app = QApplication(sys.argv)

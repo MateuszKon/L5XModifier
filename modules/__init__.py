@@ -27,3 +27,6 @@ from . app_settings import Settings
 
 # Logger
 from . my_logger import MyLogger
+
+# Status Bar
+from . status_bar import StatusBar
