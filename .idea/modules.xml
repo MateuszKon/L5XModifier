@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/L5XModifier.iml" filepath="$PROJECT_DIR$/.idea/L5XModifier.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../L5XeTree/.idea/L5XeTree.iml" filepath="$PROJECT_DIR$/../L5XeTree/.idea/L5XeTree.iml" />
     </modules>
   </component>
 </project>
