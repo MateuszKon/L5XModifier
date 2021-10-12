@@ -1,0 +1,761 @@
+"Name"	"Data type"	"Value"
+"Model_SetupStored"	"oem_ModelSetup[33]"	
+"Model_SetupStored[0]"	"oem_ModelSetup"	
+"Model_SetupStored[0].Description"	"STRING"	
+"Model_SetupStored[0].Number"	"STRING"	
+"Model_SetupStored[0].Date"	"STRING"	
+"Model_SetupStored[0].Time"	"STRING"	
+"Model_SetupStored[0].AssemblyPN"	"STRING"	
+"Model_SetupStored[0].AssemblyREV"	"STRING"	
+"Model_SetupStored[0].IShaftTube_PN"	"STRING"	
+"Model_SetupStored[0].IShaftTube_REV"	"STRING"	
+"Model_SetupStored[0].LOT_DoubleDPlug_PN"	"STRING"	
+"Model_SetupStored[0].LOT_RoundPlug_PN"	"STRING"	
+"Model_SetupStored[0].LastModification"	"STRING"	
+"Model_SetupStored[0].KistlerUpperPress_ProgramNo"	"DINT"	1
+"Model_SetupStored[0].KistlerLowerPress_ProgramNo"	"DINT"	2
+"Model_SetupStored[0].KistlerUpperPress_ActiveEO2"	"BOOL"	1
+"Model_SetupStored[0].KistlerUpperPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[0].KistlerLowerPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[0].KistlerLowerPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[0].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[0].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[0].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[0].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[0].PrototypePart"	"BOOL"	0
+"Model_SetupStored[1]"	"oem_ModelSetup"	
+"Model_SetupStored[1].Description"	"STRING"	"asd"
+"Model_SetupStored[1].Number"	"STRING"	88
+"Model_SetupStored[1].Date"	"STRING"	"w"
+"Model_SetupStored[1].Time"	"STRING"	"ałęó"
+"Model_SetupStored[1].AssemblyPN"	"STRING"	38290539
+"Model_SetupStored[1].AssemblyREV"	"STRING"	2
+"Model_SetupStored[1].IShaftTube_PN"	"STRING"	38288873
+"Model_SetupStored[1].IShaftTube_REV"	"STRING"	3
+"Model_SetupStored[1].LOT_DoubleDPlug_PN"	"STRING"	38272992
+"Model_SetupStored[1].LOT_RoundPlug_PN"	"STRING"	38238039
+"Model_SetupStored[1].LastModification"	"STRING"	"21/04/2021 09:43"
+"Model_SetupStored[1].KistlerUpperPress_ProgramNo"	"DINT"	3
+"Model_SetupStored[1].KistlerLowerPress_ProgramNo"	"DINT"	3
+"Model_SetupStored[1].KistlerUpperPress_ActiveEO2"	"BOOL"	1
+"Model_SetupStored[1].KistlerUpperPress_ActiveEO3"	"BOOL"	1
+"Model_SetupStored[1].KistlerLowerPress_ActiveEO2"	"BOOL"	1
+"Model_SetupStored[1].KistlerLowerPress_ActiveEO3"	"BOOL"	1
+"Model_SetupStored[1].Changeover_Tool_1a"	"BOOL"	1
+"Model_SetupStored[1].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[1].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[1].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[1].PrototypePart"	"BOOL"	0
+"Model_SetupStored[2]"	"oem_ModelSetup"	
+"Model_SetupStored[2].Description"	"STRING"	"Ref 2"
+"Model_SetupStored[2].Number"	"STRING"	22
+"Model_SetupStored[2].Date"	"STRING"	"dziś"
+"Model_SetupStored[2].Time"	"STRING"	"14:25"
+"Model_SetupStored[2].AssemblyPN"	"STRING"	123
+"Model_SetupStored[2].AssemblyREV"	"STRING"	321
+"Model_SetupStored[2].IShaftTube_PN"	"STRING"	1231
+"Model_SetupStored[2].IShaftTube_REV"	"STRING"	2342
+"Model_SetupStored[2].LOT_DoubleDPlug_PN"	"STRING"	3453
+"Model_SetupStored[2].LOT_RoundPlug_PN"	"STRING"	4564
+"Model_SetupStored[2].LastModification"	"STRING"	"02/02/1998 02:08"
+"Model_SetupStored[2].KistlerUpperPress_ProgramNo"	"DINT"	3
+"Model_SetupStored[2].KistlerLowerPress_ProgramNo"	"DINT"	3
+"Model_SetupStored[2].KistlerUpperPress_ActiveEO2"	"BOOL"	1
+"Model_SetupStored[2].KistlerUpperPress_ActiveEO3"	"BOOL"	1
+"Model_SetupStored[2].KistlerLowerPress_ActiveEO2"	"BOOL"	1
+"Model_SetupStored[2].KistlerLowerPress_ActiveEO3"	"BOOL"	1
+"Model_SetupStored[2].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[2].Changeover_Tool_1b"	"BOOL"	1
+"Model_SetupStored[2].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[2].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[2].PrototypePart"	"BOOL"	0
+"Model_SetupStored[3]"	"oem_ModelSetup"	
+"Model_SetupStored[3].Description"	"STRING"	"Ref 3.2"
+"Model_SetupStored[3].Number"	"STRING"	88
+"Model_SetupStored[3].Date"	"STRING"	
+"Model_SetupStored[3].Time"	"STRING"	
+"Model_SetupStored[3].AssemblyPN"	"STRING"	38255632
+"Model_SetupStored[3].AssemblyREV"	"STRING"	1
+"Model_SetupStored[3].IShaftTube_PN"	"STRING"	38262879
+"Model_SetupStored[3].IShaftTube_REV"	"STRING"	2
+"Model_SetupStored[3].LOT_DoubleDPlug_PN"	"STRING"	38272992
+"Model_SetupStored[3].LOT_RoundPlug_PN"	"STRING"	38238039
+"Model_SetupStored[3].LastModification"	"STRING"	"02/02/1998 02:08"
+"Model_SetupStored[3].KistlerUpperPress_ProgramNo"	"DINT"	3
+"Model_SetupStored[3].KistlerLowerPress_ProgramNo"	"DINT"	3
+"Model_SetupStored[3].KistlerUpperPress_ActiveEO2"	"BOOL"	1
+"Model_SetupStored[3].KistlerUpperPress_ActiveEO3"	"BOOL"	1
+"Model_SetupStored[3].KistlerLowerPress_ActiveEO2"	"BOOL"	1
+"Model_SetupStored[3].KistlerLowerPress_ActiveEO3"	"BOOL"	1
+"Model_SetupStored[3].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[3].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[3].Changeover_Tool_32"	"BOOL"	1
+"Model_SetupStored[3].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[3].PrototypePart"	"BOOL"	0
+"Model_SetupStored[4]"	"oem_ModelSetup"	
+"Model_SetupStored[4].Description"	"STRING"	"Ref 3.2 Middle"
+"Model_SetupStored[4].Number"	"STRING"	88
+"Model_SetupStored[4].Date"	"STRING"	
+"Model_SetupStored[4].Time"	"STRING"	
+"Model_SetupStored[4].AssemblyPN"	"STRING"	38255632
+"Model_SetupStored[4].AssemblyREV"	"STRING"	1
+"Model_SetupStored[4].IShaftTube_PN"	"STRING"	38262879
+"Model_SetupStored[4].IShaftTube_REV"	"STRING"	2
+"Model_SetupStored[4].LOT_DoubleDPlug_PN"	"STRING"	38272992
+"Model_SetupStored[4].LOT_RoundPlug_PN"	"STRING"	38238039
+"Model_SetupStored[4].LastModification"	"STRING"	"02/02/1998 02:08"
+"Model_SetupStored[4].KistlerUpperPress_ProgramNo"	"DINT"	3
+"Model_SetupStored[4].KistlerLowerPress_ProgramNo"	"DINT"	3
+"Model_SetupStored[4].KistlerUpperPress_ActiveEO2"	"BOOL"	1
+"Model_SetupStored[4].KistlerUpperPress_ActiveEO3"	"BOOL"	1
+"Model_SetupStored[4].KistlerLowerPress_ActiveEO2"	"BOOL"	1
+"Model_SetupStored[4].KistlerLowerPress_ActiveEO3"	"BOOL"	1
+"Model_SetupStored[4].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[4].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[4].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[4].Changeover_Tool_32_Mid"	"BOOL"	1
+"Model_SetupStored[4].PrototypePart"	"BOOL"	0
+"Model_SetupStored[5]"	"oem_ModelSetup"	
+"Model_SetupStored[5].Description"	"STRING"	
+"Model_SetupStored[5].Number"	"STRING"	
+"Model_SetupStored[5].Date"	"STRING"	
+"Model_SetupStored[5].Time"	"STRING"	
+"Model_SetupStored[5].AssemblyPN"	"STRING"	
+"Model_SetupStored[5].AssemblyREV"	"STRING"	
+"Model_SetupStored[5].IShaftTube_PN"	"STRING"	
+"Model_SetupStored[5].IShaftTube_REV"	"STRING"	
+"Model_SetupStored[5].LOT_DoubleDPlug_PN"	"STRING"	
+"Model_SetupStored[5].LOT_RoundPlug_PN"	"STRING"	
+"Model_SetupStored[5].LastModification"	"STRING"	
+"Model_SetupStored[5].KistlerUpperPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[5].KistlerLowerPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[5].KistlerUpperPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[5].KistlerUpperPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[5].KistlerLowerPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[5].KistlerLowerPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[5].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[5].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[5].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[5].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[5].PrototypePart"	"BOOL"	0
+"Model_SetupStored[6]"	"oem_ModelSetup"	
+"Model_SetupStored[6].Description"	"STRING"	
+"Model_SetupStored[6].Number"	"STRING"	
+"Model_SetupStored[6].Date"	"STRING"	
+"Model_SetupStored[6].Time"	"STRING"	
+"Model_SetupStored[6].AssemblyPN"	"STRING"	
+"Model_SetupStored[6].AssemblyREV"	"STRING"	
+"Model_SetupStored[6].IShaftTube_PN"	"STRING"	
+"Model_SetupStored[6].IShaftTube_REV"	"STRING"	
+"Model_SetupStored[6].LOT_DoubleDPlug_PN"	"STRING"	
+"Model_SetupStored[6].LOT_RoundPlug_PN"	"STRING"	
+"Model_SetupStored[6].LastModification"	"STRING"	
+"Model_SetupStored[6].KistlerUpperPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[6].KistlerLowerPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[6].KistlerUpperPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[6].KistlerUpperPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[6].KistlerLowerPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[6].KistlerLowerPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[6].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[6].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[6].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[6].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[6].PrototypePart"	"BOOL"	0
+"Model_SetupStored[7]"	"oem_ModelSetup"	
+"Model_SetupStored[7].Description"	"STRING"	
+"Model_SetupStored[7].Number"	"STRING"	
+"Model_SetupStored[7].Date"	"STRING"	
+"Model_SetupStored[7].Time"	"STRING"	
+"Model_SetupStored[7].AssemblyPN"	"STRING"	
+"Model_SetupStored[7].AssemblyREV"	"STRING"	
+"Model_SetupStored[7].IShaftTube_PN"	"STRING"	
+"Model_SetupStored[7].IShaftTube_REV"	"STRING"	
+"Model_SetupStored[7].LOT_DoubleDPlug_PN"	"STRING"	
+"Model_SetupStored[7].LOT_RoundPlug_PN"	"STRING"	
+"Model_SetupStored[7].LastModification"	"STRING"	
+"Model_SetupStored[7].KistlerUpperPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[7].KistlerLowerPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[7].KistlerUpperPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[7].KistlerUpperPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[7].KistlerLowerPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[7].KistlerLowerPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[7].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[7].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[7].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[7].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[7].PrototypePart"	"BOOL"	0
+"Model_SetupStored[8]"	"oem_ModelSetup"	
+"Model_SetupStored[8].Description"	"STRING"	
+"Model_SetupStored[8].Number"	"STRING"	
+"Model_SetupStored[8].Date"	"STRING"	
+"Model_SetupStored[8].Time"	"STRING"	
+"Model_SetupStored[8].AssemblyPN"	"STRING"	
+"Model_SetupStored[8].AssemblyREV"	"STRING"	
+"Model_SetupStored[8].IShaftTube_PN"	"STRING"	
+"Model_SetupStored[8].IShaftTube_REV"	"STRING"	
+"Model_SetupStored[8].LOT_DoubleDPlug_PN"	"STRING"	
+"Model_SetupStored[8].LOT_RoundPlug_PN"	"STRING"	
+"Model_SetupStored[8].LastModification"	"STRING"	
+"Model_SetupStored[8].KistlerUpperPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[8].KistlerLowerPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[8].KistlerUpperPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[8].KistlerUpperPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[8].KistlerLowerPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[8].KistlerLowerPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[8].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[8].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[8].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[8].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[8].PrototypePart"	"BOOL"	0
+"Model_SetupStored[9]"	"oem_ModelSetup"	
+"Model_SetupStored[9].Description"	"STRING"	
+"Model_SetupStored[9].Number"	"STRING"	
+"Model_SetupStored[9].Date"	"STRING"	
+"Model_SetupStored[9].Time"	"STRING"	
+"Model_SetupStored[9].AssemblyPN"	"STRING"	
+"Model_SetupStored[9].AssemblyREV"	"STRING"	
+"Model_SetupStored[9].IShaftTube_PN"	"STRING"	
+"Model_SetupStored[9].IShaftTube_REV"	"STRING"	
+"Model_SetupStored[9].LOT_DoubleDPlug_PN"	"STRING"	
+"Model_SetupStored[9].LOT_RoundPlug_PN"	"STRING"	
+"Model_SetupStored[9].LastModification"	"STRING"	
+"Model_SetupStored[9].KistlerUpperPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[9].KistlerLowerPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[9].KistlerUpperPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[9].KistlerUpperPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[9].KistlerLowerPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[9].KistlerLowerPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[9].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[9].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[9].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[9].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[9].PrototypePart"	"BOOL"	0
+"Model_SetupStored[10]"	"oem_ModelSetup"	
+"Model_SetupStored[10].Description"	"STRING"	
+"Model_SetupStored[10].Number"	"STRING"	
+"Model_SetupStored[10].Date"	"STRING"	
+"Model_SetupStored[10].Time"	"STRING"	
+"Model_SetupStored[10].AssemblyPN"	"STRING"	
+"Model_SetupStored[10].AssemblyREV"	"STRING"	
+"Model_SetupStored[10].IShaftTube_PN"	"STRING"	
+"Model_SetupStored[10].IShaftTube_REV"	"STRING"	
+"Model_SetupStored[10].LOT_DoubleDPlug_PN"	"STRING"	
+"Model_SetupStored[10].LOT_RoundPlug_PN"	"STRING"	
+"Model_SetupStored[10].LastModification"	"STRING"	
+"Model_SetupStored[10].KistlerUpperPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[10].KistlerLowerPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[10].KistlerUpperPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[10].KistlerUpperPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[10].KistlerLowerPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[10].KistlerLowerPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[10].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[10].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[10].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[10].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[10].PrototypePart"	"BOOL"	0
+"Model_SetupStored[11]"	"oem_ModelSetup"	
+"Model_SetupStored[11].Description"	"STRING"	
+"Model_SetupStored[11].Number"	"STRING"	
+"Model_SetupStored[11].Date"	"STRING"	
+"Model_SetupStored[11].Time"	"STRING"	
+"Model_SetupStored[11].AssemblyPN"	"STRING"	
+"Model_SetupStored[11].AssemblyREV"	"STRING"	
+"Model_SetupStored[11].IShaftTube_PN"	"STRING"	
+"Model_SetupStored[11].IShaftTube_REV"	"STRING"	
+"Model_SetupStored[11].LOT_DoubleDPlug_PN"	"STRING"	
+"Model_SetupStored[11].LOT_RoundPlug_PN"	"STRING"	
+"Model_SetupStored[11].LastModification"	"STRING"	
+"Model_SetupStored[11].KistlerUpperPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[11].KistlerLowerPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[11].KistlerUpperPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[11].KistlerUpperPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[11].KistlerLowerPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[11].KistlerLowerPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[11].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[11].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[11].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[11].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[11].PrototypePart"	"BOOL"	0
+"Model_SetupStored[12]"	"oem_ModelSetup"	
+"Model_SetupStored[12].Description"	"STRING"	
+"Model_SetupStored[12].Number"	"STRING"	
+"Model_SetupStored[12].Date"	"STRING"	
+"Model_SetupStored[12].Time"	"STRING"	
+"Model_SetupStored[12].AssemblyPN"	"STRING"	
+"Model_SetupStored[12].AssemblyREV"	"STRING"	
+"Model_SetupStored[12].IShaftTube_PN"	"STRING"	
+"Model_SetupStored[12].IShaftTube_REV"	"STRING"	
+"Model_SetupStored[12].LOT_DoubleDPlug_PN"	"STRING"	
+"Model_SetupStored[12].LOT_RoundPlug_PN"	"STRING"	
+"Model_SetupStored[12].LastModification"	"STRING"	
+"Model_SetupStored[12].KistlerUpperPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[12].KistlerLowerPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[12].KistlerUpperPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[12].KistlerUpperPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[12].KistlerLowerPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[12].KistlerLowerPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[12].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[12].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[12].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[12].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[12].PrototypePart"	"BOOL"	0
+"Model_SetupStored[13]"	"oem_ModelSetup"	
+"Model_SetupStored[13].Description"	"STRING"	
+"Model_SetupStored[13].Number"	"STRING"	
+"Model_SetupStored[13].Date"	"STRING"	
+"Model_SetupStored[13].Time"	"STRING"	
+"Model_SetupStored[13].AssemblyPN"	"STRING"	
+"Model_SetupStored[13].AssemblyREV"	"STRING"	
+"Model_SetupStored[13].IShaftTube_PN"	"STRING"	
+"Model_SetupStored[13].IShaftTube_REV"	"STRING"	
+"Model_SetupStored[13].LOT_DoubleDPlug_PN"	"STRING"	
+"Model_SetupStored[13].LOT_RoundPlug_PN"	"STRING"	
+"Model_SetupStored[13].LastModification"	"STRING"	
+"Model_SetupStored[13].KistlerUpperPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[13].KistlerLowerPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[13].KistlerUpperPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[13].KistlerUpperPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[13].KistlerLowerPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[13].KistlerLowerPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[13].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[13].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[13].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[13].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[13].PrototypePart"	"BOOL"	0
+"Model_SetupStored[14]"	"oem_ModelSetup"	
+"Model_SetupStored[14].Description"	"STRING"	
+"Model_SetupStored[14].Number"	"STRING"	
+"Model_SetupStored[14].Date"	"STRING"	
+"Model_SetupStored[14].Time"	"STRING"	
+"Model_SetupStored[14].AssemblyPN"	"STRING"	
+"Model_SetupStored[14].AssemblyREV"	"STRING"	
+"Model_SetupStored[14].IShaftTube_PN"	"STRING"	
+"Model_SetupStored[14].IShaftTube_REV"	"STRING"	
+"Model_SetupStored[14].LOT_DoubleDPlug_PN"	"STRING"	
+"Model_SetupStored[14].LOT_RoundPlug_PN"	"STRING"	
+"Model_SetupStored[14].LastModification"	"STRING"	
+"Model_SetupStored[14].KistlerUpperPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[14].KistlerLowerPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[14].KistlerUpperPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[14].KistlerUpperPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[14].KistlerLowerPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[14].KistlerLowerPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[14].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[14].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[14].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[14].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[14].PrototypePart"	"BOOL"	0
+"Model_SetupStored[15]"	"oem_ModelSetup"	
+"Model_SetupStored[15].Description"	"STRING"	
+"Model_SetupStored[15].Number"	"STRING"	
+"Model_SetupStored[15].Date"	"STRING"	
+"Model_SetupStored[15].Time"	"STRING"	
+"Model_SetupStored[15].AssemblyPN"	"STRING"	
+"Model_SetupStored[15].AssemblyREV"	"STRING"	
+"Model_SetupStored[15].IShaftTube_PN"	"STRING"	
+"Model_SetupStored[15].IShaftTube_REV"	"STRING"	
+"Model_SetupStored[15].LOT_DoubleDPlug_PN"	"STRING"	
+"Model_SetupStored[15].LOT_RoundPlug_PN"	"STRING"	
+"Model_SetupStored[15].LastModification"	"STRING"	
+"Model_SetupStored[15].KistlerUpperPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[15].KistlerLowerPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[15].KistlerUpperPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[15].KistlerUpperPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[15].KistlerLowerPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[15].KistlerLowerPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[15].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[15].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[15].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[15].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[15].PrototypePart"	"BOOL"	0
+"Model_SetupStored[16]"	"oem_ModelSetup"	
+"Model_SetupStored[16].Description"	"STRING"	
+"Model_SetupStored[16].Number"	"STRING"	
+"Model_SetupStored[16].Date"	"STRING"	
+"Model_SetupStored[16].Time"	"STRING"	
+"Model_SetupStored[16].AssemblyPN"	"STRING"	
+"Model_SetupStored[16].AssemblyREV"	"STRING"	
+"Model_SetupStored[16].IShaftTube_PN"	"STRING"	
+"Model_SetupStored[16].IShaftTube_REV"	"STRING"	
+"Model_SetupStored[16].LOT_DoubleDPlug_PN"	"STRING"	
+"Model_SetupStored[16].LOT_RoundPlug_PN"	"STRING"	
+"Model_SetupStored[16].LastModification"	"STRING"	
+"Model_SetupStored[16].KistlerUpperPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[16].KistlerLowerPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[16].KistlerUpperPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[16].KistlerUpperPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[16].KistlerLowerPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[16].KistlerLowerPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[16].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[16].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[16].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[16].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[16].PrototypePart"	"BOOL"	0
+"Model_SetupStored[17]"	"oem_ModelSetup"	
+"Model_SetupStored[17].Description"	"STRING"	
+"Model_SetupStored[17].Number"	"STRING"	
+"Model_SetupStored[17].Date"	"STRING"	
+"Model_SetupStored[17].Time"	"STRING"	
+"Model_SetupStored[17].AssemblyPN"	"STRING"	
+"Model_SetupStored[17].AssemblyREV"	"STRING"	
+"Model_SetupStored[17].IShaftTube_PN"	"STRING"	
+"Model_SetupStored[17].IShaftTube_REV"	"STRING"	
+"Model_SetupStored[17].LOT_DoubleDPlug_PN"	"STRING"	
+"Model_SetupStored[17].LOT_RoundPlug_PN"	"STRING"	
+"Model_SetupStored[17].LastModification"	"STRING"	
+"Model_SetupStored[17].KistlerUpperPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[17].KistlerLowerPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[17].KistlerUpperPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[17].KistlerUpperPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[17].KistlerLowerPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[17].KistlerLowerPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[17].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[17].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[17].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[17].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[17].PrototypePart"	"BOOL"	0
+"Model_SetupStored[18]"	"oem_ModelSetup"	
+"Model_SetupStored[18].Description"	"STRING"	
+"Model_SetupStored[18].Number"	"STRING"	
+"Model_SetupStored[18].Date"	"STRING"	
+"Model_SetupStored[18].Time"	"STRING"	
+"Model_SetupStored[18].AssemblyPN"	"STRING"	
+"Model_SetupStored[18].AssemblyREV"	"STRING"	
+"Model_SetupStored[18].IShaftTube_PN"	"STRING"	
+"Model_SetupStored[18].IShaftTube_REV"	"STRING"	
+"Model_SetupStored[18].LOT_DoubleDPlug_PN"	"STRING"	
+"Model_SetupStored[18].LOT_RoundPlug_PN"	"STRING"	
+"Model_SetupStored[18].LastModification"	"STRING"	
+"Model_SetupStored[18].KistlerUpperPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[18].KistlerLowerPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[18].KistlerUpperPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[18].KistlerUpperPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[18].KistlerLowerPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[18].KistlerLowerPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[18].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[18].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[18].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[18].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[18].PrototypePart"	"BOOL"	0
+"Model_SetupStored[19]"	"oem_ModelSetup"	
+"Model_SetupStored[19].Description"	"STRING"	
+"Model_SetupStored[19].Number"	"STRING"	
+"Model_SetupStored[19].Date"	"STRING"	
+"Model_SetupStored[19].Time"	"STRING"	
+"Model_SetupStored[19].AssemblyPN"	"STRING"	
+"Model_SetupStored[19].AssemblyREV"	"STRING"	
+"Model_SetupStored[19].IShaftTube_PN"	"STRING"	
+"Model_SetupStored[19].IShaftTube_REV"	"STRING"	
+"Model_SetupStored[19].LOT_DoubleDPlug_PN"	"STRING"	
+"Model_SetupStored[19].LOT_RoundPlug_PN"	"STRING"	
+"Model_SetupStored[19].LastModification"	"STRING"	
+"Model_SetupStored[19].KistlerUpperPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[19].KistlerLowerPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[19].KistlerUpperPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[19].KistlerUpperPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[19].KistlerLowerPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[19].KistlerLowerPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[19].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[19].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[19].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[19].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[19].PrototypePart"	"BOOL"	0
+"Model_SetupStored[20]"	"oem_ModelSetup"	
+"Model_SetupStored[20].Description"	"STRING"	
+"Model_SetupStored[20].Number"	"STRING"	
+"Model_SetupStored[20].Date"	"STRING"	
+"Model_SetupStored[20].Time"	"STRING"	
+"Model_SetupStored[20].AssemblyPN"	"STRING"	
+"Model_SetupStored[20].AssemblyREV"	"STRING"	
+"Model_SetupStored[20].IShaftTube_PN"	"STRING"	
+"Model_SetupStored[20].IShaftTube_REV"	"STRING"	
+"Model_SetupStored[20].LOT_DoubleDPlug_PN"	"STRING"	
+"Model_SetupStored[20].LOT_RoundPlug_PN"	"STRING"	
+"Model_SetupStored[20].LastModification"	"STRING"	
+"Model_SetupStored[20].KistlerUpperPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[20].KistlerLowerPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[20].KistlerUpperPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[20].KistlerUpperPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[20].KistlerLowerPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[20].KistlerLowerPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[20].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[20].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[20].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[20].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[20].PrototypePart"	"BOOL"	0
+"Model_SetupStored[21]"	"oem_ModelSetup"	
+"Model_SetupStored[21].Description"	"STRING"	
+"Model_SetupStored[21].Number"	"STRING"	
+"Model_SetupStored[21].Date"	"STRING"	
+"Model_SetupStored[21].Time"	"STRING"	
+"Model_SetupStored[21].AssemblyPN"	"STRING"	
+"Model_SetupStored[21].AssemblyREV"	"STRING"	
+"Model_SetupStored[21].IShaftTube_PN"	"STRING"	
+"Model_SetupStored[21].IShaftTube_REV"	"STRING"	
+"Model_SetupStored[21].LOT_DoubleDPlug_PN"	"STRING"	
+"Model_SetupStored[21].LOT_RoundPlug_PN"	"STRING"	
+"Model_SetupStored[21].LastModification"	"STRING"	
+"Model_SetupStored[21].KistlerUpperPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[21].KistlerLowerPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[21].KistlerUpperPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[21].KistlerUpperPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[21].KistlerLowerPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[21].KistlerLowerPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[21].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[21].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[21].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[21].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[21].PrototypePart"	"BOOL"	0
+"Model_SetupStored[22]"	"oem_ModelSetup"	
+"Model_SetupStored[22].Description"	"STRING"	
+"Model_SetupStored[22].Number"	"STRING"	
+"Model_SetupStored[22].Date"	"STRING"	
+"Model_SetupStored[22].Time"	"STRING"	
+"Model_SetupStored[22].AssemblyPN"	"STRING"	
+"Model_SetupStored[22].AssemblyREV"	"STRING"	
+"Model_SetupStored[22].IShaftTube_PN"	"STRING"	
+"Model_SetupStored[22].IShaftTube_REV"	"STRING"	
+"Model_SetupStored[22].LOT_DoubleDPlug_PN"	"STRING"	
+"Model_SetupStored[22].LOT_RoundPlug_PN"	"STRING"	
+"Model_SetupStored[22].LastModification"	"STRING"	
+"Model_SetupStored[22].KistlerUpperPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[22].KistlerLowerPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[22].KistlerUpperPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[22].KistlerUpperPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[22].KistlerLowerPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[22].KistlerLowerPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[22].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[22].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[22].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[22].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[22].PrototypePart"	"BOOL"	0
+"Model_SetupStored[23]"	"oem_ModelSetup"	
+"Model_SetupStored[23].Description"	"STRING"	
+"Model_SetupStored[23].Number"	"STRING"	
+"Model_SetupStored[23].Date"	"STRING"	
+"Model_SetupStored[23].Time"	"STRING"	
+"Model_SetupStored[23].AssemblyPN"	"STRING"	
+"Model_SetupStored[23].AssemblyREV"	"STRING"	
+"Model_SetupStored[23].IShaftTube_PN"	"STRING"	
+"Model_SetupStored[23].IShaftTube_REV"	"STRING"	
+"Model_SetupStored[23].LOT_DoubleDPlug_PN"	"STRING"	
+"Model_SetupStored[23].LOT_RoundPlug_PN"	"STRING"	
+"Model_SetupStored[23].LastModification"	"STRING"	
+"Model_SetupStored[23].KistlerUpperPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[23].KistlerLowerPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[23].KistlerUpperPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[23].KistlerUpperPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[23].KistlerLowerPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[23].KistlerLowerPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[23].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[23].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[23].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[23].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[23].PrototypePart"	"BOOL"	0
+"Model_SetupStored[24]"	"oem_ModelSetup"	
+"Model_SetupStored[24].Description"	"STRING"	
+"Model_SetupStored[24].Number"	"STRING"	
+"Model_SetupStored[24].Date"	"STRING"	
+"Model_SetupStored[24].Time"	"STRING"	
+"Model_SetupStored[24].AssemblyPN"	"STRING"	
+"Model_SetupStored[24].AssemblyREV"	"STRING"	
+"Model_SetupStored[24].IShaftTube_PN"	"STRING"	
+"Model_SetupStored[24].IShaftTube_REV"	"STRING"	
+"Model_SetupStored[24].LOT_DoubleDPlug_PN"	"STRING"	
+"Model_SetupStored[24].LOT_RoundPlug_PN"	"STRING"	
+"Model_SetupStored[24].LastModification"	"STRING"	
+"Model_SetupStored[24].KistlerUpperPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[24].KistlerLowerPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[24].KistlerUpperPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[24].KistlerUpperPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[24].KistlerLowerPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[24].KistlerLowerPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[24].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[24].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[24].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[24].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[24].PrototypePart"	"BOOL"	0
+"Model_SetupStored[25]"	"oem_ModelSetup"	
+"Model_SetupStored[25].Description"	"STRING"	
+"Model_SetupStored[25].Number"	"STRING"	
+"Model_SetupStored[25].Date"	"STRING"	
+"Model_SetupStored[25].Time"	"STRING"	
+"Model_SetupStored[25].AssemblyPN"	"STRING"	
+"Model_SetupStored[25].AssemblyREV"	"STRING"	
+"Model_SetupStored[25].IShaftTube_PN"	"STRING"	
+"Model_SetupStored[25].IShaftTube_REV"	"STRING"	
+"Model_SetupStored[25].LOT_DoubleDPlug_PN"	"STRING"	
+"Model_SetupStored[25].LOT_RoundPlug_PN"	"STRING"	
+"Model_SetupStored[25].LastModification"	"STRING"	
+"Model_SetupStored[25].KistlerUpperPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[25].KistlerLowerPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[25].KistlerUpperPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[25].KistlerUpperPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[25].KistlerLowerPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[25].KistlerLowerPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[25].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[25].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[25].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[25].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[25].PrototypePart"	"BOOL"	0
+"Model_SetupStored[26]"	"oem_ModelSetup"	
+"Model_SetupStored[26].Description"	"STRING"	
+"Model_SetupStored[26].Number"	"STRING"	
+"Model_SetupStored[26].Date"	"STRING"	
+"Model_SetupStored[26].Time"	"STRING"	
+"Model_SetupStored[26].AssemblyPN"	"STRING"	
+"Model_SetupStored[26].AssemblyREV"	"STRING"	
+"Model_SetupStored[26].IShaftTube_PN"	"STRING"	
+"Model_SetupStored[26].IShaftTube_REV"	"STRING"	
+"Model_SetupStored[26].LOT_DoubleDPlug_PN"	"STRING"	
+"Model_SetupStored[26].LOT_RoundPlug_PN"	"STRING"	
+"Model_SetupStored[26].LastModification"	"STRING"	
+"Model_SetupStored[26].KistlerUpperPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[26].KistlerLowerPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[26].KistlerUpperPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[26].KistlerUpperPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[26].KistlerLowerPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[26].KistlerLowerPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[26].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[26].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[26].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[26].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[26].PrototypePart"	"BOOL"	0
+"Model_SetupStored[27]"	"oem_ModelSetup"	
+"Model_SetupStored[27].Description"	"STRING"	
+"Model_SetupStored[27].Number"	"STRING"	
+"Model_SetupStored[27].Date"	"STRING"	
+"Model_SetupStored[27].Time"	"STRING"	
+"Model_SetupStored[27].AssemblyPN"	"STRING"	
+"Model_SetupStored[27].AssemblyREV"	"STRING"	
+"Model_SetupStored[27].IShaftTube_PN"	"STRING"	
+"Model_SetupStored[27].IShaftTube_REV"	"STRING"	
+"Model_SetupStored[27].LOT_DoubleDPlug_PN"	"STRING"	
+"Model_SetupStored[27].LOT_RoundPlug_PN"	"STRING"	
+"Model_SetupStored[27].LastModification"	"STRING"	
+"Model_SetupStored[27].KistlerUpperPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[27].KistlerLowerPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[27].KistlerUpperPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[27].KistlerUpperPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[27].KistlerLowerPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[27].KistlerLowerPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[27].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[27].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[27].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[27].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[27].PrototypePart"	"BOOL"	0
+"Model_SetupStored[28]"	"oem_ModelSetup"	
+"Model_SetupStored[28].Description"	"STRING"	
+"Model_SetupStored[28].Number"	"STRING"	
+"Model_SetupStored[28].Date"	"STRING"	
+"Model_SetupStored[28].Time"	"STRING"	
+"Model_SetupStored[28].AssemblyPN"	"STRING"	
+"Model_SetupStored[28].AssemblyREV"	"STRING"	
+"Model_SetupStored[28].IShaftTube_PN"	"STRING"	
+"Model_SetupStored[28].IShaftTube_REV"	"STRING"	
+"Model_SetupStored[28].LOT_DoubleDPlug_PN"	"STRING"	
+"Model_SetupStored[28].LOT_RoundPlug_PN"	"STRING"	
+"Model_SetupStored[28].LastModification"	"STRING"	
+"Model_SetupStored[28].KistlerUpperPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[28].KistlerLowerPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[28].KistlerUpperPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[28].KistlerUpperPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[28].KistlerLowerPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[28].KistlerLowerPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[28].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[28].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[28].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[28].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[28].PrototypePart"	"BOOL"	0
+"Model_SetupStored[29]"	"oem_ModelSetup"	
+"Model_SetupStored[29].Description"	"STRING"	
+"Model_SetupStored[29].Number"	"STRING"	
+"Model_SetupStored[29].Date"	"STRING"	
+"Model_SetupStored[29].Time"	"STRING"	
+"Model_SetupStored[29].AssemblyPN"	"STRING"	
+"Model_SetupStored[29].AssemblyREV"	"STRING"	
+"Model_SetupStored[29].IShaftTube_PN"	"STRING"	
+"Model_SetupStored[29].IShaftTube_REV"	"STRING"	
+"Model_SetupStored[29].LOT_DoubleDPlug_PN"	"STRING"	
+"Model_SetupStored[29].LOT_RoundPlug_PN"	"STRING"	
+"Model_SetupStored[29].LastModification"	"STRING"	
+"Model_SetupStored[29].KistlerUpperPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[29].KistlerLowerPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[29].KistlerUpperPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[29].KistlerUpperPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[29].KistlerLowerPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[29].KistlerLowerPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[29].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[29].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[29].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[29].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[29].PrototypePart"	"BOOL"	0
+"Model_SetupStored[30]"	"oem_ModelSetup"	
+"Model_SetupStored[30].Description"	"STRING"	
+"Model_SetupStored[30].Number"	"STRING"	
+"Model_SetupStored[30].Date"	"STRING"	
+"Model_SetupStored[30].Time"	"STRING"	
+"Model_SetupStored[30].AssemblyPN"	"STRING"	
+"Model_SetupStored[30].AssemblyREV"	"STRING"	
+"Model_SetupStored[30].IShaftTube_PN"	"STRING"	
+"Model_SetupStored[30].IShaftTube_REV"	"STRING"	
+"Model_SetupStored[30].LOT_DoubleDPlug_PN"	"STRING"	
+"Model_SetupStored[30].LOT_RoundPlug_PN"	"STRING"	
+"Model_SetupStored[30].LastModification"	"STRING"	
+"Model_SetupStored[30].KistlerUpperPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[30].KistlerLowerPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[30].KistlerUpperPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[30].KistlerUpperPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[30].KistlerLowerPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[30].KistlerLowerPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[30].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[30].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[30].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[30].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[30].PrototypePart"	"BOOL"	0
+"Model_SetupStored[31]"	"oem_ModelSetup"	
+"Model_SetupStored[31].Description"	"STRING"	
+"Model_SetupStored[31].Number"	"STRING"	
+"Model_SetupStored[31].Date"	"STRING"	
+"Model_SetupStored[31].Time"	"STRING"	
+"Model_SetupStored[31].AssemblyPN"	"STRING"	
+"Model_SetupStored[31].AssemblyREV"	"STRING"	
+"Model_SetupStored[31].IShaftTube_PN"	"STRING"	
+"Model_SetupStored[31].IShaftTube_REV"	"STRING"	
+"Model_SetupStored[31].LOT_DoubleDPlug_PN"	"STRING"	
+"Model_SetupStored[31].LOT_RoundPlug_PN"	"STRING"	
+"Model_SetupStored[31].LastModification"	"STRING"	
+"Model_SetupStored[31].KistlerUpperPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[31].KistlerLowerPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[31].KistlerUpperPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[31].KistlerUpperPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[31].KistlerLowerPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[31].KistlerLowerPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[31].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[31].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[31].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[31].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[31].PrototypePart"	"BOOL"	0
+"Model_SetupStored[32]"	"oem_ModelSetup"	
+"Model_SetupStored[32].Description"	"STRING"	
+"Model_SetupStored[32].Number"	"STRING"	
+"Model_SetupStored[32].Date"	"STRING"	
+"Model_SetupStored[32].Time"	"STRING"	
+"Model_SetupStored[32].AssemblyPN"	"STRING"	
+"Model_SetupStored[32].AssemblyREV"	"STRING"	
+"Model_SetupStored[32].IShaftTube_PN"	"STRING"	
+"Model_SetupStored[32].IShaftTube_REV"	"STRING"	
+"Model_SetupStored[32].LOT_DoubleDPlug_PN"	"STRING"	
+"Model_SetupStored[32].LOT_RoundPlug_PN"	"STRING"	
+"Model_SetupStored[32].LastModification"	"STRING"	
+"Model_SetupStored[32].KistlerUpperPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[32].KistlerLowerPress_ProgramNo"	"DINT"	0
+"Model_SetupStored[32].KistlerUpperPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[32].KistlerUpperPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[32].KistlerLowerPress_ActiveEO2"	"BOOL"	0
+"Model_SetupStored[32].KistlerLowerPress_ActiveEO3"	"BOOL"	0
+"Model_SetupStored[32].Changeover_Tool_1a"	"BOOL"	0
+"Model_SetupStored[32].Changeover_Tool_1b"	"BOOL"	0
+"Model_SetupStored[32].Changeover_Tool_32"	"BOOL"	0
+"Model_SetupStored[32].Changeover_Tool_32_Mid"	"BOOL"	0
+"Model_SetupStored[32].PrototypePart"	"BOOL"	0
