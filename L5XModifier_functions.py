@@ -1,4 +1,4 @@
-import L5XeTree.L5XeTree as L5X
+from L5XeTree import L5XeTree as L5X
 from L5XeTree.modules.RSLogixEncoding import RSLogixEncoding
 import csv
 import os
