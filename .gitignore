@@ -4,6 +4,7 @@ log/
 # custom files
 .idea/modules.xml
 .idea/L5XeTree.iml
+.idea/L5XModifier.iml
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -1,4 +1,9 @@
 # ///////////////////////////////////////////////////////////////
+# BY: Mateusz Koniuszewski
+#
+#
+# Application design is modified version of project made by:
+# ///////////////////////////////////////////////////////////////
 #
 # BY: WANDERSON M.PIMENTA
 # PROJECT MADE WITH: Qt Designer and PySide6
@@ -184,7 +189,6 @@ class MainWindow(QMainWindow):
         if dialog.exec():
             file_name = dialog.selectedFiles()[0]
             self.L5XMod.save_file(file_name)
-
 
     def tE_openFile_button(self):
         dialog = QFileDialog()
