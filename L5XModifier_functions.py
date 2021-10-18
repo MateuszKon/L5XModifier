@@ -1,9 +1,6 @@
 from L5XeTree import L5XeTree as L5X
 from L5XeTree.modules.RSLogixEncoding import RSLogixEncoding
 import csv
-import os
-from PySide6.QtGui import QStandardItemModel
-from PySide6.QtWidgets import QTreeView
 from modules.myQt import *
 from encodings.aliases import aliases
 import re
