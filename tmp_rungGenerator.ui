@@ -6,118 +6,18 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1124</width>
-    <height>1313</height>
+    <width>1042</width>
+    <height>1065</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>100</y>
-     <width>293</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <layout class="QGridLayout" name="tE_OpenFile">
-    <property name="verticalSpacing">
-     <number>0</number>
-    </property>
-    <item row="1" column="0">
-     <widget class="QLineEdit" name="lineEdit_tE_OpenFile">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(33, 37, 43);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="placeholderText">
-       <string>Type here</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0" colspan="2">
-     <widget class="QLabel" name="labelBox_tE_OpenFile">
-      <property name="font">
-       <font>
-        <pointsize>10</pointsize>
-        <italic>false</italic>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string>Rungs Template</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QPushButton" name="pushButton_tE_OpenFile">
-      <property name="minimumSize">
-       <size>
-        <width>100</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>10</pointsize>
-        <italic>false</italic>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(52, 59, 72);</string>
-      </property>
-      <property name="text">
-       <string>Open</string>
-      </property>
-      <property name="icon">
-       <iconset resource="resources.qrc">
-        <normaloff>:/icons/images/icons/cil-folder-open.png</normaloff>:/icons/images/icons/cil-folder-open.png</iconset>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QFrame" name="frame">
-   <property name="geometry">
-    <rect>
-     <x>380</x>
-     <y>100</y>
-     <width>381</width>
-     <height>291</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(52, 59, 72);</string>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-  </widget>
   <widget class="QLineEdit" name="lineEdit">
    <property name="geometry">
     <rect>
-     <x>390</x>
-     <y>440</y>
+     <x>260</x>
+     <y>100</y>
      <width>113</width>
      <height>22</height>
     </rect>
@@ -129,8 +29,8 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>400</y>
+     <x>240</x>
+     <y>60</y>
      <width>151</width>
      <height>16</height>
     </rect>
@@ -142,8 +42,8 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>360</x>
-     <y>420</y>
+     <x>230</x>
+     <y>80</y>
      <width>151</width>
      <height>16</height>
     </rect>
@@ -155,8 +55,8 @@
   <widget class="QCheckBox" name="checkBox_6">
    <property name="geometry">
     <rect>
-     <x>550</x>
-     <y>460</y>
+     <x>440</x>
+     <y>130</y>
      <width>161</width>
      <height>20</height>
     </rect>
@@ -168,8 +68,8 @@
   <widget class="QCheckBox" name="checkBox_7">
    <property name="geometry">
     <rect>
-     <x>570</x>
-     <y>480</y>
+     <x>460</x>
+     <y>150</y>
      <width>161</width>
      <height>20</height>
     </rect>
@@ -178,156 +78,11 @@
     <string>value</string>
    </property>
   </widget>
-  <widget class="QWidget" name="layoutWidget_3">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>170</y>
-     <width>293</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <layout class="QGridLayout" name="tE_OpenFile_2">
-    <property name="verticalSpacing">
-     <number>0</number>
-    </property>
-    <item row="1" column="0">
-     <widget class="QLineEdit" name="lineEdit_tE_OpenFile_2">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(33, 37, 43);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="placeholderText">
-       <string>Type here</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0" colspan="2">
-     <widget class="QLabel" name="labelBox_tE_OpenFile_2">
-      <property name="font">
-       <font>
-        <pointsize>10</pointsize>
-        <italic>false</italic>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string>Fault Template</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QPushButton" name="pushButton_tE_OpenFile_2">
-      <property name="minimumSize">
-       <size>
-        <width>100</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>10</pointsize>
-        <italic>false</italic>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(52, 59, 72);</string>
-      </property>
-      <property name="text">
-       <string>Open</string>
-      </property>
-      <property name="icon">
-       <iconset resource="resources.qrc">
-        <normaloff>:/icons/images/icons/cil-folder-open.png</normaloff>:/icons/images/icons/cil-folder-open.png</iconset>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QPushButton" name="pushButton_tE_Collapse">
-   <property name="geometry">
-    <rect>
-     <x>681</x>
-     <y>80</y>
-     <width>75</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>75</width>
-     <height>15</height>
-    </size>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-     <italic>false</italic>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(52, 59, 72);</string>
-   </property>
-   <property name="text">
-    <string>alphabetical</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_tE_Expand">
-   <property name="geometry">
-    <rect>
-     <x>564</x>
-     <y>80</y>
-     <width>111</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>75</width>
-     <height>15</height>
-    </size>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-     <italic>false</italic>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(52, 59, 72);</string>
-   </property>
-   <property name="text">
-    <string>appear order</string>
-   </property>
-  </widget>
   <widget class="QCheckBox" name="checkBox_8">
    <property name="geometry">
     <rect>
-     <x>600</x>
-     <y>500</y>
+     <x>490</x>
+     <y>170</y>
      <width>161</width>
      <height>20</height>
     </rect>
@@ -339,8 +94,8 @@
   <widget class="QCheckBox" name="checkBox_9">
    <property name="geometry">
     <rect>
-     <x>570</x>
-     <y>580</y>
+     <x>440</x>
+     <y>240</y>
      <width>271</width>
      <height>20</height>
     </rect>
@@ -352,8 +107,8 @@
   <widget class="QCheckBox" name="checkBox_10">
    <property name="geometry">
     <rect>
-     <x>640</x>
-     <y>640</y>
+     <x>510</x>
+     <y>300</y>
      <width>231</width>
      <height>20</height>
     </rect>
@@ -365,8 +120,8 @@
   <widget class="QLineEdit" name="lineEdit_2">
    <property name="geometry">
     <rect>
-     <x>400</x>
-     <y>570</y>
+     <x>270</x>
+     <y>230</y>
      <width>113</width>
      <height>22</height>
     </rect>
@@ -378,8 +133,8 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>380</x>
-     <y>550</y>
+     <x>250</x>
+     <y>210</y>
      <width>151</width>
      <height>16</height>
     </rect>
@@ -391,8 +146,8 @@
   <widget class="QCheckBox" name="checkBox_12">
    <property name="geometry">
     <rect>
-     <x>590</x>
-     <y>600</y>
+     <x>460</x>
+     <y>260</y>
      <width>161</width>
      <height>20</height>
     </rect>
@@ -404,8 +159,8 @@
   <widget class="QCheckBox" name="checkBox_13">
    <property name="geometry">
     <rect>
-     <x>610</x>
-     <y>620</y>
+     <x>480</x>
+     <y>280</y>
      <width>161</width>
      <height>20</height>
     </rect>
@@ -417,8 +172,8 @@
   <widget class="QPushButton" name="pushButton_tE_Expand_2">
    <property name="geometry">
     <rect>
-     <x>540</x>
-     <y>400</y>
+     <x>410</x>
+     <y>60</y>
      <width>111</width>
      <height>22</height>
     </rect>
@@ -449,8 +204,8 @@
   <widget class="QPushButton" name="pushButton_tE_Collapse_2">
    <property name="geometry">
     <rect>
-     <x>540</x>
-     <y>530</y>
+     <x>410</x>
+     <y>190</y>
      <width>75</width>
      <height>22</height>
     </rect>
@@ -478,21 +233,11 @@
     <string>alphabetical</string>
    </property>
   </widget>
-  <widget class="QTreeView" name="treeView">
-   <property name="geometry">
-    <rect>
-     <x>790</x>
-     <y>190</y>
-     <width>256</width>
-     <height>192</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPlainTextEdit" name="plainTextEdit">
    <property name="geometry">
     <rect>
-     <x>200</x>
-     <y>440</y>
+     <x>70</x>
+     <y>100</y>
      <width>181</width>
      <height>91</height>
     </rect>
@@ -505,8 +250,8 @@ jeśli element jest już modyfikowany przez grupową modyfikację, będzie na ni
   <widget class="QPlainTextEdit" name="plainTextEdit_2">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>560</y>
+     <x>40</x>
+     <y>220</y>
      <width>201</width>
      <height>91</height>
     </rect>
@@ -518,8 +263,8 @@ jeśli element jest już modyfikowany przez grupową modyfikację, będzie na ni
   <widget class="QCheckBox" name="checkBox_14">
    <property name="geometry">
     <rect>
-     <x>530</x>
-     <y>440</y>
+     <x>420</x>
+     <y>110</y>
      <width>271</width>
      <height>20</height>
     </rect>
@@ -528,557 +273,30 @@ jeśli element jest już modyfikowany przez grupową modyfikację, będzie na ni
     <string>data type</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_tE_Export">
+  <widget class="QCheckBox" name="checkBox_15">
    <property name="geometry">
     <rect>
-     <x>480</x>
-     <y>20</y>
-     <width>150</width>
-     <height>52</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>150</width>
-     <height>24</height>
-    </size>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-     <italic>false</italic>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(52, 59, 72);</string>
-   </property>
-   <property name="text">
-    <string>Prepare CSV file</string>
-   </property>
-   <property name="flat">
-    <bool>false</bool>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_tE_Export_2">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>310</y>
-     <width>150</width>
-     <height>52</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>150</width>
-     <height>24</height>
-    </size>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-     <italic>false</italic>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(52, 59, 72);</string>
-   </property>
-   <property name="text">
-    <string>export tag CSV file</string>
-   </property>
-   <property name="flat">
-    <bool>false</bool>
-   </property>
-  </widget>
-  <widget class="Line" name="line">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>690</y>
-     <width>981</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
-   </property>
-  </widget>
-  <widget class="QWidget" name="layoutWidget_2">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>0</y>
-     <width>441</width>
-     <height>80</height>
-    </rect>
-   </property>
-   <layout class="QGridLayout" name="tE_OpenFile_3">
-    <property name="verticalSpacing">
-     <number>0</number>
-    </property>
-    <item row="1" column="1">
-     <widget class="QPushButton" name="pushButton_tE_OpenFile_3">
-      <property name="minimumSize">
-       <size>
-        <width>100</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>10</pointsize>
-        <italic>false</italic>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(52, 59, 72);</string>
-      </property>
-      <property name="text">
-       <string>Open</string>
-      </property>
-      <property name="icon">
-       <iconset resource="resources.qrc">
-        <normaloff>:/icons/images/icons/cil-folder-open.png</normaloff>:/icons/images/icons/cil-folder-open.png</iconset>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLineEdit" name="lineEdit_tE_OpenFile_3">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(33, 37, 43);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="placeholderText">
-       <string>Type here</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0" colspan="2">
-     <widget class="QLabel" name="labelBox_tE_OpenFile_3">
-      <property name="font">
-       <font>
-        <pointsize>10</pointsize>
-        <italic>false</italic>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string>Configuration file</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QPushButton" name="pushButton_tE_Export_3">
-   <property name="geometry">
-    <rect>
-     <x>110</x>
-     <y>240</y>
-     <width>150</width>
-     <height>52</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>150</width>
-     <height>24</height>
-    </size>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-     <italic>false</italic>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(52, 59, 72);</string>
-   </property>
-   <property name="text">
-    <string>Save configuration file</string>
-   </property>
-   <property name="flat">
-    <bool>false</bool>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_tE_Export_4">
-   <property name="geometry">
-    <rect>
-     <x>640</x>
-     <y>20</y>
-     <width>150</width>
-     <height>52</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>150</width>
-     <height>24</height>
-    </size>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-     <italic>false</italic>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(52, 59, 72);</string>
-   </property>
-   <property name="text">
-    <string>Import CSV file</string>
-   </property>
-   <property name="flat">
-    <bool>false</bool>
-   </property>
-  </widget>
-  <widget class="QWidget" name="layoutWidget_4">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>780</y>
-     <width>180</width>
-     <height>54</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="tE_ChooseScope">
-    <property name="spacing">
-     <number>0</number>
-    </property>
-    <item>
-     <widget class="QLabel" name="labelBox_tE_ChooseScope">
-      <property name="font">
-       <font>
-        <pointsize>10</pointsize>
-        <italic>false</italic>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string>Choose Program</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QComboBox" name="comboBox_tE_ChooseScope">
-      <property name="font">
-       <font>
-        <pointsize>10</pointsize>
-        <italic>false</italic>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="autoFillBackground">
-       <bool>false</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(33, 37, 43);</string>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>16</width>
-        <height>16</height>
-       </size>
-      </property>
-      <property name="frame">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="layoutWidget_5">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>850</y>
-     <width>180</width>
-     <height>54</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="tE_ChooseScope_2">
-    <property name="spacing">
-     <number>0</number>
-    </property>
-    <item>
-     <widget class="QLabel" name="labelBox_tE_ChooseScope_2">
-      <property name="font">
-       <font>
-        <pointsize>10</pointsize>
-        <italic>false</italic>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string>Choose Rungs Routine</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QComboBox" name="comboBox_tE_ChooseScope_2">
-      <property name="font">
-       <font>
-        <pointsize>10</pointsize>
-        <italic>false</italic>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="autoFillBackground">
-       <bool>false</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(33, 37, 43);</string>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>16</width>
-        <height>16</height>
-       </size>
-      </property>
-      <property name="frame">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="layoutWidget_6">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>950</y>
-     <width>180</width>
-     <height>54</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="tE_ChooseScope_3">
-    <property name="spacing">
-     <number>0</number>
-    </property>
-    <item>
-     <widget class="QLabel" name="labelBox_tE_ChooseScope_3">
-      <property name="font">
-       <font>
-        <pointsize>10</pointsize>
-        <italic>false</italic>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string>Choose faults routine</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QComboBox" name="comboBox_tE_ChooseScope_3">
-      <property name="font">
-       <font>
-        <pointsize>10</pointsize>
-        <italic>false</italic>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="autoFillBackground">
-       <bool>false</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(33, 37, 43);</string>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>16</width>
-        <height>16</height>
-       </size>
-      </property>
-      <property name="frame">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>910</y>
-     <width>113</width>
-     <height>22</height>
+     <x>390</x>
+     <y>90</y>
+     <width>271</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="text">
-    <string>rung number (-1)</string>
+    <string>tag name</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_4">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>1020</y>
-     <width>113</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>rung number (-1)</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_tE_Export_5">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>1050</y>
-     <width>150</width>
-     <height>52</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>150</width>
-     <height>24</height>
-    </size>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-     <italic>false</italic>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(52, 59, 72);</string>
-   </property>
-   <property name="text">
-    <string>Generate in project</string>
-   </property>
-   <property name="flat">
-    <bool>false</bool>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_tE_Export_6">
+  <widget class="QCheckBox" name="checkBox_11">
    <property name="geometry">
     <rect>
      <x>420</x>
-     <y>910</y>
-     <width>150</width>
-     <height>52</height>
+     <y>220</y>
+     <width>271</width>
+     <height>20</height>
     </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>150</width>
-     <height>24</height>
-    </size>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-     <italic>false</italic>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(52, 59, 72);</string>
    </property>
    <property name="text">
-    <string>Generate in export files</string>
-   </property>
-   <property name="flat">
-    <bool>false</bool>
-   </property>
-  </widget>
-  <widget class="Line" name="line_2">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>70</y>
-     <width>981</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
+    <string>tag name</string>
    </property>
   </widget>
  </widget>
