@@ -87,7 +87,7 @@
        <string>Open</string>
       </property>
       <property name="icon">
-       <iconset resource="../Documents/PythonProj/L5XModifier/resources.qrc">
+       <iconset resource="resources.qrc">
         <normaloff>:/icons/images/icons/cil-folder-open.png</normaloff>:/icons/images/icons/cil-folder-open.png</iconset>
       </property>
      </widget>
@@ -252,7 +252,7 @@
        <string>Open</string>
       </property>
       <property name="icon">
-       <iconset resource="../Documents/PythonProj/L5XModifier/resources.qrc">
+       <iconset resource="resources.qrc">
         <normaloff>:/icons/images/icons/cil-folder-open.png</normaloff>:/icons/images/icons/cil-folder-open.png</iconset>
       </property>
      </widget>
@@ -661,7 +661,7 @@ jeśli element jest już modyfikowany przez grupową modyfikację, będzie na ni
        <string>Open</string>
       </property>
       <property name="icon">
-       <iconset resource="../Documents/PythonProj/L5XModifier/resources.qrc">
+       <iconset resource="resources.qrc">
         <normaloff>:/icons/images/icons/cil-folder-open.png</normaloff>:/icons/images/icons/cil-folder-open.png</iconset>
       </property>
      </widget>
@@ -1083,7 +1083,7 @@ jeśli element jest już modyfikowany przez grupową modyfikację, będzie na ni
   </widget>
  </widget>
  <resources>
-  <include location="../Documents/PythonProj/L5XModifier/resources.qrc"/>
+  <include location="resources.qrc"/>
  </resources>
  <connections/>
 </ui>

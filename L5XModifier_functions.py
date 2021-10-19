@@ -1,8 +1,9 @@
 from L5XeTree import L5XeTree as L5X
 from L5XeTree.modules.RSLogixEncoding import RSLogixEncoding
-import csv
 from modules.myQt import *
+
 from encodings.aliases import aliases
+import csv
 import re
 
 

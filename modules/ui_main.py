@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainonzkKN.ui'
+## Form generated from reading UI file 'mainBarwxy.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.2
 ##
@@ -18,7 +18,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1012, 567)
+        MainWindow.resize(1052, 541)
         MainWindow.setMinimumSize(QSize(470, 280))
         MainWindow.setAutoFillBackground(True)
         self.styleSheet = QWidget(MainWindow)
@@ -692,6 +692,18 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_8.addWidget(self.btn_str_conv)
 
+        self.btn_rungGenerator = QPushButton(self.topMenu)
+        self.btn_rungGenerator.setObjectName(u"btn_rungGenerator")
+        sizePolicy.setHeightForWidth(self.btn_rungGenerator.sizePolicy().hasHeightForWidth())
+        self.btn_rungGenerator.setSizePolicy(sizePolicy)
+        self.btn_rungGenerator.setMinimumSize(QSize(0, 45))
+        self.btn_rungGenerator.setFont(font)
+        self.btn_rungGenerator.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_rungGenerator.setLayoutDirection(Qt.LeftToRight)
+        self.btn_rungGenerator.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-view-quilt.png);")
+
+        self.verticalLayout_8.addWidget(self.btn_rungGenerator)
+
         self.btn_save = QPushButton(self.topMenu)
         self.btn_save.setObjectName(u"btn_save")
         sizePolicy.setHeightForWidth(self.btn_save.sizePolicy().hasHeightForWidth())
@@ -1033,7 +1045,7 @@ class Ui_MainWindow(object):
         self.scrollArea_tE.setWidgetResizable(True)
         self.scrollAreaWidgetContents_tE = QWidget()
         self.scrollAreaWidgetContents_tE.setObjectName(u"scrollAreaWidgetContents_tE")
-        self.scrollAreaWidgetContents_tE.setGeometry(QRect(0, 0, 910, 450))
+        self.scrollAreaWidgetContents_tE.setGeometry(QRect(0, 0, 681, 294))
         self.horizontalLayout_7 = QHBoxLayout(self.scrollAreaWidgetContents_tE)
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.tE_LeftColumn = QVBoxLayout()
@@ -1560,6 +1572,394 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.scrollArea_tsC)
 
         self.stackedWidget.addWidget(self.page_strConverter)
+        self.page_rungGenerator = QWidget()
+        self.page_rungGenerator.setObjectName(u"page_rungGenerator")
+        self.verticalLayout_17 = QVBoxLayout(self.page_rungGenerator)
+        self.verticalLayout_17.setObjectName(u"verticalLayout_17")
+        self.scrollArea_rG = QScrollArea(self.page_rungGenerator)
+        self.scrollArea_rG.setObjectName(u"scrollArea_rG")
+        self.scrollArea_rG.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_rG = QWidget()
+        self.scrollAreaWidgetContents_rG.setObjectName(u"scrollAreaWidgetContents_rG")
+        self.scrollAreaWidgetContents_rG.setGeometry(QRect(0, 0, 950, 424))
+        self.verticalLayout_26 = QVBoxLayout(self.scrollAreaWidgetContents_rG)
+        self.verticalLayout_26.setObjectName(u"verticalLayout_26")
+        self.rG_header = QHBoxLayout()
+        self.rG_header.setObjectName(u"rG_header")
+        self.rG_config_OpenFile = QGridLayout()
+        self.rG_config_OpenFile.setObjectName(u"rG_config_OpenFile")
+        self.rG_config_OpenFile.setVerticalSpacing(0)
+        self.lineEdit_rG_config_OpenFile = QLineEdit(self.scrollAreaWidgetContents_rG)
+        self.lineEdit_rG_config_OpenFile.setObjectName(u"lineEdit_rG_config_OpenFile")
+        self.lineEdit_rG_config_OpenFile.setMinimumSize(QSize(0, 30))
+        self.lineEdit_rG_config_OpenFile.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+
+        self.rG_config_OpenFile.addWidget(self.lineEdit_rG_config_OpenFile, 1, 0, 1, 1)
+
+        self.pushButton_rG_config_OpenFile = QPushButton(self.scrollAreaWidgetContents_rG)
+        self.pushButton_rG_config_OpenFile.setObjectName(u"pushButton_rG_config_OpenFile")
+        self.pushButton_rG_config_OpenFile.setMinimumSize(QSize(100, 30))
+        self.pushButton_rG_config_OpenFile.setFont(font)
+        self.pushButton_rG_config_OpenFile.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_rG_config_OpenFile.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        self.pushButton_rG_config_OpenFile.setIcon(icon4)
+
+        self.rG_config_OpenFile.addWidget(self.pushButton_rG_config_OpenFile, 1, 1, 1, 1)
+
+        self.labelBox_rG_config_OpenFile = QLabel(self.scrollAreaWidgetContents_rG)
+        self.labelBox_rG_config_OpenFile.setObjectName(u"labelBox_rG_config_OpenFile")
+        self.labelBox_rG_config_OpenFile.setFont(font)
+        self.labelBox_rG_config_OpenFile.setStyleSheet(u"")
+
+        self.rG_config_OpenFile.addWidget(self.labelBox_rG_config_OpenFile, 0, 0, 1, 2)
+
+
+        self.rG_header.addLayout(self.rG_config_OpenFile)
+
+        self.pushButton_rG_preparePage = QPushButton(self.scrollAreaWidgetContents_rG)
+        self.pushButton_rG_preparePage.setObjectName(u"pushButton_rG_preparePage")
+        sizePolicy4.setHeightForWidth(self.pushButton_rG_preparePage.sizePolicy().hasHeightForWidth())
+        self.pushButton_rG_preparePage.setSizePolicy(sizePolicy4)
+        self.pushButton_rG_preparePage.setMinimumSize(QSize(105, 24))
+        self.pushButton_rG_preparePage.setFont(font)
+        self.pushButton_rG_preparePage.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_rG_preparePage.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        self.pushButton_rG_preparePage.setFlat(False)
+
+        self.rG_header.addWidget(self.pushButton_rG_preparePage)
+
+        self.pushButton_rG_importPage = QPushButton(self.scrollAreaWidgetContents_rG)
+        self.pushButton_rG_importPage.setObjectName(u"pushButton_rG_importPage")
+        sizePolicy4.setHeightForWidth(self.pushButton_rG_importPage.sizePolicy().hasHeightForWidth())
+        self.pushButton_rG_importPage.setSizePolicy(sizePolicy4)
+        self.pushButton_rG_importPage.setMinimumSize(QSize(105, 24))
+        self.pushButton_rG_importPage.setFont(font)
+        self.pushButton_rG_importPage.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_rG_importPage.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        self.pushButton_rG_importPage.setFlat(False)
+
+        self.rG_header.addWidget(self.pushButton_rG_importPage)
+
+
+        self.verticalLayout_26.addLayout(self.rG_header)
+
+        self.stackedWidget_rG_pages = QStackedWidget(self.scrollAreaWidgetContents_rG)
+        self.stackedWidget_rG_pages.setObjectName(u"stackedWidget_rG_pages")
+        self.stackedWidget_rG_pages.setLineWidth(1)
+        self.page_rG_prepareCSV = QWidget()
+        self.page_rG_prepareCSV.setObjectName(u"page_rG_prepareCSV")
+        self.horizontalLayout_8 = QHBoxLayout(self.page_rG_prepareCSV)
+        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
+        self.horizontalLayout_8.setContentsMargins(0, 0, 0, 0)
+        self.rG_prepareOptions = QVBoxLayout()
+        self.rG_prepareOptions.setObjectName(u"rG_prepareOptions")
+        self.rG_rungsTemplate = QGridLayout()
+        self.rG_rungsTemplate.setObjectName(u"rG_rungsTemplate")
+        self.rG_rungsTemplate.setVerticalSpacing(0)
+        self.lineEdit_rG_rungs_OpenFile = QLineEdit(self.page_rG_prepareCSV)
+        self.lineEdit_rG_rungs_OpenFile.setObjectName(u"lineEdit_rG_rungs_OpenFile")
+        self.lineEdit_rG_rungs_OpenFile.setMinimumSize(QSize(0, 30))
+        self.lineEdit_rG_rungs_OpenFile.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+
+        self.rG_rungsTemplate.addWidget(self.lineEdit_rG_rungs_OpenFile, 1, 0, 1, 1)
+
+        self.pushButton_rG_rungs_OpenFile = QPushButton(self.page_rG_prepareCSV)
+        self.pushButton_rG_rungs_OpenFile.setObjectName(u"pushButton_rG_rungs_OpenFile")
+        self.pushButton_rG_rungs_OpenFile.setMinimumSize(QSize(100, 30))
+        self.pushButton_rG_rungs_OpenFile.setFont(font)
+        self.pushButton_rG_rungs_OpenFile.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_rG_rungs_OpenFile.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        self.pushButton_rG_rungs_OpenFile.setIcon(icon4)
+
+        self.rG_rungsTemplate.addWidget(self.pushButton_rG_rungs_OpenFile, 1, 1, 1, 1)
+
+        self.labelBox_rG_rungs_OpenFile = QLabel(self.page_rG_prepareCSV)
+        self.labelBox_rG_rungs_OpenFile.setObjectName(u"labelBox_rG_rungs_OpenFile")
+        self.labelBox_rG_rungs_OpenFile.setFont(font)
+        self.labelBox_rG_rungs_OpenFile.setStyleSheet(u"")
+
+        self.rG_rungsTemplate.addWidget(self.labelBox_rG_rungs_OpenFile, 0, 0, 1, 2)
+
+
+        self.rG_prepareOptions.addLayout(self.rG_rungsTemplate)
+
+        self.rG_faultTemplate = QGridLayout()
+        self.rG_faultTemplate.setObjectName(u"rG_faultTemplate")
+        self.rG_faultTemplate.setVerticalSpacing(0)
+        self.lineEdit_rG_fault_OpenFile = QLineEdit(self.page_rG_prepareCSV)
+        self.lineEdit_rG_fault_OpenFile.setObjectName(u"lineEdit_rG_fault_OpenFile")
+        self.lineEdit_rG_fault_OpenFile.setMinimumSize(QSize(0, 30))
+        self.lineEdit_rG_fault_OpenFile.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+
+        self.rG_faultTemplate.addWidget(self.lineEdit_rG_fault_OpenFile, 1, 0, 1, 1)
+
+        self.labelBox_rG_fault_OpenFile = QLabel(self.page_rG_prepareCSV)
+        self.labelBox_rG_fault_OpenFile.setObjectName(u"labelBox_rG_fault_OpenFile")
+        self.labelBox_rG_fault_OpenFile.setFont(font)
+        self.labelBox_rG_fault_OpenFile.setStyleSheet(u"")
+
+        self.rG_faultTemplate.addWidget(self.labelBox_rG_fault_OpenFile, 0, 0, 1, 2)
+
+        self.pushButton_rG_fault_OpenFile = QPushButton(self.page_rG_prepareCSV)
+        self.pushButton_rG_fault_OpenFile.setObjectName(u"pushButton_rG_fault_OpenFile")
+        self.pushButton_rG_fault_OpenFile.setMinimumSize(QSize(100, 30))
+        self.pushButton_rG_fault_OpenFile.setFont(font)
+        self.pushButton_rG_fault_OpenFile.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_rG_fault_OpenFile.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        self.pushButton_rG_fault_OpenFile.setIcon(icon4)
+
+        self.rG_faultTemplate.addWidget(self.pushButton_rG_fault_OpenFile, 1, 1, 1, 1)
+
+
+        self.rG_prepareOptions.addLayout(self.rG_faultTemplate)
+
+        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.rG_prepareOptions.addItem(self.verticalSpacer_3)
+
+        self.pushButton_rG_saveConfiguration = QPushButton(self.page_rG_prepareCSV)
+        self.pushButton_rG_saveConfiguration.setObjectName(u"pushButton_rG_saveConfiguration")
+        sizePolicy4.setHeightForWidth(self.pushButton_rG_saveConfiguration.sizePolicy().hasHeightForWidth())
+        self.pushButton_rG_saveConfiguration.setSizePolicy(sizePolicy4)
+        self.pushButton_rG_saveConfiguration.setMinimumSize(QSize(150, 24))
+        self.pushButton_rG_saveConfiguration.setFont(font)
+        self.pushButton_rG_saveConfiguration.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_rG_saveConfiguration.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        self.pushButton_rG_saveConfiguration.setFlat(False)
+
+        self.rG_prepareOptions.addWidget(self.pushButton_rG_saveConfiguration)
+
+        self.pushButton_rG_exportCSV = QPushButton(self.page_rG_prepareCSV)
+        self.pushButton_rG_exportCSV.setObjectName(u"pushButton_rG_exportCSV")
+        sizePolicy4.setHeightForWidth(self.pushButton_rG_exportCSV.sizePolicy().hasHeightForWidth())
+        self.pushButton_rG_exportCSV.setSizePolicy(sizePolicy4)
+        self.pushButton_rG_exportCSV.setMinimumSize(QSize(150, 24))
+        self.pushButton_rG_exportCSV.setFont(font)
+        self.pushButton_rG_exportCSV.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_rG_exportCSV.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        self.pushButton_rG_exportCSV.setFlat(False)
+
+        self.rG_prepareOptions.addWidget(self.pushButton_rG_exportCSV)
+
+
+        self.horizontalLayout_8.addLayout(self.rG_prepareOptions)
+
+        self.rG_tree_layout = QVBoxLayout()
+        self.rG_tree_layout.setObjectName(u"rG_tree_layout")
+        self.rG_tree_header = QHBoxLayout()
+        self.rG_tree_header.setObjectName(u"rG_tree_header")
+        self.labelBox_rG_treeHeader = QLabel(self.page_rG_prepareCSV)
+        self.labelBox_rG_treeHeader.setObjectName(u"labelBox_rG_treeHeader")
+        self.labelBox_rG_treeHeader.setFont(font)
+        self.labelBox_rG_treeHeader.setStyleSheet(u"")
+
+        self.rG_tree_header.addWidget(self.labelBox_rG_treeHeader)
+
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.rG_tree_header.addItem(self.horizontalSpacer_4)
+
+        self.pushButton_rG_appear = QPushButton(self.page_rG_prepareCSV)
+        self.pushButton_rG_appear.setObjectName(u"pushButton_rG_appear")
+        self.pushButton_rG_appear.setMinimumSize(QSize(75, 15))
+        self.pushButton_rG_appear.setFont(font)
+        self.pushButton_rG_appear.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_rG_appear.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+
+        self.rG_tree_header.addWidget(self.pushButton_rG_appear)
+
+        self.pushButton_rG_alphabetical = QPushButton(self.page_rG_prepareCSV)
+        self.pushButton_rG_alphabetical.setObjectName(u"pushButton_rG_alphabetical")
+        self.pushButton_rG_alphabetical.setMinimumSize(QSize(75, 15))
+        self.pushButton_rG_alphabetical.setFont(font)
+        self.pushButton_rG_alphabetical.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_rG_alphabetical.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+
+        self.rG_tree_header.addWidget(self.pushButton_rG_alphabetical)
+
+
+        self.rG_tree_layout.addLayout(self.rG_tree_header)
+
+        self.treeView_trG = QTreeView(self.page_rG_prepareCSV)
+        self.treeView_trG.setObjectName(u"treeView_trG")
+
+        self.rG_tree_layout.addWidget(self.treeView_trG)
+
+
+        self.horizontalLayout_8.addLayout(self.rG_tree_layout)
+
+        self.stackedWidget_rG_pages.addWidget(self.page_rG_prepareCSV)
+        self.page_rG_importCSV = QWidget()
+        self.page_rG_importCSV.setObjectName(u"page_rG_importCSV")
+        self.horizontalLayout_9 = QHBoxLayout(self.page_rG_importCSV)
+        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
+        self.horizontalLayout_9.setContentsMargins(0, 0, 0, 0)
+        self.rG_import_leftColumn = QVBoxLayout()
+        self.rG_import_leftColumn.setObjectName(u"rG_import_leftColumn")
+        self.rG_chooseProgram = QVBoxLayout()
+        self.rG_chooseProgram.setSpacing(0)
+        self.rG_chooseProgram.setObjectName(u"rG_chooseProgram")
+        self.labelBox_rG_chooseProgram = QLabel(self.page_rG_importCSV)
+        self.labelBox_rG_chooseProgram.setObjectName(u"labelBox_rG_chooseProgram")
+        self.labelBox_rG_chooseProgram.setFont(font)
+        self.labelBox_rG_chooseProgram.setStyleSheet(u"")
+
+        self.rG_chooseProgram.addWidget(self.labelBox_rG_chooseProgram)
+
+        self.comboBox_rG_chooseProgram = QComboBox(self.page_rG_importCSV)
+        self.comboBox_rG_chooseProgram.setObjectName(u"comboBox_rG_chooseProgram")
+        self.comboBox_rG_chooseProgram.setFont(font)
+        self.comboBox_rG_chooseProgram.setAutoFillBackground(False)
+        self.comboBox_rG_chooseProgram.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+        self.comboBox_rG_chooseProgram.setIconSize(QSize(16, 16))
+        self.comboBox_rG_chooseProgram.setFrame(True)
+
+        self.rG_chooseProgram.addWidget(self.comboBox_rG_chooseProgram)
+
+
+        self.rG_import_leftColumn.addLayout(self.rG_chooseProgram)
+
+        self.rG_chooseRungsRoutine = QVBoxLayout()
+        self.rG_chooseRungsRoutine.setSpacing(0)
+        self.rG_chooseRungsRoutine.setObjectName(u"rG_chooseRungsRoutine")
+        self.labelBox_rG_chooseRungsRoutine = QLabel(self.page_rG_importCSV)
+        self.labelBox_rG_chooseRungsRoutine.setObjectName(u"labelBox_rG_chooseRungsRoutine")
+        self.labelBox_rG_chooseRungsRoutine.setFont(font)
+        self.labelBox_rG_chooseRungsRoutine.setStyleSheet(u"")
+
+        self.rG_chooseRungsRoutine.addWidget(self.labelBox_rG_chooseRungsRoutine)
+
+        self.comboBox_rG_chooseRungsRoutine = QComboBox(self.page_rG_importCSV)
+        self.comboBox_rG_chooseRungsRoutine.setObjectName(u"comboBox_rG_chooseRungsRoutine")
+        self.comboBox_rG_chooseRungsRoutine.setFont(font)
+        self.comboBox_rG_chooseRungsRoutine.setAutoFillBackground(False)
+        self.comboBox_rG_chooseRungsRoutine.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+        self.comboBox_rG_chooseRungsRoutine.setIconSize(QSize(16, 16))
+        self.comboBox_rG_chooseRungsRoutine.setFrame(True)
+
+        self.rG_chooseRungsRoutine.addWidget(self.comboBox_rG_chooseRungsRoutine)
+
+
+        self.rG_import_leftColumn.addLayout(self.rG_chooseRungsRoutine)
+
+        self.rG_rungs_rungNumber = QVBoxLayout()
+        self.rG_rungs_rungNumber.setObjectName(u"rG_rungs_rungNumber")
+        self.labelBox_rG_rungs_rungNumber = QLabel(self.page_rG_importCSV)
+        self.labelBox_rG_rungs_rungNumber.setObjectName(u"labelBox_rG_rungs_rungNumber")
+        self.labelBox_rG_rungs_rungNumber.setFont(font)
+        self.labelBox_rG_rungs_rungNumber.setStyleSheet(u"")
+
+        self.rG_rungs_rungNumber.addWidget(self.labelBox_rG_rungs_rungNumber)
+
+        self.lineEdit_rG_rungs_rungNumber = QLineEdit(self.page_rG_importCSV)
+        self.lineEdit_rG_rungs_rungNumber.setObjectName(u"lineEdit_rG_rungs_rungNumber")
+        sizePolicy3.setHeightForWidth(self.lineEdit_rG_rungs_rungNumber.sizePolicy().hasHeightForWidth())
+        self.lineEdit_rG_rungs_rungNumber.setSizePolicy(sizePolicy3)
+        self.lineEdit_rG_rungs_rungNumber.setMinimumSize(QSize(0, 0))
+        self.lineEdit_rG_rungs_rungNumber.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+
+        self.rG_rungs_rungNumber.addWidget(self.lineEdit_rG_rungs_rungNumber)
+
+
+        self.rG_import_leftColumn.addLayout(self.rG_rungs_rungNumber)
+
+        self.rG_chooseFaultsRoutine = QVBoxLayout()
+        self.rG_chooseFaultsRoutine.setSpacing(0)
+        self.rG_chooseFaultsRoutine.setObjectName(u"rG_chooseFaultsRoutine")
+        self.labelBox_rG_chooseFaultsRoutine = QLabel(self.page_rG_importCSV)
+        self.labelBox_rG_chooseFaultsRoutine.setObjectName(u"labelBox_rG_chooseFaultsRoutine")
+        self.labelBox_rG_chooseFaultsRoutine.setFont(font)
+        self.labelBox_rG_chooseFaultsRoutine.setStyleSheet(u"")
+
+        self.rG_chooseFaultsRoutine.addWidget(self.labelBox_rG_chooseFaultsRoutine)
+
+        self.comboBox_rG_chooseFaultsRoutine = QComboBox(self.page_rG_importCSV)
+        self.comboBox_rG_chooseFaultsRoutine.setObjectName(u"comboBox_rG_chooseFaultsRoutine")
+        self.comboBox_rG_chooseFaultsRoutine.setFont(font)
+        self.comboBox_rG_chooseFaultsRoutine.setAutoFillBackground(False)
+        self.comboBox_rG_chooseFaultsRoutine.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+        self.comboBox_rG_chooseFaultsRoutine.setIconSize(QSize(16, 16))
+        self.comboBox_rG_chooseFaultsRoutine.setFrame(True)
+
+        self.rG_chooseFaultsRoutine.addWidget(self.comboBox_rG_chooseFaultsRoutine)
+
+
+        self.rG_import_leftColumn.addLayout(self.rG_chooseFaultsRoutine)
+
+        self.rG_faults_rungNumber = QVBoxLayout()
+        self.rG_faults_rungNumber.setObjectName(u"rG_faults_rungNumber")
+        self.labelBox_rG_faults_rungNumber = QLabel(self.page_rG_importCSV)
+        self.labelBox_rG_faults_rungNumber.setObjectName(u"labelBox_rG_faults_rungNumber")
+        self.labelBox_rG_faults_rungNumber.setFont(font)
+        self.labelBox_rG_faults_rungNumber.setStyleSheet(u"")
+
+        self.rG_faults_rungNumber.addWidget(self.labelBox_rG_faults_rungNumber)
+
+        self.lineEdit_rG_faults_rungNumber = QLineEdit(self.page_rG_importCSV)
+        self.lineEdit_rG_faults_rungNumber.setObjectName(u"lineEdit_rG_faults_rungNumber")
+        sizePolicy3.setHeightForWidth(self.lineEdit_rG_faults_rungNumber.sizePolicy().hasHeightForWidth())
+        self.lineEdit_rG_faults_rungNumber.setSizePolicy(sizePolicy3)
+        self.lineEdit_rG_faults_rungNumber.setMinimumSize(QSize(0, 0))
+        self.lineEdit_rG_faults_rungNumber.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+
+        self.rG_faults_rungNumber.addWidget(self.lineEdit_rG_faults_rungNumber)
+
+
+        self.rG_import_leftColumn.addLayout(self.rG_faults_rungNumber)
+
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.rG_import_leftColumn.addItem(self.verticalSpacer_2)
+
+        self.pushButton_rG_generateInProject = QPushButton(self.page_rG_importCSV)
+        self.pushButton_rG_generateInProject.setObjectName(u"pushButton_rG_generateInProject")
+        sizePolicy4.setHeightForWidth(self.pushButton_rG_generateInProject.sizePolicy().hasHeightForWidth())
+        self.pushButton_rG_generateInProject.setSizePolicy(sizePolicy4)
+        self.pushButton_rG_generateInProject.setMinimumSize(QSize(150, 24))
+        self.pushButton_rG_generateInProject.setFont(font)
+        self.pushButton_rG_generateInProject.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_rG_generateInProject.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        self.pushButton_rG_generateInProject.setFlat(False)
+
+        self.rG_import_leftColumn.addWidget(self.pushButton_rG_generateInProject)
+
+
+        self.horizontalLayout_9.addLayout(self.rG_import_leftColumn)
+
+        self.rG_import_rightColumn = QVBoxLayout()
+        self.rG_import_rightColumn.setObjectName(u"rG_import_rightColumn")
+        self.verticalSpacer_6 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.rG_import_rightColumn.addItem(self.verticalSpacer_6)
+
+        self.pushButton_rG_generateExportFiles = QPushButton(self.page_rG_importCSV)
+        self.pushButton_rG_generateExportFiles.setObjectName(u"pushButton_rG_generateExportFiles")
+        sizePolicy4.setHeightForWidth(self.pushButton_rG_generateExportFiles.sizePolicy().hasHeightForWidth())
+        self.pushButton_rG_generateExportFiles.setSizePolicy(sizePolicy4)
+        self.pushButton_rG_generateExportFiles.setMinimumSize(QSize(150, 24))
+        self.pushButton_rG_generateExportFiles.setFont(font)
+        self.pushButton_rG_generateExportFiles.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_rG_generateExportFiles.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        self.pushButton_rG_generateExportFiles.setFlat(False)
+
+        self.rG_import_rightColumn.addWidget(self.pushButton_rG_generateExportFiles)
+
+        self.verticalSpacer_7 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.rG_import_rightColumn.addItem(self.verticalSpacer_7)
+
+
+        self.horizontalLayout_9.addLayout(self.rG_import_rightColumn)
+
+        self.stackedWidget_rG_pages.addWidget(self.page_rG_importCSV)
+
+        self.verticalLayout_26.addWidget(self.stackedWidget_rG_pages)
+
+        self.scrollArea_rG.setWidget(self.scrollAreaWidgetContents_rG)
+
+        self.verticalLayout_17.addWidget(self.scrollArea_rG)
+
+        self.stackedWidget.addWidget(self.page_rungGenerator)
 
         self.verticalLayout_15.addWidget(self.stackedWidget)
 
@@ -1728,7 +2128,8 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget_rG_pages.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1741,6 +2142,7 @@ class Ui_MainWindow(object):
         self.toggleButton.setText(QCoreApplication.translate("MainWindow", u"Hide", None))
         self.btn_home.setText(QCoreApplication.translate("MainWindow", u"Tag to CSV", None))
         self.btn_str_conv.setText(QCoreApplication.translate("MainWindow", u"String converter", None))
+        self.btn_rungGenerator.setText(QCoreApplication.translate("MainWindow", u"Rung generator", None))
         self.btn_save.setText(QCoreApplication.translate("MainWindow", u"Save file", None))
         self.btn_exit.setText(QCoreApplication.translate("MainWindow", u"Exit", None))
         self.extraLabel.setText(QCoreApplication.translate("MainWindow", u"Left Box", None))
@@ -1849,6 +2251,36 @@ class Ui_MainWindow(object):
         self.lineEdit_tsC_RadioButton_Custom.setPlaceholderText(QCoreApplication.translate("MainWindow", u"other...", None))
         self.pushButton_tsC_CopyRSL.setText(QCoreApplication.translate("MainWindow", u"-> Copy RSL", None))
         self.pushButton_tsC_PasteRSL.setText(QCoreApplication.translate("MainWindow", u"<- Paste RSL", None))
+        self.lineEdit_rG_config_OpenFile.setText("")
+        self.lineEdit_rG_config_OpenFile.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Type here", None))
+        self.pushButton_rG_config_OpenFile.setText(QCoreApplication.translate("MainWindow", u"Open", None))
+        self.labelBox_rG_config_OpenFile.setText(QCoreApplication.translate("MainWindow", u"Configuration file", None))
+        self.pushButton_rG_preparePage.setText(QCoreApplication.translate("MainWindow", u"Prepare CSV file", None))
+        self.pushButton_rG_importPage.setText(QCoreApplication.translate("MainWindow", u"Import CSV file", None))
+        self.lineEdit_rG_rungs_OpenFile.setText("")
+        self.lineEdit_rG_rungs_OpenFile.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Type here", None))
+        self.pushButton_rG_rungs_OpenFile.setText(QCoreApplication.translate("MainWindow", u"Open", None))
+        self.labelBox_rG_rungs_OpenFile.setText(QCoreApplication.translate("MainWindow", u"Rungs Template", None))
+        self.lineEdit_rG_fault_OpenFile.setText("")
+        self.lineEdit_rG_fault_OpenFile.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Type here", None))
+        self.labelBox_rG_fault_OpenFile.setText(QCoreApplication.translate("MainWindow", u"Fault Template", None))
+        self.pushButton_rG_fault_OpenFile.setText(QCoreApplication.translate("MainWindow", u"Open", None))
+        self.pushButton_rG_saveConfiguration.setText(QCoreApplication.translate("MainWindow", u"Save configuration file", None))
+        self.pushButton_rG_exportCSV.setText(QCoreApplication.translate("MainWindow", u"export tag CSV file", None))
+        self.labelBox_rG_treeHeader.setText(QCoreApplication.translate("MainWindow", u"Rungs Template", None))
+        self.pushButton_rG_appear.setText(QCoreApplication.translate("MainWindow", u"appear order", None))
+        self.pushButton_rG_alphabetical.setText(QCoreApplication.translate("MainWindow", u"alphabetical", None))
+        self.labelBox_rG_chooseProgram.setText(QCoreApplication.translate("MainWindow", u"Choose Program", None))
+        self.labelBox_rG_chooseRungsRoutine.setText(QCoreApplication.translate("MainWindow", u"Choose Rungs Routine", None))
+        self.labelBox_rG_rungs_rungNumber.setText(QCoreApplication.translate("MainWindow", u"rung number (-1)", None))
+        self.lineEdit_rG_rungs_rungNumber.setText("")
+        self.lineEdit_rG_rungs_rungNumber.setPlaceholderText(QCoreApplication.translate("MainWindow", u"other...", None))
+        self.labelBox_rG_chooseFaultsRoutine.setText(QCoreApplication.translate("MainWindow", u"Choose faults routine", None))
+        self.labelBox_rG_faults_rungNumber.setText(QCoreApplication.translate("MainWindow", u"rung number (-1)", None))
+        self.lineEdit_rG_faults_rungNumber.setText("")
+        self.lineEdit_rG_faults_rungNumber.setPlaceholderText(QCoreApplication.translate("MainWindow", u"other...", None))
+        self.pushButton_rG_generateInProject.setText(QCoreApplication.translate("MainWindow", u"Generate in project", None))
+        self.pushButton_rG_generateExportFiles.setText(QCoreApplication.translate("MainWindow", u"Generate in export files", None))
         self.pushButton_RB_ExportEncoding.setText(QCoreApplication.translate("MainWindow", u"Export encoding", None))
 #if QT_CONFIG(tooltip)
         self.radioButton_RB_ExpEnc_system.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>Encoding set by system</p></body></html>", None))

@@ -29,3 +29,6 @@ from . app_settings import Settings
 
 # Logger
 from . my_logger import MyLogger
+
+# Pages
+from . page_rung_generator import RungGeneratorPage

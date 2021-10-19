@@ -59,6 +59,11 @@ class MainWindow(QMainWindow):
         widgets = self.ui
         widgets.version.setText(VERSION)
 
+        # FUNCTIONS OF CONTENT PAGES (not all pages are separated yet)
+        # ///////////////////////////////////////////////////////////////
+        # Rung generator page functions
+        self.rG = RungGeneratorPage(widgets)
+
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
         # ///////////////////////////////////////////////////////////////
         Settings.ENABLE_CUSTOM_TITLE_BAR = True
@@ -85,6 +90,7 @@ class MainWindow(QMainWindow):
         # LEFT MENUS
         widgets.btn_home.clicked.connect(self.buttonClick)
         widgets.btn_str_conv.clicked.connect(self.buttonClick)
+        widgets.btn_rungGenerator.clicked.connect(self.buttonClick)
 
         # EXTRA RIGHT BOX
         def openCloseRightBox():
@@ -112,6 +118,7 @@ class MainWindow(QMainWindow):
         # SET HOME PAGE AND SELECT MENU
         # ///////////////////////////////////////////////////////////////
         widgets.stackedWidget.setCurrentWidget(widgets.page_tagExport)
+        widgets.stackedWidget.setCurrentWidget(widgets.page_rungGenerator)
         widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
 
         # ///////////////////////////////////////////////////////////////
@@ -398,29 +405,30 @@ class MainWindow(QMainWindow):
         btn = self.sender()
         btnName = btn.objectName()
 
-        # SHOW HOME PAGE
+        # SHOW Tag To CSV PAGE
         if btnName == "btn_home":
             widgets.stackedWidget.setCurrentWidget(widgets.page_tagExport)
             UIFunctions.resetStyle(self, btnName)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
             widgets.titleRightInfo.setText('L5X Modifier - Tag to CSV')
 
-        # SHOW WIDGETS PAGE
+        # SHOW String Converter PAGE
         if btnName == "btn_str_conv":
             widgets.stackedWidget.setCurrentWidget(widgets.page_strConverter)
             UIFunctions.resetStyle(self, btnName)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
             widgets.titleRightInfo.setText('L5X Modifier - String Converter')
 
+
+        # SHOW WIDGETS PAGE
+        if btnName == "btn_rungGenerator":
+            widgets.stackedWidget.setCurrentWidget(widgets.page_rungGenerator)
+            UIFunctions.resetStyle(self, btnName)
+            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
+            widgets.titleRightInfo.setText('L5X Modifier - Rung Generator')
+
         if btnName == "btn_save":
             self.save_file()
-
-        # # SHOW NEW PAGE
-        # if btnName == "btn_new":
-        #     widgets.stackedWidget.setCurrentWidget(widgets.new_page) # SET PAGE
-        #     UIFunctions.resetStyle(self, btnName) # RESET ANOTHERS BUTTONS SELECTED
-        #     btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
-
 
     # RESIZE EVENTS
     # ///////////////////////////////////////////////////////////////
@@ -751,6 +759,16 @@ if __name__ == "__main__":
     app_icon.addFile('ico/Au_128.png', QSize(128, 128))
     app.setWindowIcon(app_icon)
     window = MainWindow()
+
+    # TODO: Delete TMP
+    # TMP
+    # ///////////////////////////////////////////////////////////////////
+    path = r"C:\Users\plc\Desktop\Rungs0to12_from_R07b_OutputMotions.L5X"
+    window.rG.current_rung_file = path
+    window.rG.rungs_file_changed()
+    # ///////////////////////////////////////////////////////////////////
+    # TMP
+
     sys.exit(app.exec())
 
     # CLOSE LOG FILE
