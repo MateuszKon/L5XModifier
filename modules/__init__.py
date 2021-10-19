@@ -27,5 +27,11 @@ from . dialog_box import MyDialog
 # APP SETTINGS
 from . app_settings import Settings
 
+# UI and APP Functions
+from . ui_functions import UIFunctions
+from . app_functions import AppFunctions
+
+
 # Logger
 from . my_logger import MyLogger
+
