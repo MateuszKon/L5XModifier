@@ -40,8 +40,8 @@ from datetime import datetime
 # widgets = None
 VERSION = "v1.2.0"
 
-GLOBAL_STATE = False
-GLOBAL_TITLE_BAR = True
+# GLOBAL_STATE = False
+# GLOBAL_TITLE_BAR = True
 
 
 class MainWindow(QMainWindow):
@@ -63,7 +63,6 @@ class MainWindow(QMainWindow):
         self.tE = ExportTagToCSV(self.widgets, self.L5XMod)
         self.sC = StringConverter(self.widgets, self.L5XMod)
 
-
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
         # ///////////////////////////////////////////////////////////////
         Settings.ENABLE_CUSTOM_TITLE_BAR = True
@@ -84,16 +83,15 @@ class MainWindow(QMainWindow):
         # ///////////////////////////////////////////////////////////////
         UIFunctions.uiDefinitions(self)
 
-        # BUTTONS CLICK
+        # LEFT MENUS BUTTONS CLICK
         # ///////////////////////////////////////////////////////////////
-
-        # LEFT MENUS
         self.widgets.btn_home.clicked.connect(self.buttonClick)
         self.widgets.btn_str_conv.clicked.connect(self.buttonClick)
         self.widgets.btn_exit.clicked.connect(self.closeEvent)
         self.widgets.btn_save.clicked.connect(self.save_file)
 
         # EXTRA RIGHT BOX
+        # ///////////////////////////////////////////////////////////////
         def openCloseRightBox():
             UIFunctions.toggleRightBox(self, True)
         self.widgets.settingsTopBtn.clicked.connect(openCloseRightBox)
@@ -102,6 +100,7 @@ class MainWindow(QMainWindow):
         self.widgets.lineEdit_RB_ExpEnc_RadioButton_Custom.editingFinished.connect(self.RB_radioButtons_custom_check)
 
         # CLOSE APP BUTTON
+        # ///////////////////////////////////////////////////////////////
         self.widgets.closeAppBtn.clicked.connect(self.closeEvent)
 
         # SHOW APP
@@ -112,7 +111,7 @@ class MainWindow(QMainWindow):
         # ///////////////////////////////////////////////////////////////
         useCustomTheme = True
         # themeFile = "themes\py_dracula_light.qss"
-        themeFile = "themes\py_dracula_au.qss"
+        themeFile = r"themes\py_dracula_au.qss"
 
         # SET THEME AND HACKS
         if useCustomTheme:
@@ -225,13 +224,6 @@ class MainWindow(QMainWindow):
         if btnName == "btn_save":
             self.save_file()
 
-        # # SHOW NEW PAGE
-        # if btnName == "btn_new":
-        #     widgets.stackedWidget.setCurrentWidget(widgets.new_page) # SET PAGE
-        #     UIFunctions.resetStyle(self, btnName) # RESET ANOTHERS BUTTONS SELECTED
-        #     btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
-
-
     # RESIZE EVENTS
     # ///////////////////////////////////////////////////////////////
     def resizeEvent(self, event):
@@ -267,4 +259,4 @@ if __name__ == "__main__":
     sys.exit(app.exec())
 
     # CLOSE LOG FILE
-    sys.stdout.close()
+    # sys.stdout.close()

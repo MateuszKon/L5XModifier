@@ -9,7 +9,7 @@ class StringConverter(MainWindow):
         self.widgets = widgets
         self.L5XMod = L5XMod
 
-        # SUBCLASS PARAMTERES
+        # SUBCLASS PARAMETERS
         pass
 
         # SIGNALS AND SLOTS CONNECTIONS
@@ -26,12 +26,15 @@ class StringConverter(MainWindow):
         self.widgets.pushButton_tsC_PasteRSL.clicked.connect(self.PasteRSL_clicked)
 
     def radioButtons_get_encoder(self):
-        radioButtons = {self.widgets.radioButton_tsC_PL: "Windows-1250", self.widgets.radioButton_tsC_GFS: "Windows-1252",
-                        self.widgets.radioButton_tsC_RU: "Windows-1251", self.widgets.radioButton_tsC_UTF: "UTF-8"}
+        radioButtons = {self.widgets.radioButton_tsC_PL: "Windows-1250",
+                        self.widgets.radioButton_tsC_GFS: "Windows-1252",
+                        self.widgets.radioButton_tsC_RU: "Windows-1251",
+                        self.widgets.radioButton_tsC_UTF: "UTF-8"}
         for item in radioButtons:
             if item.isChecked():
                 return radioButtons[item]
-        if self.widgets.radioButton_tsC_Custom.isChecked() and self.widgets.lineEdit_tsC_RadioButton_Custom.text() != "":
+        if self.widgets.radioButton_tsC_Custom.isChecked()\
+                and self.widgets.lineEdit_tsC_RadioButton_Custom.text() != "":
             return self.widgets.lineEdit_tsC_RadioButton_Custom.text().lower()
         else:
             return None

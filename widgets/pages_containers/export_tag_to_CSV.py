@@ -12,7 +12,7 @@ class ExportTagToCSV(MainWindow):
         self.widgets = widgets
         self.L5XMod = L5XMod
 
-        # SUBCLASS PARAMTERES
+        # SUBCLASS PARAMETERS
         self.currentFile = ""
 
         # SIGNALS AND SLOTS CONNECTIONS
@@ -77,7 +77,7 @@ class ExportTagToCSV(MainWindow):
     def tagTree_populate(self):
         self.clear_error()
         if self.widgets.listWidget_tE_ChooseTag.currentItem() is not None:
-            top_most_model = QStandardItemModel(0,3)
+            top_most_model = QStandardItemModel(0, 3)
             top_most_model.setHeaderData(0, Qt.Horizontal, "Name")
             top_most_model.setHeaderData(1, Qt.Horizontal, "Data Type")
             top_most_model.setHeaderData(2, Qt.Horizontal, "Value")

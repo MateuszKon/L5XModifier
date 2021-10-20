@@ -10,7 +10,6 @@ from PySide6.QtWidgets import *
 GLOBAL_STATE = False
 GLOBAL_TITLE_BAR = True
 
-# TODO: Fix circular initialization of 'main'
 
 class UIFunctions(MainWindow):
     # MAXIMIZE/RESTORE

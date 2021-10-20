@@ -19,3 +19,8 @@ from . custom_grips import CustomGrip
 # Import Pages
 from .pages_containers import ExportTagToCSV
 from .pages_containers import StringConverter
+
+# Import UI functions
+from .app_settings import Settings
+from .app_functions import AppFunctions
+from .ui_functions import UIFunctions
