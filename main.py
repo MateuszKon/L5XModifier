@@ -54,7 +54,7 @@ class MainWindow(QMainWindow):
         # INITIALIZE PAGES FUNCTIONALITY
         self.tE = ExportTagToCSV(self.widgets, self.L5XMod)
         self.sC = StringConverter(self.widgets, self.L5XMod)
-        self.rG = RungGeneratorPage(self.widgets)
+        self.rG = RungGeneratorPage(self.widgets, self.L5XMod)
 
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
         # ///////////////////////////////////////////////////////////////
@@ -262,7 +262,7 @@ if __name__ == "__main__":
     # TMP
     # ///////////////////////////////////////////////////////////////////
     path = r"C:\Users\plc\Desktop\Rungs0to12_from_R07b_OutputMotions.L5X"
-    window.rG.current_rung_file = path
+    window.widgets.lineEdit_rG_rungs_OpenFile.setText(path)
     window.rG.rungs_file_changed()
     # ///////////////////////////////////////////////////////////////////
     # TMP

@@ -1,6 +1,7 @@
 from L5XeTree import L5XeTree as L5X
 from L5XeTree.modules.RSLogixEncoding import RSLogixEncoding
 from modules.myQt import *
+from widgets.custom_QStandardItems.myQt_rung_generation import *
 
 from encodings.aliases import aliases
 import csv
@@ -139,3 +140,12 @@ class L5XModifier:
     @staticmethod
     def decode_string(string: str, encoder):
         return RSLogixEncoding.decode_string(string, encoder)
+
+    def generate_tree_appear_order(self, tree_model):
+        routine = self.root.any_program().any_routine()
+        i = 0
+        for rung in routine.rungs:
+            rung_name = "Rung " + str(i)
+            rung_item = mQtItem_rung(self.root, rung_name, rung.comment, rung.code)
+            tree_model.appendRow(rung_item.get_row())
+            i += 1
