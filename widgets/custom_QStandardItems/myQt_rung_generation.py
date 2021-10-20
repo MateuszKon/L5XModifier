@@ -38,8 +38,7 @@ class mQtItem_rung(myQtItem_TemplateItem):
         self.comment = comment
         self.code = rung_code
         for tag in self.list_used_tags(self.code):
-            # TODO: tag appended to rung
-            pass
+            self.appendRow(mQtItem_tag_element(root, tag).get_row())
 
     @staticmethod
     def list_used_tags(code):
@@ -58,4 +57,6 @@ class mQtItem_tag(myQtItem_TemplateItem):
 
 
 class mQtItem_tag_element(myQtItem_TemplateItem):
-    pass
+
+    def __init__(self, root: L5X.L5XRoot, name: str):
+        super().__init__(root, name)

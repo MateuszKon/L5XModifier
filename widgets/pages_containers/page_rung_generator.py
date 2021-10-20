@@ -57,5 +57,6 @@ class RungGeneratorPage(MainWindow):
         top_most_model.setHeaderData(5, Qt.Horizontal, "Scp")
         self.widgets.treeView_trG.setModel(top_most_model)
         self.L5Xrungs.generate_tree_appear_order(top_most_model)
+        self.widgets.treeView_trG.expandAll()
         for i in range(5, -1, -1):
             self.widgets.treeView_trG.resizeColumnToContents(i)
