@@ -8,7 +8,7 @@
     <x>0</x>
     <y>0</y>
     <width>1052</width>
-    <height>541</height>
+    <height>566</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -3079,7 +3079,7 @@ p, li { white-space: pre-wrap; }
                             <x>0</x>
                             <y>0</y>
                             <width>950</width>
-                            <height>424</height>
+                            <height>449</height>
                            </rect>
                           </property>
                           <layout class="QVBoxLayout" name="verticalLayout_26">
@@ -3574,7 +3574,7 @@ p, li { white-space: pre-wrap; }
                                   </layout>
                                  </item>
                                  <item>
-                                  <widget class="QTreeView" name="treeView_trG"/>
+                                  <widget class="myQTree_rungs_generator" name="treeView_trG"/>
                                  </item>
                                 </layout>
                                </item>
@@ -4339,6 +4339,13 @@ font: 700 9pt &quot;Segoe UI&quot;;</string>
    </layout>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>myQTree_rungs_generator</class>
+   <extends>QTreeView</extends>
+   <header>". myqtree_rungs_generator.h"</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="resources.qrc"/>
  </resources>

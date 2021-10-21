@@ -21,3 +21,6 @@ from . dialog_box import MyDialog
 
 # Logger
 from . my_logger import MyLogger
+
+# My QTreeView
+from .myqtree_rungs_generator import myQTree_rungs_generator

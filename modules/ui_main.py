@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainBarwxy.ui'
+## Form generated from reading UI file 'mainjlBYRa.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.2
 ##
@@ -12,13 +12,14 @@ from PySide6.QtCore import *  # type: ignore
 from PySide6.QtGui import *  # type: ignore
 from PySide6.QtWidgets import *  # type: ignore
 
+from . myqtree_rungs_generator import myQTree_rungs_generator
 from . resources_rc import *
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1052, 541)
+        MainWindow.resize(1052, 566)
         MainWindow.setMinimumSize(QSize(470, 280))
         MainWindow.setAutoFillBackground(True)
         self.styleSheet = QWidget(MainWindow)
@@ -1581,7 +1582,7 @@ class Ui_MainWindow(object):
         self.scrollArea_rG.setWidgetResizable(True)
         self.scrollAreaWidgetContents_rG = QWidget()
         self.scrollAreaWidgetContents_rG.setObjectName(u"scrollAreaWidgetContents_rG")
-        self.scrollAreaWidgetContents_rG.setGeometry(QRect(0, 0, 950, 424))
+        self.scrollAreaWidgetContents_rG.setGeometry(QRect(0, 0, 950, 449))
         self.verticalLayout_26 = QVBoxLayout(self.scrollAreaWidgetContents_rG)
         self.verticalLayout_26.setObjectName(u"verticalLayout_26")
         self.rG_header = QHBoxLayout()
@@ -1780,7 +1781,7 @@ class Ui_MainWindow(object):
 
         self.rG_tree_layout.addLayout(self.rG_tree_header)
 
-        self.treeView_trG = QTreeView(self.page_rG_prepareCSV)
+        self.treeView_trG = myQTree_rungs_generator(self.page_rG_prepareCSV)
         self.treeView_trG.setObjectName(u"treeView_trG")
 
         self.rG_tree_layout.addWidget(self.treeView_trG)

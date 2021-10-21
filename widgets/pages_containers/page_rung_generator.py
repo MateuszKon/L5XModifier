@@ -48,15 +48,14 @@ class RungGeneratorPage(MainWindow):
 
     def populate_tree(self):
         self.clear_error()
-        top_most_model = QStandardItemModel(0, 6)
+        top_most_model = QStandardItemModel(0, 5)
         top_most_model.setHeaderData(0, Qt.Horizontal, "Tag")
-        top_most_model.setHeaderData(1, Qt.Horizontal, "TN")
-        top_most_model.setHeaderData(2, Qt.Horizontal, "DT")
-        top_most_model.setHeaderData(3, Qt.Horizontal, "Dsc")
-        top_most_model.setHeaderData(4, Qt.Horizontal, "Val")
-        top_most_model.setHeaderData(5, Qt.Horizontal, "Scp")
+        top_most_model.setHeaderData(1, Qt.Horizontal, "DT")
+        top_most_model.setHeaderData(2, Qt.Horizontal, "Dsc")
+        top_most_model.setHeaderData(3, Qt.Horizontal, "Val")
+        top_most_model.setHeaderData(4, Qt.Horizontal, "Scp")
         self.widgets.treeView_trG.setModel(top_most_model)
         self.L5Xrungs.generate_tree_appear_order(top_most_model)
         self.widgets.treeView_trG.expandAll()
-        for i in range(5, -1, -1):
+        for i in range(4, -1, -1):
             self.widgets.treeView_trG.resizeColumnToContents(i)
