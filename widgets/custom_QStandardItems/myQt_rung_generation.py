@@ -1,8 +1,8 @@
 from L5XeTree import L5XeTree as L5X
 
-from PySide6.QtCore import Qt
-from PySide6.QtGui import QStandardItem, QMouseEvent, QFontMetrics
-from PySide6.QtWidgets import QTreeWidgetItem, QTreeView
+from PySide6.QtCore import Qt, QModelIndex, QPersistentModelIndex
+from PySide6.QtGui import QStandardItem, QMouseEvent, QFontMetrics, QPainter
+from PySide6.QtWidgets import QTreeWidgetItem, QTreeView, QStyledItemDelegate, QStyleOptionViewItem
 import re
 
 
@@ -90,6 +90,7 @@ class mQtItem_tag_element(myQtItem_TemplateItem):
         is_tag = not self.tag_element
         super().__init__(root, name, DT_visible=is_tag, Scp_visible=is_tag)
         self.setSelectable(False)
+        self.selected = list()
 
     def tag_clicked(self, event: QMouseEvent, tree):
         # TODO: handling right and left mouse click
@@ -107,6 +108,7 @@ class mQtItem_tag_element(myQtItem_TemplateItem):
             if start_position <= selected <= start_position+size+dot:
                 # TODO: Change font color of clicked part of the tag
                 print(text)
+                self.selected.append(text)
                 break
             else:
                 start_position += dot + size + 3

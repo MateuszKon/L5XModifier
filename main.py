@@ -56,6 +56,8 @@ class MainWindow(QMainWindow):
         self.sC = StringConverter(self.widgets, self.L5XMod)
         self.rG = RungGeneratorPage(self.widgets, self.L5XMod)
 
+        self.widgets.treeView_trG.setItemDelegate(myQStyleDelegate())
+
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
         # ///////////////////////////////////////////////////////////////
         Settings.ENABLE_CUSTOM_TITLE_BAR = True
