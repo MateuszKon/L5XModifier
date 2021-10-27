@@ -61,6 +61,7 @@ class mQtItem_tag(myQtItem_TemplateItem):
 class mQtItem_tag_element(myQtItem_TemplateItem):
 
     def __init__(self, root: L5X.L5XRoot, name: str):
+        # TODO Displaying tag with [1] generates [.1.].
         # split name into tag structure elements
         splitted = name.split(".")
         tag_name = splitted[0]
@@ -90,27 +91,44 @@ class mQtItem_tag_element(myQtItem_TemplateItem):
         is_tag = not self.tag_element
         super().__init__(root, name, DT_visible=is_tag, Scp_visible=is_tag)
         self.setSelectable(False)
-        self.selected = list()
+        self.splited_text = self.split_tag_to_parts(self.text())
+        self.selected = list([False for x in range(len(self.splited_text))])
 
     def tag_clicked(self, event: QMouseEvent, tree):
         # TODO: handling right and left mouse click
         fm = QFontMetrics(self.font())
         dot = fm.size(0, ".").width()
         left = tree.visualRect(self.index()).left()
+        top = tree.visualRect(self.index()).top()
         selected = event.x() - left
-        splited_text = self.text().split(".")
-        # TODO: Split string containing pattern (separately [ ] and number inside it)
-        pattern = r"\[[0-9]+\]"
         # TODO: Fix clicking area
         start_position = 10
-        for text in splited_text:
+        for i, text in enumerate(self.splited_text):
             size = fm.size(0, text).width()
             if start_position <= selected <= start_position+size+dot:
-                # TODO: Change font color of clicked part of the tag
-                print(text)
-                self.selected.append(text)
+                if self.selected[i]:
+                    self.selected[i] = False
+                else:
+                    self.selected[i] = True
+                if text == "[":
+                    self.selected[i + 1: i + 2] = self.selected[i]
+                elif text == "]":
+                    self.selected[i - 2: i - 1] = self.selected[i]
                 break
             else:
                 start_position += dot + size + 3
 
-
+    @staticmethod
+    def split_tag_to_parts(string):
+        first_splitted = string.split(".")
+        splitted = list()
+        pattern = r"(\[)([\w\.\[\]]+)(\])"
+        for element in first_splitted:
+            match = re.search(pattern, element)
+            if match:
+                splitted.append(element[:match.start()])
+                [splitted.append(match.group(i)) for i in range(1, 4)]
+                splitted.append(element[match.end():])
+            else:
+                splitted.append(element)
+        return splitted

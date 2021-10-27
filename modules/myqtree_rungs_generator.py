@@ -27,20 +27,27 @@ class myQStyleDelegate(QStyledItemDelegate):
                 style: QStyle = options.widget.style()
                 painter.save()
                 string_list = list()
-                splited_text = model.text().split(".")
-                for text in splited_text:
-                    if text in model.selected:
-                        string_list.append('<font color = "red">' + text + '</font>')
+                parentesies_opened = 0
+                for text, selected in zip(model.splited_text, model.selected):
+                    if selected:
+                        if parentesies_opened:
+                            string_list[-1] += ('<font color = "green">' + text + '</font>')
+                        else:
+                            string_list.append('<font color = "green">' + text + '</font>')
+                            # string_list.append('<font color = #1E90FF>' + text + '</font>')
                     else:
                         string_list.append(text)
-                string = ".".join(string_list)
-                # textRect = style.subElementRect(QStyle.SE_ItemViewItemText, options)
-                textRect = style.subElementRect(QStyle.SE_ItemViewItemFocusRect, options)
+                    if text == "[":
+                        parentesies_opened += 1
+                    elif text == "]":
+                        parentesies_opened -= 1
 
+                string = '<font color = #dddddd>' + ".".join(string_list) + '</font>'
+                textRect = style.subElementRect(QStyle.SE_ItemViewItemText, options)
                 style.drawControl(QStyle.CE_ItemViewItem, option, painter, option.widget)
-
+                textRect.setTop(textRect.top() - 3)
+                textRect.setLeft(textRect.left() - 1)
                 painter.translate(textRect.topLeft())
-                print(textRect.topLeft())
                 painter.setClipRect(textRect.translated(-textRect.topLeft()))
                 ctx = QAbstractTextDocumentLayout.PaintContext()
                 string_obj = QTextDocument()
