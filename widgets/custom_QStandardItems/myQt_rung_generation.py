@@ -128,7 +128,8 @@ class mQtItem_tag_element(myQtItem_TemplateItem):
             if match:
                 splitted.append(element[:match.start()])
                 [splitted.append(match.group(i)) for i in range(1, 4)]
-                splitted.append(element[match.end():])
+                if len(element[match.end():]):
+                    splitted.append(element[match.end():])
             else:
                 splitted.append(element)
         return splitted

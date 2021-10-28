@@ -27,20 +27,21 @@ class myQStyleDelegate(QStyledItemDelegate):
                 style: QStyle = options.widget.style()
                 painter.save()
                 string_list = list()
-                parentesies_opened = 0
+                parentheses_opened = 0
                 for text, selected in zip(model.splited_text, model.selected):
                     if selected:
-                        if parentesies_opened:
-                            string_list[-1] += ('<font color = "green">' + text + '</font>')
-                        else:
-                            string_list.append('<font color = "green">' + text + '</font>')
-                            # string_list.append('<font color = #1E90FF>' + text + '</font>')
+                        text_to_append = '<font color = "green">' + text + '</font>'
                     else:
-                        string_list.append(text)
+                        text_to_append = text
                     if text == "[":
-                        parentesies_opened += 1
-                    elif text == "]":
-                        parentesies_opened -= 1
+                        parentheses_opened += 1
+                    if parentheses_opened:
+                        string_list[-1] += text_to_append
+                    else:
+                        string_list.append(text_to_append)
+                        # string_list.append('<font color = #1E90FF>' + text + '</font>')
+                    if text == "]":
+                        parentheses_opened -= 1
 
                 string = '<font color = #dddddd>' + ".".join(string_list) + '</font>'
                 textRect = style.subElementRect(QStyle.SE_ItemViewItemText, options)
