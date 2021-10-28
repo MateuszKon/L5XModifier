@@ -93,6 +93,7 @@ class mQtItem_tag_element(myQtItem_TemplateItem):
         self.setSelectable(False)
         self.splited_text = self.split_tag_to_parts(self.text())
         self.selected = list([False for x in range(len(self.splited_text))])
+        self.whole_selected = False
 
     def tag_clicked(self, event: QMouseEvent, tree):
         # TODO: handling right and left mouse click
@@ -103,20 +104,24 @@ class mQtItem_tag_element(myQtItem_TemplateItem):
         selected = event.x() - left
         # TODO: Fix clicking area
         start_position = 10
-        for i, text in enumerate(self.splited_text):
-            size = fm.size(0, text).width()
-            if start_position <= selected <= start_position+size+dot:
-                if self.selected[i]:
-                    self.selected[i] = False
+        if event.button() == Qt.RightButton:
+            self.whole_selected = False if self.whole_selected else True
+        else:
+            self.whole_selected = False
+            for i, text in enumerate(self.splited_text):
+                size = fm.size(0, text).width()
+                if start_position <= selected <= start_position+size+dot:
+                    if self.selected[i]:
+                        self.selected[i] = False
+                    else:
+                        self.selected[i] = True
+                    if text == "[":
+                        self.selected[i + 1: i + 2] = [self.selected[i], self.selected[i]]
+                    elif text == "]":
+                        self.selected[i - 2: i - 1] = [self.selected[i], self.selected[i]]
+                    break
                 else:
-                    self.selected[i] = True
-                if text == "[":
-                    self.selected[i + 1: i + 2] = self.selected[i]
-                elif text == "]":
-                    self.selected[i - 2: i - 1] = self.selected[i]
-                break
-            else:
-                start_position += dot + size + 3
+                    start_position += dot + size + 3
 
     @staticmethod
     def split_tag_to_parts(string):
