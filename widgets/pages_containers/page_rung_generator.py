@@ -21,6 +21,8 @@ class RungGeneratorPage(MainWindow):
 
         # SUBCLASS PARAMETERS
         self.current_rung_file = ""
+        self.appear_order_model = None
+        self.alphabetical_order_model = None
 
         # SIGNALS AND SLOTS CONNECTIONS
         self.widgets.pushButton_rG_rungs_OpenFile.clicked.connect(self.rungs_openFile_button)
@@ -48,14 +50,19 @@ class RungGeneratorPage(MainWindow):
 
     def populate_tree(self):
         self.clear_error()
-        top_most_model = QStandardItemModel(0, 5)
-        top_most_model.setHeaderData(0, Qt.Horizontal, "Tag")
-        top_most_model.setHeaderData(1, Qt.Horizontal, "DT")
-        top_most_model.setHeaderData(2, Qt.Horizontal, "Dsc")
-        top_most_model.setHeaderData(3, Qt.Horizontal, "Val")
-        top_most_model.setHeaderData(4, Qt.Horizontal, "Scp")
-        self.widgets.treeView_trG.setModel(top_most_model)
-        self.L5Xrungs.generate_tree_appear_order(top_most_model)
+        # self.alphabetical_order_model = QStandardItemModel(0, 5)
+        header_data = [(0, Qt.Horizontal, "Tag"), (1, Qt.Horizontal, "DT"), (2, Qt.Horizontal, "Dsc"),
+                       (3, Qt.Horizontal, "Val"), (4, Qt.Horizontal, "Scp")]
+        self.appear_order_model = QStandardItemModel(0, 5)
+        for header in header_data:
+            self.appear_order_model.setHeaderData(*header)
+
+        self.widgets.treeView_trG.setModel(self.appear_order_model)
+        self.L5Xrungs.generate_tree_appear_order(self.appear_order_model)
+        self.appear_order_model.itemChanged.connect(self.appear_model_changed)
         self.widgets.treeView_trG.expandAll()
         for i in range(4, -1, -1):
             self.widgets.treeView_trG.resizeColumnToContents(i)
+
+    def appear_model_changed(self, item):
+        item.update_tag_element()

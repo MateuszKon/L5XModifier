@@ -61,7 +61,7 @@ class mQtItem_tag(myQtItem_TemplateItem):
 class mQtItem_tag_element(myQtItem_TemplateItem):
 
     def __init__(self, root: L5X.L5XRoot, name: str):
-        # TODO Displaying tag with [1] generates [.1.].
+        # TODO: if in first part of tag will be array index, it will split wrongly
         # split name into tag structure elements
         splitted = name.split(".")
         tag_name = splitted[0]
@@ -138,3 +138,8 @@ class mQtItem_tag_element(myQtItem_TemplateItem):
             else:
                 splitted.append(element)
         return splitted
+
+    def update_tag_element(self):
+        self.splited_text = self.split_tag_to_parts(self.text())
+        self.selected = list([False for x in range(len(self.splited_text))])
+        self.whole_selected = False

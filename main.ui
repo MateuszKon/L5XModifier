@@ -1857,8 +1857,8 @@ p, li { white-space: pre-wrap; }
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>681</width>
-                            <height>294</height>
+                            <width>950</width>
+                            <height>449</height>
                            </rect>
                           </property>
                           <layout class="QHBoxLayout" name="horizontalLayout_7" stretch="1,2">
@@ -2493,8 +2493,8 @@ p, li { white-space: pre-wrap; }
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>388</width>
-                            <height>349</height>
+                            <width>950</width>
+                            <height>449</height>
                            </rect>
                           </property>
                           <layout class="QVBoxLayout" name="verticalLayout_20">
@@ -3574,7 +3574,11 @@ p, li { white-space: pre-wrap; }
                                   </layout>
                                  </item>
                                  <item>
-                                  <widget class="myQTree_rungs_generator" name="treeView_trG"/>
+                                  <widget class="myQTree_rungs_generator" name="treeView_trG">
+                                   <property name="styleSheet">
+                                    <string notr="true">background-color: rgb(33, 37, 43);</string>
+                                   </property>
+                                  </widget>
                                  </item>
                                 </layout>
                                </item>
@@ -4343,7 +4347,7 @@ font: 700 9pt &quot;Segoe UI&quot;;</string>
   <customwidget>
    <class>myQTree_rungs_generator</class>
    <extends>QTreeView</extends>
-   <header>". myqtree_rungs_generator.h"</header>
+   <header>&quot;. myqtree_rungs_generator.h&quot;</header>
   </customwidget>
  </customwidgets>
  <resources>

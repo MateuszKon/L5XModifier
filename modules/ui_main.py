@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainjlBYRa.ui'
+## Form generated from reading UI file 'mainnqxali.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.2
 ##
@@ -1046,7 +1046,7 @@ class Ui_MainWindow(object):
         self.scrollArea_tE.setWidgetResizable(True)
         self.scrollAreaWidgetContents_tE = QWidget()
         self.scrollAreaWidgetContents_tE.setObjectName(u"scrollAreaWidgetContents_tE")
-        self.scrollAreaWidgetContents_tE.setGeometry(QRect(0, 0, 681, 294))
+        self.scrollAreaWidgetContents_tE.setGeometry(QRect(0, 0, 950, 449))
         self.horizontalLayout_7 = QHBoxLayout(self.scrollAreaWidgetContents_tE)
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.tE_LeftColumn = QVBoxLayout()
@@ -1358,7 +1358,7 @@ class Ui_MainWindow(object):
         self.scrollArea_tsC.setWidgetResizable(True)
         self.scrollAreaWidgetContents_tsC = QWidget()
         self.scrollAreaWidgetContents_tsC.setObjectName(u"scrollAreaWidgetContents_tsC")
-        self.scrollAreaWidgetContents_tsC.setGeometry(QRect(0, 0, 388, 349))
+        self.scrollAreaWidgetContents_tsC.setGeometry(QRect(0, 0, 950, 449))
         self.verticalLayout_20 = QVBoxLayout(self.scrollAreaWidgetContents_tsC)
         self.verticalLayout_20.setObjectName(u"verticalLayout_20")
         self.tsC_TextRow = QHBoxLayout()
@@ -1783,6 +1783,7 @@ class Ui_MainWindow(object):
 
         self.treeView_trG = myQTree_rungs_generator(self.page_rG_prepareCSV)
         self.treeView_trG.setObjectName(u"treeView_trG")
+        self.treeView_trG.setStyleSheet(u"background-color: rgb(33, 37, 43);")
 
         self.rG_tree_layout.addWidget(self.treeView_trG)
 
