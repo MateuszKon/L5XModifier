@@ -2,6 +2,7 @@ from L5XeTree import L5XeTree as L5X
 from L5XeTree.modules.RSLogixEncoding import RSLogixEncoding
 from modules.myQt import *
 from widgets.custom_QStandardItems.myQt_rung_generation import *
+from PySide6.QtGui import QStandardItemModel
 
 from encodings.aliases import aliases
 import csv
@@ -149,3 +150,23 @@ class L5XModifier:
             rung_item = mQtItem_rung(self.root, rung_name, rung.comment, rung.code)
             tree_model.appendRow(rung_item.get_row())
             i += 1
+
+    def generate_tree_alphabetical_order(self, tree_alphabetical_model: QStandardItemModel,
+                                         tree_appear_mode: QStandardItemModel):
+        appeared_elements = set()
+        for i in range(tree_appear_mode.rowCount()):
+            rung_item: mQtItem_rung = tree_appear_mode.item(i, 0)
+            [appeared_elements.add(element) for element in rung_item.used_tags]
+        elems_dict = dict()
+        for element in appeared_elements:
+            elem_splited = mQtItem_tag_element.split_tag_to_parts(element, join_index=True)
+            self.build_elements_dict(elems_dict, elem_splited)
+        for tag in sorted(elems_dict):
+            tag_item = mQtItem_alphabetical_tag(self.root, tag, elems_dict[tag])
+            tree_alphabetical_model.appendRow(tag_item.get_row())
+
+    def build_elements_dict(self, elems_dict, elem_splited):
+        if not elem_splited[0] in elems_dict:
+            elems_dict[elem_splited[0]] = dict()
+        if len(elem_splited) > 1:
+            self.build_elements_dict(elems_dict[elem_splited[0]], elem_splited[1:])

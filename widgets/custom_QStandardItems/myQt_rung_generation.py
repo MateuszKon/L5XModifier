@@ -39,7 +39,8 @@ class mQtItem_rung(myQtItem_TemplateItem):
         self.setSelectable(False)
         self.comment = comment
         self.code = rung_code
-        for tag in self.list_used_tags(self.code):
+        self.used_tags = self.list_used_tags(self.code)
+        for tag in self.used_tags:
             self.appendRow(mQtItem_tag_element(root, tag).get_row())
 
     @staticmethod
@@ -54,8 +55,63 @@ class mQtItem_rung(myQtItem_TemplateItem):
         return used_tags
 
 
-class mQtItem_tag(myQtItem_TemplateItem):
-    pass
+class mQtItem_alphabetical_tag(myQtItem_TemplateItem):
+
+    def __init__(self, root: L5X.L5XRoot, tag_name: str, children_dictionary: dict):
+        if root.tag(tag_name) is not None:
+            self.scope = "Controller"
+        elif root.any_program().tag(tag_name) is not None:
+            self.scope = root.any_program().attrib["Name"]
+        else:
+            self.scope = None
+        # set data_type and value of the tag or constant
+        if self.scope is not None:
+            tag = root.tag(tag_name, self.scope)
+            self.data_type = tag.attrib["DataType"]
+            if not len(children_dictionary):
+                self.value = tag.get_value()
+            else:
+                self.value = None
+        else:
+            self.data_type = "Constant"
+            self.value = tag_name
+        val_visible = self.value is not None
+        super().__init__(root, tag_name, Val_visible=val_visible)
+        self.setSelectable(False)
+        for element in sorted(children_dictionary):
+            self.appendRow(
+                mQtItem_alphabetical_tag_element(root, element, self.data_type, self.scope,
+                                                 children_dictionary[element], tag, element).get_row()
+            )
+
+
+class mQtItem_alphabetical_tag_element(myQtItem_TemplateItem):
+
+    def __init__(self, root: L5X.L5XRoot, name: str, data_type: str, scope: str, children_dictionary: dict,
+                 tag_element: L5X.L5XTag, element_tag_path: str):
+        self.data_type = data_type
+        self.scope = scope
+        # set data_type and value of the tag or constant
+        if self.scope is not None:
+            if not len(children_dictionary):
+                self.value = tag_element.get_value_element(element_tag_path)
+            else:
+                self.value = None
+        else:
+            self.value = name
+        val_visible = self.value is not None
+        super().__init__(root, name, DT_visible=False, Val_visible=val_visible, Scp_visible=False)
+        self.setSelectable(False)
+        for element in sorted(children_dictionary):
+            if "[" in element:
+                child_element_tag_path = element_tag_path + element
+            else:
+                child_element_tag_path = element_tag_path + "." + element
+            self.appendRow(
+                mQtItem_alphabetical_tag_element(root, element, self.data_type, self.scope,
+                                                 children_dictionary[element], tag_element,
+                                                 child_element_tag_path).get_row()
+            )
 
 
 class mQtItem_tag_element(myQtItem_TemplateItem):
@@ -124,7 +180,7 @@ class mQtItem_tag_element(myQtItem_TemplateItem):
                     start_position += dot + size + 3
 
     @staticmethod
-    def split_tag_to_parts(string):
+    def split_tag_to_parts(string, join_index=False):
         first_splitted = string.split(".")
         splitted = list()
         pattern = r"(\[)([\w\.\[\]]+)(\])"
@@ -132,7 +188,10 @@ class mQtItem_tag_element(myQtItem_TemplateItem):
             match = re.search(pattern, element)
             if match:
                 splitted.append(element[:match.start()])
-                [splitted.append(match.group(i)) for i in range(1, 4)]
+                if join_index:
+                    splitted.append(match.group())
+                else:
+                    [splitted.append(match.group(i)) for i in range(1, 4)]
                 if len(element[match.end():]):
                     splitted.append(element[match.end():])
             else:
