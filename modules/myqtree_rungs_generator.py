@@ -11,6 +11,8 @@ class myQTree_rungs_generator(QTreeView):
         model_pressed = self.model().itemFromIndex(index)
         if isinstance(model_pressed, myQt_rung_generation.mQtItem_tag_element):
             model_pressed.tag_clicked(event, self)
+        elif isinstance(model_pressed, myQt_rung_generation.mQtItem_alphabetical_tag_virtual):
+            model_pressed.tag_clicked(event, self)
         super().mousePressEvent(event)
 
 

@@ -77,5 +77,4 @@ class RungGeneratorPage(MainWindow):
         item.update_tag_element()
 
     def alphabetical_model_changed(self, item):
-        # TODO: alphabetical_model_changed
-        pass
+        item.update_tag_element()

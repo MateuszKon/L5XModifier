@@ -55,7 +55,16 @@ class mQtItem_rung(myQtItem_TemplateItem):
         return used_tags
 
 
-class mQtItem_alphabetical_tag(myQtItem_TemplateItem):
+class mQtItem_alphabetical_tag_virtual(myQtItem_TemplateItem):
+
+    def tag_clicked(self, event: QMouseEvent, tree):
+        pass
+
+    def update_tag_element(self):
+        pass
+
+
+class mQtItem_alphabetical_tag(mQtItem_alphabetical_tag_virtual):
 
     def __init__(self, root: L5X.L5XRoot, tag_name: str, children_dictionary: dict):
         if root.tag(tag_name) is not None:
@@ -84,8 +93,16 @@ class mQtItem_alphabetical_tag(myQtItem_TemplateItem):
                                                  children_dictionary[element], tag, element).get_row()
             )
 
+    def tag_clicked(self, event: QMouseEvent, tree):
+        # TODO: tag clicked
+        pass
 
-class mQtItem_alphabetical_tag_element(myQtItem_TemplateItem):
+    def update_tag_element(self):
+        # TODO: alphabetical_model_changed
+        pass
+
+
+class mQtItem_alphabetical_tag_element(mQtItem_alphabetical_tag_virtual):
 
     def __init__(self, root: L5X.L5XRoot, name: str, data_type: str, scope: str, children_dictionary: dict,
                  tag_element: L5X.L5XTag, element_tag_path: str):
@@ -112,6 +129,14 @@ class mQtItem_alphabetical_tag_element(myQtItem_TemplateItem):
                                                  children_dictionary[element], tag_element,
                                                  child_element_tag_path).get_row()
             )
+
+    def tag_clicked(self, event: QMouseEvent, tree):
+        # TODO: element tag clicked
+        pass
+
+    def update_tag_element(self):
+        # TODO: alphabetical_model_changed
+        pass
 
 
 class mQtItem_tag_element(myQtItem_TemplateItem):
@@ -152,7 +177,6 @@ class mQtItem_tag_element(myQtItem_TemplateItem):
         self.whole_selected = False
 
     def tag_clicked(self, event: QMouseEvent, tree):
-        # TODO: handling right and left mouse click
         fm = QFontMetrics(self.font())
         dot = fm.size(0, ".").width()
         left = tree.visualRect(self.index()).left()
