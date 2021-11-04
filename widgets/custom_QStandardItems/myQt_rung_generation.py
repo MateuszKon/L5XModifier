@@ -84,6 +84,7 @@ class mQtItem_alphabetical_tag(mQtItem_alphabetical_tag_virtual):
         else:
             self.data_type = "Constant"
             self.value = tag_name
+        self.tag_path = tag_name
         val_visible = self.value is not None
         super().__init__(root, tag_name, Val_visible=val_visible)
         self.setSelectable(False)
@@ -95,6 +96,11 @@ class mQtItem_alphabetical_tag(mQtItem_alphabetical_tag_virtual):
 
     def tag_clicked(self, event: QMouseEvent, tree):
         # TODO: tag clicked
+        # toggle wartość pod self.selected
+        # zaznacz odpowiednio wszystkie elementy z drzewka appear order:
+        #   1.
+        #   2. Stworzyć nazwę taga (już jest pod self.tag_path)
+        #   2. Przeanalizować wszystkie elementy drzewka appear order szukając
         pass
 
     def update_tag_element(self):
@@ -108,6 +114,7 @@ class mQtItem_alphabetical_tag_element(mQtItem_alphabetical_tag_virtual):
                  tag_element: L5X.L5XTag, element_tag_path: str):
         self.data_type = data_type
         self.scope = scope
+        self.tag_path = element_tag_path
         # set data_type and value of the tag or constant
         if self.scope is not None:
             if not len(children_dictionary):

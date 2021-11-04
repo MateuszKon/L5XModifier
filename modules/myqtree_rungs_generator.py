@@ -1,10 +1,15 @@
 from PySide6.QtWidgets import QTreeView, QStyledItemDelegate, QStyleOptionViewItem, QStyle
-from PySide6.QtGui import QMouseEvent, QTextDocument, QFont, QAbstractTextDocumentLayout
+from PySide6.QtGui import QMouseEvent, QTextDocument, QFont, QAbstractTextDocumentLayout, QStandardItemModel
 from PySide6.QtCore import Qt, QRect
 from widgets.custom_QStandardItems import myQt_rung_generation
 
 
 class myQTree_rungs_generator(QTreeView):
+
+    def __init__(self, parent):
+        super().__init__(parent=parent)
+        self.appear_order_model = None
+        self.alphabetical_order_model = None
 
     def mousePressEvent(self, event: QMouseEvent) -> None:
         index = self.indexAt(event.pos())
@@ -14,6 +19,20 @@ class myQTree_rungs_generator(QTreeView):
         elif isinstance(model_pressed, myQt_rung_generation.mQtItem_alphabetical_tag_virtual):
             model_pressed.tag_clicked(event, self)
         super().mousePressEvent(event)
+
+    def set_appear_order_model(self, tree_model: QStandardItemModel):
+        self.appear_order_model = tree_model
+
+    def set_alphabetical_order_model(self, tree_model: QStandardItemModel):
+        self.alphabetical_order_model = tree_model
+
+    def get_appear_order_tags(self):
+        # TODO: get_appear_order_tags
+        pass
+
+    def get_alphabetical_order_tags(self):
+        # TODO: get_alphabetical_order_tags
+        pass
 
 
 class myQStyleDelegate(QStyledItemDelegate):

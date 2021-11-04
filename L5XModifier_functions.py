@@ -162,6 +162,7 @@ class L5XModifier:
             elem_splited = mQtItem_tag_element.split_tag_to_parts(element, join_index=True)
             self.build_elements_dict(elems_dict, elem_splited)
         for tag in sorted(elems_dict):
+            # TODO: NEW create some self.dictionary for stroring elements (to easily find correct tags to change)
             tag_item = mQtItem_alphabetical_tag(self.root, tag, elems_dict[tag])
             tree_alphabetical_model.appendRow(tag_item.get_row())
 
