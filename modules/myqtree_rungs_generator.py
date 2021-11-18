@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import QTreeView, QStyledItemDelegate, QStyleOptionViewItem, QStyle
-from PySide6.QtGui import QMouseEvent, QTextDocument, QFont, QAbstractTextDocumentLayout, QStandardItemModel
-from PySide6.QtCore import Qt, QRect
+from PySide6.QtGui import QMouseEvent, QTextDocument, QFont, QAbstractTextDocumentLayout, QStandardItemModel, QStandardItem
+from PySide6.QtCore import Qt, QRect, QModelIndex
 from widgets.custom_QStandardItems import myQt_rung_generation
 
 
@@ -27,12 +27,21 @@ class myQTree_rungs_generator(QTreeView):
         self.alphabetical_order_model = tree_model
 
     def get_appear_order_tags(self):
-        # TODO: get_appear_order_tags
-        pass
+        model: QStandardItemModel = self.appear_order_model
+        tag_list = list()
+        for i in range(model.rowCount()):
+            index = model.index(i, 0)
+            rung: QStandardItem = index.model().itemFromIndex(index)
+            for j in range(rung.rowCount()):
+                tag = rung.child(j, 0)
+                tag_list.append(tag)
+        return tag_list
 
     def get_alphabetical_order_tags(self):
+        # GET ALL ITEMS (model.children? model.allrows?)
         # TODO: get_alphabetical_order_tags
         pass
+
 
 
 class myQStyleDelegate(QStyledItemDelegate):
@@ -63,6 +72,12 @@ class myQStyleDelegate(QStyledItemDelegate):
                     if text == "]":
                         parentheses_opened -= 1
                 string = '<font color = #dddddd>' + ".".join(string_list) + '</font>'
+                self.painting_with_painter(painter, option, string)
+            else:
+                super().paint(painter, options, index)
+        elif isinstance(model, myQt_rung_generation.mQtItem_alphabetical_tag_virtual):
+            if model.selected:
+                string = '<font color = "red">' + model.text() + '</font>'
                 self.painting_with_painter(painter, option, string)
             else:
                 super().paint(painter, options, index)

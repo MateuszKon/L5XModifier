@@ -67,6 +67,10 @@ class RungGeneratorPage(MainWindow):
         self.L5Xrungs.generate_tree_alphabetical_order(self.alphabetical_order_model, self.appear_order_model)
         self.alphabetical_order_model.itemChanged.connect(self.alphabetical_model_changed)
 
+        # CONNECTING APPEAR AND ALPHABETICAL MODELS TO TREE WIDGET
+        self.widgets.treeView_trG.set_appear_order_model(self.appear_order_model)
+        self.widgets.treeView_trG.set_alphabetical_order_model(self.alphabetical_order_model)
+
         # DISPLAYING MODEL
         self.widgets.treeView_trG.setModel(self.alphabetical_order_model)
         self.widgets.treeView_trG.expandAll()

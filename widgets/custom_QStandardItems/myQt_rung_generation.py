@@ -57,8 +57,27 @@ class mQtItem_rung(myQtItem_TemplateItem):
 
 class mQtItem_alphabetical_tag_virtual(myQtItem_TemplateItem):
 
+    def __init__(self, root: L5X.L5XRoot, name: str, scope, data_type, value, tag_path,
+                 DT_visible=True, Dsc_visible=True, Val_visible=True, Scp_visible=True):
+        self.scope = scope
+        self.data_type = data_type
+        self.value = value
+        self.tag_path = tag_path
+        self.selected = False
+        super().__init__(root, name, DT_visible=DT_visible, Dsc_visible=Dsc_visible, Val_visible=Val_visible,
+                         Scp_visible=Scp_visible)
+        self.setSelectable(False)
+
     def tag_clicked(self, event: QMouseEvent, tree):
-        pass
+        # TODO: tag clicked
+        # toggle wartość pod self.selected
+        # zaznacz odpowiednio wszystkie elementy z drzewka appear order:
+        #   1.
+        #   2. Stworzyć nazwę taga (już jest pod self.tag_path)
+        #   2. Przeanalizować wszystkie elementy drzewka appear order szukając
+        self.selected = not self.selected
+        all_tags = tree.get_appear_order_tags()
+        print(all_tags)
 
     def update_tag_element(self):
         pass
@@ -68,64 +87,46 @@ class mQtItem_alphabetical_tag(mQtItem_alphabetical_tag_virtual):
 
     def __init__(self, root: L5X.L5XRoot, tag_name: str, children_dictionary: dict):
         if root.tag(tag_name) is not None:
-            self.scope = "Controller"
+            scope = "Controller"
         elif root.any_program().tag(tag_name) is not None:
-            self.scope = root.any_program().attrib["Name"]
+            scope = root.any_program().attrib["Name"]
         else:
-            self.scope = None
+            scope = None
         # set data_type and value of the tag or constant
-        if self.scope is not None:
-            tag = root.tag(tag_name, self.scope)
-            self.data_type = tag.attrib["DataType"]
+        if scope is not None:
+            tag = root.tag(tag_name, scope)
+            data_type = tag.attrib["DataType"]
             if not len(children_dictionary):
-                self.value = tag.get_value()
+                value = tag.get_value()
             else:
-                self.value = None
+                value = None
         else:
-            self.data_type = "Constant"
-            self.value = tag_name
-        self.tag_path = tag_name
-        val_visible = self.value is not None
-        super().__init__(root, tag_name, Val_visible=val_visible)
-        self.setSelectable(False)
+            data_type = "Constant"
+            value = tag_name
+        val_visible = value is not None
+        super().__init__(root, tag_name, scope, data_type, value, tag_name, Val_visible=val_visible)
         for element in sorted(children_dictionary):
             self.appendRow(
                 mQtItem_alphabetical_tag_element(root, element, self.data_type, self.scope,
                                                  children_dictionary[element], tag, element).get_row()
             )
 
-    def tag_clicked(self, event: QMouseEvent, tree):
-        # TODO: tag clicked
-        # toggle wartość pod self.selected
-        # zaznacz odpowiednio wszystkie elementy z drzewka appear order:
-        #   1.
-        #   2. Stworzyć nazwę taga (już jest pod self.tag_path)
-        #   2. Przeanalizować wszystkie elementy drzewka appear order szukając
-        pass
-
-    def update_tag_element(self):
-        # TODO: alphabetical_model_changed
-        pass
-
 
 class mQtItem_alphabetical_tag_element(mQtItem_alphabetical_tag_virtual):
 
     def __init__(self, root: L5X.L5XRoot, name: str, data_type: str, scope: str, children_dictionary: dict,
                  tag_element: L5X.L5XTag, element_tag_path: str):
-        self.data_type = data_type
-        self.scope = scope
-        self.tag_path = element_tag_path
         # set data_type and value of the tag or constant
-        if self.scope is not None:
+        if scope is not None:
             if not len(children_dictionary):
-                self.value = tag_element.get_value_element(element_tag_path)
+                value = tag_element.get_value_element(element_tag_path)
             else:
-                self.value = None
+                value = None
         else:
-            self.value = name
-        val_visible = self.value is not None
-        super().__init__(root, name, DT_visible=False, Val_visible=val_visible, Scp_visible=False)
-        self.setSelectable(False)
+            value = name
+        val_visible = value is not None
+        super().__init__(root, name, scope, data_type, value, element_tag_path,
+                         DT_visible=False, Val_visible=val_visible, Scp_visible=False)
         for element in sorted(children_dictionary):
             if "[" in element:
                 child_element_tag_path = element_tag_path + element
@@ -136,14 +137,6 @@ class mQtItem_alphabetical_tag_element(mQtItem_alphabetical_tag_virtual):
                                                  children_dictionary[element], tag_element,
                                                  child_element_tag_path).get_row()
             )
-
-    def tag_clicked(self, event: QMouseEvent, tree):
-        # TODO: element tag clicked
-        pass
-
-    def update_tag_element(self):
-        # TODO: alphabetical_model_changed
-        pass
 
 
 class mQtItem_tag_element(myQtItem_TemplateItem):
