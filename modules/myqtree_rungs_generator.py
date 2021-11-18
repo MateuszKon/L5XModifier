@@ -33,7 +33,7 @@ class myQTree_rungs_generator(QTreeView):
             index = model.index(i, 0)
             rung: QStandardItem = index.model().itemFromIndex(index)
             for j in range(rung.rowCount()):
-                tag = rung.child(j, 0)
+                tag: myQt_rung_generation.mQtItem_tag_element = rung.child(j, 0)
                 tag_list.append(tag)
         return tag_list
 

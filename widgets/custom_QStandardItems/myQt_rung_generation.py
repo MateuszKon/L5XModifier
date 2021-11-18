@@ -69,7 +69,6 @@ class mQtItem_alphabetical_tag_virtual(myQtItem_TemplateItem):
         self.setSelectable(False)
 
     def tag_clicked(self, event: QMouseEvent, tree):
-        # TODO: tag clicked
         # toggle wartość pod self.selected
         # zaznacz odpowiednio wszystkie elementy z drzewka appear order:
         #   1.
@@ -77,7 +76,12 @@ class mQtItem_alphabetical_tag_virtual(myQtItem_TemplateItem):
         #   2. Przeanalizować wszystkie elementy drzewka appear order szukając
         self.selected = not self.selected
         all_tags = tree.get_appear_order_tags()
-        print(all_tags)
+        for tag in all_tags:
+            tag: mQtItem_tag_element
+            if re.match(self.tag_path, tag.text()):
+                splitted_tag_path = tag.split_tag_to_parts(self.tag_path)
+                selected_index = len(splitted_tag_path) - 1
+                tag.alphabetical_selected[selected_index] = not tag.alphabetical_selected[selected_index]
 
     def update_tag_element(self):
         pass
@@ -174,6 +178,7 @@ class mQtItem_tag_element(myQtItem_TemplateItem):
         self.setSelectable(False)
         self.splited_text = self.split_tag_to_parts(self.text())
         self.selected = list([False for x in range(len(self.splited_text))])
+        self.alphabetical_selected = list([False for x in range(len(self.splited_text))])
         self.whole_selected = False
 
     def tag_clicked(self, event: QMouseEvent, tree):
