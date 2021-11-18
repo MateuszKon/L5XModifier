@@ -49,16 +49,21 @@ class myQStyleDelegate(QStyledItemDelegate):
         options = QStyleOptionViewItem(option)
         self.initStyleOption(options, index)
         model = index.model().itemFromIndex(index)
+
+        # PAINTING APPEAR ORDER ELEMENT
         if isinstance(model, myQt_rung_generation.mQtItem_tag_element):
             if model.whole_selected:
                 string = '<font color = "yellow">' + model.text() + '</font>'
                 self.painting_with_painter(painter, option, string)
-            elif len(model.selected) != 0:
+            else:
                 string_list = list()
                 parentheses_opened = 0
-                for text, selected in zip(model.splited_text, model.selected):
+                for text, selected, alphabetical_selected in zip(model.splited_text, model.selected,
+                                                                 model.alphabetical_selected):
                     if selected:
                         text_to_append = '<font color = "green">' + text + '</font>'
+                    elif alphabetical_selected:
+                        text_to_append = '<font color = "red">' + text + '</font>'
                     else:
                         text_to_append = text
                     if text == "[":
@@ -72,14 +77,16 @@ class myQStyleDelegate(QStyledItemDelegate):
                         parentheses_opened -= 1
                 string = '<font color = #dddddd>' + ".".join(string_list) + '</font>'
                 self.painting_with_painter(painter, option, string)
-            else:
-                super().paint(painter, options, index)
+
+        # PAINTING ALPHABETICAL ORDER ELEMENT
         elif isinstance(model, myQt_rung_generation.mQtItem_alphabetical_tag_virtual):
             if model.selected:
                 string = '<font color = "red">' + model.text() + '</font>'
                 self.painting_with_painter(painter, option, string)
             else:
                 super().paint(painter, options, index)
+
+        # PAINTING EVERYTHING ELSE
         else:
             super().paint(painter, options, index)
 

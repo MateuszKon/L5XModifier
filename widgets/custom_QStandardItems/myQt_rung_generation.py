@@ -230,4 +230,5 @@ class mQtItem_tag_element(myQtItem_TemplateItem):
     def update_tag_element(self):
         self.splited_text = self.split_tag_to_parts(self.text())
         self.selected = list([False for x in range(len(self.splited_text))])
+        self.alphabetical_selected = list([False for x in range(len(self.splited_text))])
         self.whole_selected = False
