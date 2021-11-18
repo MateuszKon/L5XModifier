@@ -74,6 +74,7 @@ class mQtItem_alphabetical_tag_virtual(myQtItem_TemplateItem):
         #   1.
         #   2. Stworzyć nazwę taga (już jest pod self.tag_path)
         #   2. Przeanalizować wszystkie elementy drzewka appear order szukając
+        # TODO: When pressed nested element, it doesn't appear in appear order
         self.selected = not self.selected
         all_tags = tree.get_appear_order_tags()
         for tag in all_tags:
