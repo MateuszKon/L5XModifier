@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainnqxali.ui'
+## Form generated from reading UI file 'mainHUhZJk.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.2
 ##
@@ -19,7 +19,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1052, 566)
+        MainWindow.resize(1286, 641)
         MainWindow.setMinimumSize(QSize(470, 280))
         MainWindow.setAutoFillBackground(True)
         self.styleSheet = QWidget(MainWindow)
@@ -1582,7 +1582,7 @@ class Ui_MainWindow(object):
         self.scrollArea_rG.setWidgetResizable(True)
         self.scrollAreaWidgetContents_rG = QWidget()
         self.scrollAreaWidgetContents_rG.setObjectName(u"scrollAreaWidgetContents_rG")
-        self.scrollAreaWidgetContents_rG.setGeometry(QRect(0, 0, 950, 449))
+        self.scrollAreaWidgetContents_rG.setGeometry(QRect(0, 0, 1184, 524))
         self.verticalLayout_26 = QVBoxLayout(self.scrollAreaWidgetContents_rG)
         self.verticalLayout_26.setObjectName(u"verticalLayout_26")
         self.rG_header = QHBoxLayout()
@@ -1760,6 +1760,28 @@ class Ui_MainWindow(object):
 
         self.rG_tree_header.addItem(self.horizontalSpacer_4)
 
+        self.pushButton_rG_expand = QPushButton(self.page_rG_prepareCSV)
+        self.pushButton_rG_expand.setObjectName(u"pushButton_rG_expand")
+        self.pushButton_rG_expand.setMinimumSize(QSize(75, 15))
+        self.pushButton_rG_expand.setFont(font)
+        self.pushButton_rG_expand.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_rG_expand.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+
+        self.rG_tree_header.addWidget(self.pushButton_rG_expand)
+
+        self.pushButton_rG_collapse = QPushButton(self.page_rG_prepareCSV)
+        self.pushButton_rG_collapse.setObjectName(u"pushButton_rG_collapse")
+        self.pushButton_rG_collapse.setMinimumSize(QSize(75, 15))
+        self.pushButton_rG_collapse.setFont(font)
+        self.pushButton_rG_collapse.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_rG_collapse.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+
+        self.rG_tree_header.addWidget(self.pushButton_rG_collapse)
+
+        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.rG_tree_header.addItem(self.horizontalSpacer_5)
+
         self.pushButton_rG_appear = QPushButton(self.page_rG_prepareCSV)
         self.pushButton_rG_appear.setObjectName(u"pushButton_rG_appear")
         self.pushButton_rG_appear.setMinimumSize(QSize(75, 15))
@@ -1778,6 +1800,8 @@ class Ui_MainWindow(object):
 
         self.rG_tree_header.addWidget(self.pushButton_rG_alphabetical)
 
+        self.rG_tree_header.setStretch(1, 20)
+        self.rG_tree_header.setStretch(4, 1)
 
         self.rG_tree_layout.addLayout(self.rG_tree_header)
 
@@ -2270,8 +2294,10 @@ class Ui_MainWindow(object):
         self.pushButton_rG_saveConfiguration.setText(QCoreApplication.translate("MainWindow", u"Save configuration file", None))
         self.pushButton_rG_exportCSV.setText(QCoreApplication.translate("MainWindow", u"export tag CSV file", None))
         self.labelBox_rG_treeHeader.setText(QCoreApplication.translate("MainWindow", u"Rungs Template", None))
-        self.pushButton_rG_appear.setText(QCoreApplication.translate("MainWindow", u"appear order", None))
-        self.pushButton_rG_alphabetical.setText(QCoreApplication.translate("MainWindow", u"alphabetical", None))
+        self.pushButton_rG_expand.setText(QCoreApplication.translate("MainWindow", u"Expand", None))
+        self.pushButton_rG_collapse.setText(QCoreApplication.translate("MainWindow", u"Collapse", None))
+        self.pushButton_rG_appear.setText(QCoreApplication.translate("MainWindow", u"Appear order", None))
+        self.pushButton_rG_alphabetical.setText(QCoreApplication.translate("MainWindow", u"Alphabetical", None))
         self.labelBox_rG_chooseProgram.setText(QCoreApplication.translate("MainWindow", u"Choose Program", None))
         self.labelBox_rG_chooseRungsRoutine.setText(QCoreApplication.translate("MainWindow", u"Choose Rungs Routine", None))
         self.labelBox_rG_rungs_rungNumber.setText(QCoreApplication.translate("MainWindow", u"rung number (-1)", None))

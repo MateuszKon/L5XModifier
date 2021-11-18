@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1052</width>
-    <height>566</height>
+    <width>1286</width>
+    <height>641</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -3078,8 +3078,8 @@ p, li { white-space: pre-wrap; }
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>950</width>
-                            <height>449</height>
+                            <width>1184</width>
+                            <height>524</height>
                            </rect>
                           </property>
                           <layout class="QVBoxLayout" name="verticalLayout_26">
@@ -3488,7 +3488,7 @@ p, li { white-space: pre-wrap; }
                                <item>
                                 <layout class="QVBoxLayout" name="rG_tree_layout">
                                  <item>
-                                  <layout class="QHBoxLayout" name="rG_tree_header">
+                                  <layout class="QHBoxLayout" name="rG_tree_header" stretch="0,20,0,0,1,0,0">
                                    <item>
                                     <widget class="QLabel" name="labelBox_rG_treeHeader">
                                      <property name="font">
@@ -3508,6 +3508,71 @@ p, li { white-space: pre-wrap; }
                                    </item>
                                    <item>
                                     <spacer name="horizontalSpacer_4">
+                                     <property name="orientation">
+                                      <enum>Qt::Horizontal</enum>
+                                     </property>
+                                     <property name="sizeHint" stdset="0">
+                                      <size>
+                                       <width>40</width>
+                                       <height>20</height>
+                                      </size>
+                                     </property>
+                                    </spacer>
+                                   </item>
+                                   <item>
+                                    <widget class="QPushButton" name="pushButton_rG_expand">
+                                     <property name="minimumSize">
+                                      <size>
+                                       <width>75</width>
+                                       <height>15</height>
+                                      </size>
+                                     </property>
+                                     <property name="font">
+                                      <font>
+                                       <pointsize>10</pointsize>
+                                       <italic>false</italic>
+                                       <bold>false</bold>
+                                      </font>
+                                     </property>
+                                     <property name="cursor">
+                                      <cursorShape>PointingHandCursor</cursorShape>
+                                     </property>
+                                     <property name="styleSheet">
+                                      <string notr="true">background-color: rgb(52, 59, 72);</string>
+                                     </property>
+                                     <property name="text">
+                                      <string>Expand</string>
+                                     </property>
+                                    </widget>
+                                   </item>
+                                   <item>
+                                    <widget class="QPushButton" name="pushButton_rG_collapse">
+                                     <property name="minimumSize">
+                                      <size>
+                                       <width>75</width>
+                                       <height>15</height>
+                                      </size>
+                                     </property>
+                                     <property name="font">
+                                      <font>
+                                       <pointsize>10</pointsize>
+                                       <italic>false</italic>
+                                       <bold>false</bold>
+                                      </font>
+                                     </property>
+                                     <property name="cursor">
+                                      <cursorShape>PointingHandCursor</cursorShape>
+                                     </property>
+                                     <property name="styleSheet">
+                                      <string notr="true">background-color: rgb(52, 59, 72);</string>
+                                     </property>
+                                     <property name="text">
+                                      <string>Collapse</string>
+                                     </property>
+                                    </widget>
+                                   </item>
+                                   <item>
+                                    <spacer name="horizontalSpacer_5">
                                      <property name="orientation">
                                       <enum>Qt::Horizontal</enum>
                                      </property>
@@ -3541,7 +3606,7 @@ p, li { white-space: pre-wrap; }
                                       <string notr="true">background-color: rgb(52, 59, 72);</string>
                                      </property>
                                      <property name="text">
-                                      <string>appear order</string>
+                                      <string>Appear order</string>
                                      </property>
                                     </widget>
                                    </item>
@@ -3567,7 +3632,7 @@ p, li { white-space: pre-wrap; }
                                       <string notr="true">background-color: rgb(52, 59, 72);</string>
                                      </property>
                                      <property name="text">
-                                      <string>alphabetical</string>
+                                      <string>Alphabetical</string>
                                      </property>
                                     </widget>
                                    </item>

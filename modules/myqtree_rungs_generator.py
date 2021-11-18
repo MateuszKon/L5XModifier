@@ -43,7 +43,6 @@ class myQTree_rungs_generator(QTreeView):
         pass
 
 
-
 class myQStyleDelegate(QStyledItemDelegate):
 
     def paint(self, painter, option, index) -> None:

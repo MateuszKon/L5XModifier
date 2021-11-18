@@ -27,6 +27,10 @@ class RungGeneratorPage(MainWindow):
         # SIGNALS AND SLOTS CONNECTIONS
         self.widgets.pushButton_rG_rungs_OpenFile.clicked.connect(self.rungs_openFile_button)
         self.widgets.lineEdit_rG_rungs_OpenFile.editingFinished.connect(self.rungs_file_changed)
+        self.widgets.pushButton_rG_appear.clicked.connect(self.display_appear_order_model)
+        self.widgets.pushButton_rG_alphabetical.clicked.connect(self.display_alphabetical_order_model)
+        self.widgets.pushButton_rG_collapse.clicked.connect(self.collapse_model)
+        self.widgets.pushButton_rG_expand.clicked.connect(self.expand_model)
 
     def rungs_openFile_button(self):
         dialog = QFileDialog()
@@ -72,10 +76,25 @@ class RungGeneratorPage(MainWindow):
         self.widgets.treeView_trG.set_alphabetical_order_model(self.alphabetical_order_model)
 
         # DISPLAYING MODEL
-        self.widgets.treeView_trG.setModel(self.alphabetical_order_model)
-        self.widgets.treeView_trG.expandAll()
+        self.display_appear_order_model()
+
+    def display_appear_order_model(self):
+        self.display_model(self.appear_order_model)
+
+    def display_alphabetical_order_model(self):
+        self.display_model(self.alphabetical_order_model)
+
+    def display_model(self, model):
+        self.widgets.treeView_trG.setModel(model)
+        self.expand_model()
         for i in range(4, -1, -1):
             self.widgets.treeView_trG.resizeColumnToContents(i)
+
+    def expand_model(self):
+        self.widgets.treeView_trG.expandAll()
+
+    def collapse_model(self):
+        self.widgets.treeView_trG.collapseAll()
 
     def appear_model_changed(self, item):
         item.update_tag_element()
