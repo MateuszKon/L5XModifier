@@ -57,11 +57,12 @@ class mQtItem_rung(myQtItem_TemplateItem):
 
 class mQtItem_alphabetical_tag_virtual(myQtItem_TemplateItem):
 
-    def __init__(self, root: L5X.L5XRoot, name: str, scope, data_type, value, tag_path,
+    def __init__(self, root: L5X.L5XRoot, name: str, scope, data_type, value, tag: L5X.L5XTag, tag_path,
                  DT_visible=True, Dsc_visible=True, Val_visible=True, Scp_visible=True):
         self.scope = scope
         self.data_type = data_type
         self.value = value
+        self.tag = tag
         self.tag_path = tag_path
         self.selected = False
         super().__init__(root, name, DT_visible=DT_visible, Dsc_visible=Dsc_visible, Val_visible=Val_visible,
@@ -108,8 +109,9 @@ class mQtItem_alphabetical_tag(mQtItem_alphabetical_tag_virtual):
         else:
             data_type = "Constant"
             value = tag_name
+            tag = None
         val_visible = value is not None
-        super().__init__(root, tag_name, scope, data_type, value, tag_name, Val_visible=val_visible)
+        super().__init__(root, tag_name, scope, data_type, value, tag, tag_name, Val_visible=val_visible)
         for element in sorted(children_dictionary):
             self.appendRow(
                 mQtItem_alphabetical_tag_element(root, element, self.data_type, self.scope,
@@ -130,7 +132,7 @@ class mQtItem_alphabetical_tag_element(mQtItem_alphabetical_tag_virtual):
         else:
             value = name
         val_visible = value is not None
-        super().__init__(root, name, scope, data_type, value, element_tag_path,
+        super().__init__(root, name, scope, data_type, value, tag_element, element_tag_path,
                          DT_visible=False, Val_visible=val_visible, Scp_visible=False)
         for element in sorted(children_dictionary):
             if "[" in element:
