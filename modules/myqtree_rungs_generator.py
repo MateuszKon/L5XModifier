@@ -39,8 +39,13 @@ class myQTree_rungs_generator(QTreeView):
 
     def get_alphabetical_order_tags(self):
         # GET ALL ITEMS (model.children? model.allrows?)
-        # TODO: get_alphabetical_order_tags
-        pass
+        model: QStandardItemModel = self.alphabetical_order_model
+        tag_list = list()
+        for i in range(model.rowCount()):
+            index = model.index(i, 0)
+            tag: myQt_rung_generation.mQtItem_alphabetical_tag = index.model().itemFromIndex(index)
+            tag_list.append(tag)
+        return tag_list
 
 
 class myQStyleDelegate(QStyledItemDelegate):

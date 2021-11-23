@@ -65,6 +65,7 @@ class mQtItem_alphabetical_tag_virtual(myQtItem_TemplateItem):
         self.tag = tag
         self.tag_path = tag_path
         self.selected = False
+        self.tag_elements = list()
         super().__init__(root, name, DT_visible=DT_visible, Dsc_visible=Dsc_visible, Val_visible=Val_visible,
                          Scp_visible=Scp_visible)
         self.setSelectable(False)
@@ -75,13 +76,13 @@ class mQtItem_alphabetical_tag_virtual(myQtItem_TemplateItem):
         #   1.
         #   2. Stworzyć nazwę taga (już jest pod self.tag_path)
         #   2. Przeanalizować wszystkie elementy drzewka appear order szukając
-        # TODO: When pressed nested element, it doesn't appear in appear order
         self.selected = not self.selected
         all_tags = tree.get_appear_order_tags()
         for tag in all_tags:
             tag: mQtItem_tag_element
-            if re.match(self.tag_path, tag.text()):
-                splitted_tag_path = tag.split_tag_to_parts(self.tag_path)
+            element_name = (self.tag.name + "." + self.tag_path) if len(self.tag_path) else self.tag.name
+            if re.match(element_name, tag.text()):
+                splitted_tag_path = tag.split_tag_to_parts(element_name)
                 selected_index = len(splitted_tag_path) - 1
                 tag.alphabetical_selected[selected_index] = not tag.alphabetical_selected[selected_index]
 
@@ -111,12 +112,12 @@ class mQtItem_alphabetical_tag(mQtItem_alphabetical_tag_virtual):
             value = tag_name
             tag = None
         val_visible = value is not None
-        super().__init__(root, tag_name, scope, data_type, value, tag, tag_name, Val_visible=val_visible)
+        super().__init__(root, tag_name, scope, data_type, value, tag, "", Val_visible=val_visible)
         for element in sorted(children_dictionary):
-            self.appendRow(
-                mQtItem_alphabetical_tag_element(root, element, self.data_type, self.scope,
-                                                 children_dictionary[element], tag, element).get_row()
-            )
+            element_obj = mQtItem_alphabetical_tag_element(root, element, self.data_type, self.scope,
+                                                           children_dictionary[element], tag, element)
+            self.tag_elements.append(element_obj)
+            self.appendRow(element_obj.get_row())
 
 
 class mQtItem_alphabetical_tag_element(mQtItem_alphabetical_tag_virtual):
@@ -139,11 +140,11 @@ class mQtItem_alphabetical_tag_element(mQtItem_alphabetical_tag_virtual):
                 child_element_tag_path = element_tag_path + element
             else:
                 child_element_tag_path = element_tag_path + "." + element
-            self.appendRow(
-                mQtItem_alphabetical_tag_element(root, element, self.data_type, self.scope,
-                                                 children_dictionary[element], tag_element,
-                                                 child_element_tag_path).get_row()
-            )
+            element_obj = mQtItem_alphabetical_tag_element(root, element, self.data_type, self.scope,
+                                                           children_dictionary[element], tag_element,
+                                                           child_element_tag_path)
+            self.tag_elements.append(element_obj)
+            self.appendRow(element_obj.get_row())
 
 
 class mQtItem_tag_element(myQtItem_TemplateItem):
