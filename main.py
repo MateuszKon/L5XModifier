@@ -260,7 +260,7 @@ if __name__ == "__main__":
     app.setWindowIcon(app_icon)
     window = MainWindow()
 
-    # TODO: Delete TMP
+    # TODO END: Delete TMP
     # TMP
     # ///////////////////////////////////////////////////////////////////
     path = r"C:\Users\plc\Desktop\Rungs0to12_from_R07b_OutputMotions.L5X"

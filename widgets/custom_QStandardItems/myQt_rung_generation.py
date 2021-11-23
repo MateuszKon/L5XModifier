@@ -40,6 +40,7 @@ class mQtItem_rung(myQtItem_TemplateItem):
         self.comment = comment
         self.code = rung_code
         self.used_tags = self.list_used_tags(self.code)
+        self.code_format = self.create_code_format(self.code, self.used_tags)
         for tag in self.used_tags:
             self.appendRow(mQtItem_tag_element(root, tag).get_row())
 
@@ -53,6 +54,12 @@ class mQtItem_rung(myQtItem_TemplateItem):
             for tag in tags:
                 used_tags.append(tag)
         return used_tags
+
+    @staticmethod
+    def create_code_format(code: str, used_tags):
+        for tag in used_tags:
+            code = code.replace(tag, "{}", 1)
+        return code
 
 
 class mQtItem_alphabetical_tag_virtual(myQtItem_TemplateItem):
@@ -150,7 +157,7 @@ class mQtItem_alphabetical_tag_element(mQtItem_alphabetical_tag_virtual):
 class mQtItem_tag_element(myQtItem_TemplateItem):
 
     def __init__(self, root: L5X.L5XRoot, name: str):
-        # TODO: if in first part of tag will be array index, it will split wrongly
+        # TODO FIX: if in first part of tag will be array index, it will split wrongly
         # split name into tag structure elements
         splitted = name.split(".")
         tag_name = splitted[0]
@@ -191,7 +198,7 @@ class mQtItem_tag_element(myQtItem_TemplateItem):
         left = tree.visualRect(self.index()).left()
         top = tree.visualRect(self.index()).top()
         selected = event.x() - left
-        # TODO: Fix clicking area
+        # TODO FIX: clicking area
         start_position = 10
         if event.button() == Qt.RightButton:
             self.whole_selected = False if self.whole_selected else True
