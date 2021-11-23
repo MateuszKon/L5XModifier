@@ -31,6 +31,7 @@ class RungGeneratorPage(MainWindow):
         self.widgets.pushButton_rG_alphabetical.clicked.connect(self.display_alphabetical_order_model)
         self.widgets.pushButton_rG_collapse.clicked.connect(self.collapse_model)
         self.widgets.pushButton_rG_expand.clicked.connect(self.expand_model)
+        self.widgets.pushButton_rG_exportCSV.clicked.connect(self.export_tag_csv)
 
     def rungs_openFile_button(self):
         dialog = QFileDialog()
@@ -101,3 +102,13 @@ class RungGeneratorPage(MainWindow):
 
     def alphabetical_model_changed(self, item):
         item.update_tag_element()
+
+    def export_tag_csv(self):
+        pass
+        # TODO: clicking PB opens file where to save CSV file containing selected tags and other values.
+        #  Later this file will be modified and imported back to app to generate new rungs.
+        # 1. Open file dialog
+        # 2. Read all information from tree
+        headers, first_row = self.widgets.treeView_trG.get_information_for_csv()
+        # 3. Create headers based on selected elements in the tree
+        # 4. Create first row with data from template

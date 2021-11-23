@@ -8,12 +8,51 @@ import re
 
 class myQtTree_Checkbox(QStandardItem):
 
-    def __init__(self, visible):
+    def __init__(self, visible, csv_header_text):
+        # TODO: child class for each type of checkbox
         super().__init__()
         self.setSelectable(False)
+        self.csv_header_text = csv_header_text
         if visible:
             self.setFlags(Qt.ItemIsEnabled | Qt.ItemFlag.ItemIsUserCheckable)
             self.setData(Qt.CheckState.Unchecked, Qt.ItemDataRole.CheckStateRole)
+
+    def get_checkbox_header(self) -> str:
+        # TODO: get_csv_header for Checkbox - might be done
+        if self.checkState():  # or something like this
+            # return class specific text which will be added to header
+            # that way, caller will know, that header is needed to be done
+            return self.csv_header_text
+        else:
+            return ""
+
+
+class mQtTree_Checkbox_DT(myQtTree_Checkbox):
+
+    def __init__(self, visible):
+        csv_header_text = "DT"
+        super().__init__(visible, csv_header_text)
+
+
+class mQtTree_Checkbox_DSC(myQtTree_Checkbox):
+
+    def __init__(self, visible):
+        csv_header_text = "DSC"
+        super().__init__(visible, csv_header_text)
+
+
+class mQtTree_Checkbox_Val(myQtTree_Checkbox):
+
+    def __init__(self, visible):
+        csv_header_text = "Val"
+        super().__init__(visible, csv_header_text)
+
+
+class mQtTree_Checkbox_Scp(myQtTree_Checkbox):
+
+    def __init__(self, visible):
+        csv_header_text = "Scp"
+        super().__init__(visible, csv_header_text)
 
 
 class myQtItem_TemplateItem(QStandardItem):
@@ -22,13 +61,22 @@ class myQtItem_TemplateItem(QStandardItem):
                  DT_visible=True, Dsc_visible=True, Val_visible=True, Scp_visible=True):
         super().__init__(name)
         self.root = root
-        self.DT = myQtTree_Checkbox(DT_visible)
-        self.Dsc = myQtTree_Checkbox(Dsc_visible)
-        self.Val = myQtTree_Checkbox(Val_visible)
-        self.Scp = myQtTree_Checkbox(Scp_visible)
+        self.DT = mQtTree_Checkbox_DT(DT_visible)
+        self.Dsc = mQtTree_Checkbox_DSC(Dsc_visible)
+        self.Val = mQtTree_Checkbox_Val(Val_visible)
+        self.Scp = mQtTree_Checkbox_Scp(Scp_visible)
 
     def get_row(self):
         return [self, self.DT, self.Dsc, self.Val, self.Scp]
+
+    def get_checkboxes(self):
+        return [self.DT, self.Dsc, self.Val, self.Scp]
+
+    def get_csv_header(self) -> (list, list):
+        pass
+        # TODO: get_csv_header for item - virtual fucntion
+        # returns two lists: headers, template_rows
+        # create all headers and template_row for this item and all checkboxes
 
 
 class mQtItem_rung(myQtItem_TemplateItem):
@@ -61,14 +109,19 @@ class mQtItem_rung(myQtItem_TemplateItem):
             code = code.replace(tag, "{}", 1)
         return code
 
+    def get_csv_header(self) -> (list, list):
+        # TODO: get_csv_header for rung
+        pass
+
 
 class mQtItem_alphabetical_tag_virtual(myQtItem_TemplateItem):
 
-    def __init__(self, root: L5X.L5XRoot, name: str, scope, data_type, value, tag: L5X.L5XTag, tag_path,
+    def __init__(self, root: L5X.L5XRoot, name: str, scope, data_type, value, description, tag: L5X.L5XTag, tag_path,
                  DT_visible=True, Dsc_visible=True, Val_visible=True, Scp_visible=True):
         self.scope = scope
         self.data_type = data_type
         self.value = value
+        self.description = description
         self.tag = tag
         self.tag_path = tag_path
         self.selected = False
@@ -96,6 +149,17 @@ class mQtItem_alphabetical_tag_virtual(myQtItem_TemplateItem):
     def update_tag_element(self):
         pass
 
+    def get_csv_header(self) -> (list, list):
+        # TODO: get_csv_header for tag
+        # returns two lists: headers, template_rows
+        # create all headers and template_row for this item and all checkboxes
+        # create header for main item
+        pass
+        # create header for checkboxes
+        template_values = [self.data_type, self.value, self.description, self.scope]
+        for checkbox, template_value in zip(self.get_checkboxes(), template_values):
+            pass
+
 
 class mQtItem_alphabetical_tag(mQtItem_alphabetical_tag_virtual):
 
@@ -114,12 +178,14 @@ class mQtItem_alphabetical_tag(mQtItem_alphabetical_tag_virtual):
                 value = tag.get_value()
             else:
                 value = None
+            description = tag.description
         else:
             data_type = "Constant"
             value = tag_name
             tag = None
+            description = None
         val_visible = value is not None
-        super().__init__(root, tag_name, scope, data_type, value, tag, "", Val_visible=val_visible)
+        super().__init__(root, tag_name, scope, data_type, value, description, tag, "", Val_visible=val_visible)
         for element in sorted(children_dictionary):
             element_obj = mQtItem_alphabetical_tag_element(root, element, self.data_type, self.scope,
                                                            children_dictionary[element], tag, element)
@@ -137,10 +203,12 @@ class mQtItem_alphabetical_tag_element(mQtItem_alphabetical_tag_virtual):
                 value = tag_element.get_value_element(element_tag_path)
             else:
                 value = None
+            description = tag_element.get_element_comment(element_tag_path) # Might be wrong
         else:
             value = name
+            description = None
         val_visible = value is not None
-        super().__init__(root, name, scope, data_type, value, tag_element, element_tag_path,
+        super().__init__(root, name, scope, data_type, value, description, tag_element, element_tag_path,
                          DT_visible=False, Val_visible=val_visible, Scp_visible=False)
         for element in sorted(children_dictionary):
             if "[" in element:

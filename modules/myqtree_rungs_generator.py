@@ -27,14 +27,28 @@ class myQTree_rungs_generator(QTreeView):
         self.alphabetical_order_model = tree_model
 
     def get_appear_order_tags(self):
-        model: QStandardItemModel = self.appear_order_model
+        rung_list = self.get_appear_order_rungs()
         tag_list = list()
+        for rung in rung_list:
+            tag_list += self.get_appear_order_rung_tags(rung)
+        return tag_list
+        tag_list = list()
+
+    def get_appear_order_rungs(self):
+        model: QStandardItemModel = self.appear_order_model
+        rung_list = list()
         for i in range(model.rowCount()):
             index = model.index(i, 0)
             rung: QStandardItem = index.model().itemFromIndex(index)
-            for j in range(rung.rowCount()):
-                tag: myQt_rung_generation.mQtItem_tag_element = rung.child(j, 0)
-                tag_list.append(tag)
+            rung_list.append(rung)
+        return rung_list
+
+    @staticmethod
+    def get_appear_order_rung_tags(rung):
+        tag_list = list()
+        for i in range(rung.rowCount()):
+            tag: myQt_rung_generation.mQtItem_tag_element = rung.child(i, 0)
+            tag_list.append(tag)
         return tag_list
 
     def get_alphabetical_order_tags(self):
@@ -46,6 +60,27 @@ class myQTree_rungs_generator(QTreeView):
             tag: myQt_rung_generation.mQtItem_alphabetical_tag = index.model().itemFromIndex(index)
             tag_list.append(tag)
         return tag_list
+
+    def get_information_for_csv(self) -> (list, list):
+        pass
+        # TODO: taking all information from tree for exporting to csv file
+        #  returns: headers (selected elements for change) and first_row (values from template)
+        headers = list()
+        template_row = list()
+        # 1. Get selected elements from alphabetical order and appends to lists (headers and first_row)
+        for tag in self.get_alphabetical_order_tags():
+            header_list, template_list = tag.get_csv_header()
+            if len(header):
+                for header, template in zip(header_list, template_list):
+                    headers.append(header)
+                    template_row.append(template)
+        # 2. Get selected elements from appear order and appends to lists, like above
+        for rung in self.get_appear_order_rungs():
+            # get_csv_header of rung (if is modified)
+            for tag in self.get_appear_order_rung_tags(rung):
+                pass
+                # get_csv_header of tags
+                # add rung name into header
 
 
 class myQStyleDelegate(QStyledItemDelegate):
