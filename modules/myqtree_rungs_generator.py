@@ -62,25 +62,33 @@ class myQTree_rungs_generator(QTreeView):
         return tag_list
 
     def get_information_for_csv(self) -> (list, list):
-        pass
-        # TODO: taking all information from tree for exporting to csv file
-        #  returns: headers (selected elements for change) and first_row (values from template)
+        # taking all information from tree for exporting to csv file
+        # returns: headers (selected elements for change) and first_row (values from template)
         headers = list()
         template_row = list()
         # 1. Get selected elements from alphabetical order and appends to lists (headers and first_row)
         for tag in self.get_alphabetical_order_tags():
             header_list, template_list = tag.get_csv_header()
-            if len(header):
-                for header, template in zip(header_list, template_list):
-                    headers.append(header)
-                    template_row.append(template)
+            for header, template in zip(header_list, template_list):
+                headers.append(header)
+                template_row.append(template)
         # 2. Get selected elements from appear order and appends to lists, like above
         for rung in self.get_appear_order_rungs():
             # get_csv_header of rung (if is modified)
-            for tag in self.get_appear_order_rung_tags(rung):
-                pass
+            rung: myQt_rung_generation.mQtItem_rung
+            header_rung, template_rung = rung.get_csv_header()
+            for header, template in zip(header_rung, template_rung):
+                headers.append(header)
+                template_row.append(template)
+            rung_name = rung.text()
+            for i, tag in enumerate(self.get_appear_order_rung_tags(rung)):
                 # get_csv_header of tags
-                # add rung name into header
+                header_list, template_list = tag.get_csv_header()
+                # add rung name into header with rung number and index number in that rung
+                for header, template in zip(header_list, template_list):
+                    headers.append(rung_name + ":" + str(i) + ":" + header)
+                    template_row.append(template)
+        return headers, template_row
 
 
 class myQStyleDelegate(QStyledItemDelegate):

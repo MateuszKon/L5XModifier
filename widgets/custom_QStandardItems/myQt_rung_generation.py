@@ -9,7 +9,6 @@ import re
 class myQtTree_Checkbox(QStandardItem):
 
     def __init__(self, visible, csv_header_text):
-        # TODO: child class for each type of checkbox
         super().__init__()
         self.setSelectable(False)
         self.csv_header_text = csv_header_text
@@ -18,7 +17,6 @@ class myQtTree_Checkbox(QStandardItem):
             self.setData(Qt.CheckState.Unchecked, Qt.ItemDataRole.CheckStateRole)
 
     def get_checkbox_header(self) -> str:
-        # TODO: get_csv_header for Checkbox - might be done
         if self.checkState():  # or something like this
             # return class specific text which will be added to header
             # that way, caller will know, that header is needed to be done
@@ -74,7 +72,7 @@ class myQtItem_TemplateItem(QStandardItem):
 
     def get_csv_header(self) -> (list, list):
         pass
-        # TODO: get_csv_header for item - virtual fucntion
+        # virtual fucntion
         # returns two lists: headers, template_rows
         # create all headers and template_row for this item and all checkboxes
 
@@ -110,8 +108,13 @@ class mQtItem_rung(myQtItem_TemplateItem):
         return code
 
     def get_csv_header(self) -> (list, list):
-        # TODO: get_csv_header for rung
-        pass
+        # get_csv_header for rung
+        headers = list()
+        template_row = list()
+        if self.Dsc.isChecked():
+            headers.append(self.text() + ":DSC")
+            template_row.append(self.comment)
+        return headers, template_row
 
 
 class mQtItem_alphabetical_tag_virtual(myQtItem_TemplateItem):
@@ -150,15 +153,30 @@ class mQtItem_alphabetical_tag_virtual(myQtItem_TemplateItem):
         pass
 
     def get_csv_header(self) -> (list, list):
-        # TODO: get_csv_header for tag
+        # get_csv_header for tag
         # returns two lists: headers, template_rows
         # create all headers and template_row for this item and all checkboxes
         # create header for main item
-        pass
+        headers = list()
+        template_row = list()
+        tag_path = (self.tag_path + ".") if len(self.tag_path) else ""
+        name = tag_path + "{" + self.text() + "}"
+        if self.selected:
+            headers.append(name)
+            template_row.append(self.text())
         # create header for checkboxes
         template_values = [self.data_type, self.value, self.description, self.scope]
         for checkbox, template_value in zip(self.get_checkboxes(), template_values):
-            pass
+            if checkbox.isChecked():
+                headers.append(name + ":" + checkbox.csv_header_text)
+                template_row.append(template_value)
+        # create headers for child elements
+        for element in self.tag_elements:
+            element: mQtItem_alphabetical_tag_element
+            element_headers, element_template_row = element.get_csv_header()
+            headers += element_headers
+            template_row += element_template_row
+        return headers, template_row
 
 
 class mQtItem_alphabetical_tag(mQtItem_alphabetical_tag_virtual):
@@ -249,6 +267,10 @@ class mQtItem_tag_element(myQtItem_TemplateItem):
                 self.value = tag.get_value_element(".".join(splitted[1:]))
             else:
                 self.value = tag.get_value()
+            if self.tag_element:
+                self.description = tag.get_element_comment(".".join(splitted[1:]))
+            else:
+                self.description = tag.description
         else:
             self.data_type = "Constant"
             self.value = name
@@ -275,10 +297,7 @@ class mQtItem_tag_element(myQtItem_TemplateItem):
             for i, text in enumerate(self.splited_text):
                 size = fm.size(0, text).width()
                 if start_position <= selected <= start_position+size+dot:
-                    if self.selected[i]:
-                        self.selected[i] = False
-                    else:
-                        self.selected[i] = True
+                    self.selected[i] = not self.selected[i]
                     if text == "[":
                         self.selected[i + 1: i + 2] = [self.selected[i], self.selected[i]]
                     elif text == "]":
@@ -311,3 +330,35 @@ class mQtItem_tag_element(myQtItem_TemplateItem):
         self.selected = list([False for x in range(len(self.splited_text))])
         self.alphabetical_selected = list([False for x in range(len(self.splited_text))])
         self.whole_selected = False
+
+    def get_csv_header(self) -> (list, list):
+        # get_csv_header for tag
+        # returns two lists: headers, template_rows
+        # create all headers and template_row for this item and all checkboxes
+        # create header for main item
+        headers = list()
+        template_row = list()
+        for i, selected in enumerate(self.selected):
+            if selected:
+                list_selected_copy = list(self.splited_text)
+                list_selected_copy[i] = "{" + list_selected_copy[i] + "}"
+                name = ".".join(list_selected_copy)
+                # change .[. and .{[}. to [ and {[}
+                pattern = r"\.(\{?\[\}?)\."
+                match = re.search(pattern, name)
+                if match:
+                    name = re.sub(pattern, match.group(1), name)
+                # change .] and .{]} to ] and {]}
+                pattern = r"\.(\{?\]\}?)"
+                match = re.search(pattern, name)
+                if match:
+                    name = re.sub(pattern, match.group(1), name)
+                headers.append(name)
+                template_row.append(self.splited_text[i])
+        # create header for checkboxes
+        # check if self.description is evaluated
+        template_values = [self.data_type, self.value, self.description, self.scope]
+        for checkbox, template_value in zip(self.get_checkboxes(), template_values):
+            if checkbox.isChecked():
+                headers.append(self.text() + ":" + checkbox.csv_header_text)
+                template_row.append(template_value)

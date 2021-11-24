@@ -4,6 +4,7 @@ from PySide6.QtWidgets import QFileDialog
 from PySide6.QtGui import QStandardItemModel, QStandardItem
 from PySide6.QtCore import Qt
 import os
+import csv
 from PySide6.QtWidgets import QTreeWidgetItem
 
 
@@ -104,11 +105,16 @@ class RungGeneratorPage(MainWindow):
         item.update_tag_element()
 
     def export_tag_csv(self):
-        pass
-        # TODO: clicking PB opens file where to save CSV file containing selected tags and other values.
-        #  Later this file will be modified and imported back to app to generate new rungs.
         # 1. Open file dialog
-        # 2. Read all information from tree
-        headers, first_row = self.widgets.treeView_trG.get_information_for_csv()
-        # 3. Create headers based on selected elements in the tree
-        # 4. Create first row with data from template
+
+        save_file = self.choose_csv_file_save()
+        if save_file:
+            # 2. Read all information from tree
+            headers, first_row = self.widgets.treeView_trG.get_information_for_csv()
+            # 3. Create headers based on selected elements in the tree
+            output_encoder = self.RB_radioButtons_get_encoder()
+            with open(save_file, 'w', encoding=output_encoder, newline='') as f_w:
+                writer = csv.writer(f_w, dialect='excel')
+                writer.writerow(headers)
+                # 4. Create first row with data from template
+                writer.writerow(first_row)
