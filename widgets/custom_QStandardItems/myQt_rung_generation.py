@@ -338,23 +338,27 @@ class mQtItem_tag_element(myQtItem_TemplateItem):
         # create header for main item
         headers = list()
         template_row = list()
-        for i, selected in enumerate(self.selected):
-            if selected:
-                list_selected_copy = list(self.splited_text)
-                list_selected_copy[i] = "{" + list_selected_copy[i] + "}"
-                name = ".".join(list_selected_copy)
-                # change .[. and .{[}. to [ and {[}
-                pattern = r"\.(\{?\[\}?)\."
-                match = re.search(pattern, name)
-                if match:
-                    name = re.sub(pattern, match.group(1), name)
-                # change .] and .{]} to ] and {]}
-                pattern = r"\.(\{?\]\}?)"
-                match = re.search(pattern, name)
-                if match:
-                    name = re.sub(pattern, match.group(1), name)
-                headers.append(name)
-                template_row.append(self.splited_text[i])
+        if self.whole_selected:
+            headers.append("{" + self.text() + "}")
+            template_row.append(self.text())
+        else:
+            for i, selected in enumerate(self.selected):
+                if selected:
+                    list_selected_copy = list(self.splited_text)
+                    list_selected_copy[i] = "{" + list_selected_copy[i] + "}"
+                    name = ".".join(list_selected_copy)
+                    # change .[. and .{[}. to [ and {[}
+                    pattern = r"\.(\{?\[\}?)\."
+                    match = re.search(pattern, name)
+                    if match:
+                        name = re.sub(pattern, match.group(1), name)
+                    # change .] and .{]} to ] and {]}
+                    pattern = r"\.(\{?\]\}?)"
+                    match = re.search(pattern, name)
+                    if match:
+                        name = re.sub(pattern, match.group(1), name)
+                    headers.append(name)
+                    template_row.append(self.splited_text[i])
         # create header for checkboxes
         # check if self.description is evaluated
         template_values = [self.data_type, self.value, self.description, self.scope]
