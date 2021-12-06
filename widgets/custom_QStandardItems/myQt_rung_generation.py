@@ -24,6 +24,9 @@ class myQtTree_Checkbox(QStandardItem):
         else:
             return ""
 
+    def isChecked(self):
+        return self.checkState()
+
 
 class mQtTree_Checkbox_DT(myQtTree_Checkbox):
 
@@ -143,7 +146,8 @@ class mQtItem_alphabetical_tag_virtual(myQtItem_TemplateItem):
         all_tags = tree.get_appear_order_tags()
         for tag in all_tags:
             tag: mQtItem_tag_element
-            element_name = (self.tag.name + "." + self.tag_path) if len(self.tag_path) else self.tag.name
+            element_name = (self.tag_path + "." + self.text()) if len(self.tag_path) else self.tag.name
+            print(element_name)
             if re.match(element_name, tag.text()):
                 splitted_tag_path = tag.split_tag_to_parts(element_name)
                 selected_index = len(splitted_tag_path) - 1
@@ -165,10 +169,10 @@ class mQtItem_alphabetical_tag_virtual(myQtItem_TemplateItem):
             headers.append(name)
             template_row.append(self.text())
         # create header for checkboxes
-        template_values = [self.data_type, self.value, self.description, self.scope]
+        template_values = [self.data_type, self.description, self.value, self.scope]
         for checkbox, template_value in zip(self.get_checkboxes(), template_values):
             if checkbox.isChecked():
-                headers.append(name + ":" + checkbox.csv_header_text)
+                headers.append(tag_path + self.text() + ":" + checkbox.csv_header_text)
                 template_row.append(template_value)
         # create headers for child elements
         for element in self.tag_elements:
@@ -205,8 +209,9 @@ class mQtItem_alphabetical_tag(mQtItem_alphabetical_tag_virtual):
         val_visible = value is not None
         super().__init__(root, tag_name, scope, data_type, value, description, tag, "", Val_visible=val_visible)
         for element in sorted(children_dictionary):
+            element_path = tag_name + "." + element
             element_obj = mQtItem_alphabetical_tag_element(root, element, self.data_type, self.scope,
-                                                           children_dictionary[element], tag, element)
+                                                           children_dictionary[element], tag, tag_name)
             self.tag_elements.append(element_obj)
             self.appendRow(element_obj.get_row())
 
@@ -217,11 +222,12 @@ class mQtItem_alphabetical_tag_element(mQtItem_alphabetical_tag_virtual):
                  tag_element: L5X.L5XTag, element_tag_path: str):
         # set data_type and value of the tag or constant
         if scope is not None:
+            path_string = (element_tag_path + "." + name).split(".", 1)[1]
             if not len(children_dictionary):
-                value = tag_element.get_value_element(element_tag_path)
+                value = tag_element.get_value_element(path_string)
             else:
                 value = None
-            description = tag_element.get_element_comment(element_tag_path) # Might be wrong
+            description = tag_element.get_element_comment(path_string) # Might be wrong
         else:
             value = name
             description = None
@@ -230,9 +236,9 @@ class mQtItem_alphabetical_tag_element(mQtItem_alphabetical_tag_virtual):
                          DT_visible=False, Val_visible=val_visible, Scp_visible=False)
         for element in sorted(children_dictionary):
             if "[" in element:
-                child_element_tag_path = element_tag_path + element
+                child_element_tag_path = element_tag_path + name
             else:
-                child_element_tag_path = element_tag_path + "." + element
+                child_element_tag_path = element_tag_path + "." + name
             element_obj = mQtItem_alphabetical_tag_element(root, element, self.data_type, self.scope,
                                                            children_dictionary[element], tag_element,
                                                            child_element_tag_path)
@@ -274,6 +280,7 @@ class mQtItem_tag_element(myQtItem_TemplateItem):
         else:
             self.data_type = "Constant"
             self.value = name
+            self.description = ""
         is_tag = not self.tag_element
         super().__init__(root, name, DT_visible=is_tag, Scp_visible=is_tag)
         self.setSelectable(False)
@@ -366,3 +373,4 @@ class mQtItem_tag_element(myQtItem_TemplateItem):
             if checkbox.isChecked():
                 headers.append(self.text() + ":" + checkbox.csv_header_text)
                 template_row.append(template_value)
+        return headers, template_row
