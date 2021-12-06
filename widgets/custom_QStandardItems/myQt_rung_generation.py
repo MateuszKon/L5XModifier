@@ -27,6 +27,9 @@ class myQtTree_Checkbox(QStandardItem):
     def isChecked(self):
         return self.checkState()
 
+    def update_tag_element(self):
+        pass
+
 
 class mQtTree_Checkbox_DT(myQtTree_Checkbox):
 
@@ -78,6 +81,9 @@ class myQtItem_TemplateItem(QStandardItem):
         # virtual fucntion
         # returns two lists: headers, template_rows
         # create all headers and template_row for this item and all checkboxes
+
+    def update_tag_element(self):
+        pass
 
 
 class mQtItem_rung(myQtItem_TemplateItem):
