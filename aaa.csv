@@ -1,2 +1,2 @@
 {Cycle_MIC},Cycle_MIC:DT,Out_Y1_UnloadGripper.{Close},Out_Y1_UnloadGripper.Close:DSC,Rung 0:1:{Out_Y1_UnloadGripper}.Description_EN,Rung 0:2:{Out_Y1_UnloadGripper}.Open.I_Desc,Rung 0:2:Out_Y1_UnloadGripper.Open.{I_Desc},Rung 0:3:{Out_Y1_UnloadGripper.Open.O_Desc},Rung 0:4:Out_Y1_UnloadGripper.Close.I_Desc:DSC
-Cycle_MIC,BOOL,Close,,Out_Y1_UnloadGripper,Out_Y1_UnloadGripper,I_Desc,Out_Y1_UnloadGripper.Open.O_Desc,I1B1.1
+Cycle_MIC,BOOL,Close,,Out_Y1_UnloadGripper,Out_Y1_UnloadGripper,I_Desc,Out_Y1_UnloadGripper.Open.O_Desc,

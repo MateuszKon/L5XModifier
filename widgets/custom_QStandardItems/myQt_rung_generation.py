@@ -153,7 +153,6 @@ class mQtItem_alphabetical_tag_virtual(myQtItem_TemplateItem):
         for tag in all_tags:
             tag: mQtItem_tag_element
             element_name = (self.tag_path + "." + self.text()) if len(self.tag_path) else self.tag.name
-            print(element_name)
             if re.match(element_name, tag.text()):
                 splitted_tag_path = tag.split_tag_to_parts(element_name)
                 selected_index = len(splitted_tag_path) - 1
@@ -374,7 +373,7 @@ class mQtItem_tag_element(myQtItem_TemplateItem):
                     template_row.append(self.splited_text[i])
         # create header for checkboxes
         # check if self.description is evaluated
-        template_values = [self.data_type, self.value, self.description, self.scope]
+        template_values = [self.data_type, self.description, self.value, self.scope]
         for checkbox, template_value in zip(self.get_checkboxes(), template_values):
             if checkbox.isChecked():
                 headers.append(self.text() + ":" + checkbox.csv_header_text)
