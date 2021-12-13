@@ -106,7 +106,6 @@ class RungGeneratorPage(MainWindow):
 
     def export_tag_csv(self):
         # 1. Open file dialog
-
         save_file = self.choose_csv_file_save()
         if save_file:
             # 2. Read all information from tree
@@ -118,3 +117,9 @@ class RungGeneratorPage(MainWindow):
                 writer.writerow(headers)
                 # 4. Create first row with data from template
                 writer.writerow(first_row)
+
+    def import_tag_CSV(self):
+        # 1. Open file dialog
+        load_file = self.choose_csv_file_load()
+        if load_file:
+            pass
