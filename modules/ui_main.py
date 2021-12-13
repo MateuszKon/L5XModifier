@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainHUhZJk.ui'
+## Form generated from reading UI file 'mainKELzXT.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.2
 ##
@@ -14,6 +14,7 @@ from PySide6.QtWidgets import *  # type: ignore
 
 from . myqtree_rungs_generator import myQTree_rungs_generator
 from . resources_rc import *
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -1585,65 +1586,6 @@ class Ui_MainWindow(object):
         self.scrollAreaWidgetContents_rG.setGeometry(QRect(0, 0, 1184, 524))
         self.verticalLayout_26 = QVBoxLayout(self.scrollAreaWidgetContents_rG)
         self.verticalLayout_26.setObjectName(u"verticalLayout_26")
-        self.rG_header = QHBoxLayout()
-        self.rG_header.setObjectName(u"rG_header")
-        self.rG_config_OpenFile = QGridLayout()
-        self.rG_config_OpenFile.setObjectName(u"rG_config_OpenFile")
-        self.rG_config_OpenFile.setVerticalSpacing(0)
-        self.lineEdit_rG_config_OpenFile = QLineEdit(self.scrollAreaWidgetContents_rG)
-        self.lineEdit_rG_config_OpenFile.setObjectName(u"lineEdit_rG_config_OpenFile")
-        self.lineEdit_rG_config_OpenFile.setMinimumSize(QSize(0, 30))
-        self.lineEdit_rG_config_OpenFile.setStyleSheet(u"background-color: rgb(33, 37, 43);")
-
-        self.rG_config_OpenFile.addWidget(self.lineEdit_rG_config_OpenFile, 1, 0, 1, 1)
-
-        self.pushButton_rG_config_OpenFile = QPushButton(self.scrollAreaWidgetContents_rG)
-        self.pushButton_rG_config_OpenFile.setObjectName(u"pushButton_rG_config_OpenFile")
-        self.pushButton_rG_config_OpenFile.setMinimumSize(QSize(100, 30))
-        self.pushButton_rG_config_OpenFile.setFont(font)
-        self.pushButton_rG_config_OpenFile.setCursor(QCursor(Qt.PointingHandCursor))
-        self.pushButton_rG_config_OpenFile.setStyleSheet(u"background-color: rgb(52, 59, 72);")
-        self.pushButton_rG_config_OpenFile.setIcon(icon4)
-
-        self.rG_config_OpenFile.addWidget(self.pushButton_rG_config_OpenFile, 1, 1, 1, 1)
-
-        self.labelBox_rG_config_OpenFile = QLabel(self.scrollAreaWidgetContents_rG)
-        self.labelBox_rG_config_OpenFile.setObjectName(u"labelBox_rG_config_OpenFile")
-        self.labelBox_rG_config_OpenFile.setFont(font)
-        self.labelBox_rG_config_OpenFile.setStyleSheet(u"")
-
-        self.rG_config_OpenFile.addWidget(self.labelBox_rG_config_OpenFile, 0, 0, 1, 2)
-
-
-        self.rG_header.addLayout(self.rG_config_OpenFile)
-
-        self.pushButton_rG_preparePage = QPushButton(self.scrollAreaWidgetContents_rG)
-        self.pushButton_rG_preparePage.setObjectName(u"pushButton_rG_preparePage")
-        sizePolicy4.setHeightForWidth(self.pushButton_rG_preparePage.sizePolicy().hasHeightForWidth())
-        self.pushButton_rG_preparePage.setSizePolicy(sizePolicy4)
-        self.pushButton_rG_preparePage.setMinimumSize(QSize(105, 24))
-        self.pushButton_rG_preparePage.setFont(font)
-        self.pushButton_rG_preparePage.setCursor(QCursor(Qt.PointingHandCursor))
-        self.pushButton_rG_preparePage.setStyleSheet(u"background-color: rgb(52, 59, 72);")
-        self.pushButton_rG_preparePage.setFlat(False)
-
-        self.rG_header.addWidget(self.pushButton_rG_preparePage)
-
-        self.pushButton_rG_importPage = QPushButton(self.scrollAreaWidgetContents_rG)
-        self.pushButton_rG_importPage.setObjectName(u"pushButton_rG_importPage")
-        sizePolicy4.setHeightForWidth(self.pushButton_rG_importPage.sizePolicy().hasHeightForWidth())
-        self.pushButton_rG_importPage.setSizePolicy(sizePolicy4)
-        self.pushButton_rG_importPage.setMinimumSize(QSize(105, 24))
-        self.pushButton_rG_importPage.setFont(font)
-        self.pushButton_rG_importPage.setCursor(QCursor(Qt.PointingHandCursor))
-        self.pushButton_rG_importPage.setStyleSheet(u"background-color: rgb(52, 59, 72);")
-        self.pushButton_rG_importPage.setFlat(False)
-
-        self.rG_header.addWidget(self.pushButton_rG_importPage)
-
-
-        self.verticalLayout_26.addLayout(self.rG_header)
-
         self.stackedWidget_rG_pages = QStackedWidget(self.scrollAreaWidgetContents_rG)
         self.stackedWidget_rG_pages.setObjectName(u"stackedWidget_rG_pages")
         self.stackedWidget_rG_pages.setLineWidth(1)
@@ -1718,18 +1660,6 @@ class Ui_MainWindow(object):
 
         self.rG_prepareOptions.addItem(self.verticalSpacer_3)
 
-        self.pushButton_rG_saveConfiguration = QPushButton(self.page_rG_prepareCSV)
-        self.pushButton_rG_saveConfiguration.setObjectName(u"pushButton_rG_saveConfiguration")
-        sizePolicy4.setHeightForWidth(self.pushButton_rG_saveConfiguration.sizePolicy().hasHeightForWidth())
-        self.pushButton_rG_saveConfiguration.setSizePolicy(sizePolicy4)
-        self.pushButton_rG_saveConfiguration.setMinimumSize(QSize(150, 24))
-        self.pushButton_rG_saveConfiguration.setFont(font)
-        self.pushButton_rG_saveConfiguration.setCursor(QCursor(Qt.PointingHandCursor))
-        self.pushButton_rG_saveConfiguration.setStyleSheet(u"background-color: rgb(52, 59, 72);")
-        self.pushButton_rG_saveConfiguration.setFlat(False)
-
-        self.rG_prepareOptions.addWidget(self.pushButton_rG_saveConfiguration)
-
         self.pushButton_rG_exportCSV = QPushButton(self.page_rG_prepareCSV)
         self.pushButton_rG_exportCSV.setObjectName(u"pushButton_rG_exportCSV")
         sizePolicy4.setHeightForWidth(self.pushButton_rG_exportCSV.sizePolicy().hasHeightForWidth())
@@ -1741,6 +1671,18 @@ class Ui_MainWindow(object):
         self.pushButton_rG_exportCSV.setFlat(False)
 
         self.rG_prepareOptions.addWidget(self.pushButton_rG_exportCSV)
+
+        self.pushButton_rG_importCSV = QPushButton(self.page_rG_prepareCSV)
+        self.pushButton_rG_importCSV.setObjectName(u"pushButton_rG_importCSV")
+        sizePolicy4.setHeightForWidth(self.pushButton_rG_importCSV.sizePolicy().hasHeightForWidth())
+        self.pushButton_rG_importCSV.setSizePolicy(sizePolicy4)
+        self.pushButton_rG_importCSV.setMinimumSize(QSize(150, 24))
+        self.pushButton_rG_importCSV.setFont(font)
+        self.pushButton_rG_importCSV.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_rG_importCSV.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        self.pushButton_rG_importCSV.setFlat(False)
+
+        self.rG_prepareOptions.addWidget(self.pushButton_rG_importCSV)
 
 
         self.horizontalLayout_8.addLayout(self.rG_prepareOptions)
@@ -1801,7 +1743,6 @@ class Ui_MainWindow(object):
         self.rG_tree_header.addWidget(self.pushButton_rG_alphabetical)
 
         self.rG_tree_header.setStretch(1, 20)
-        self.rG_tree_header.setStretch(4, 1)
 
         self.rG_tree_layout.addLayout(self.rG_tree_header)
 
@@ -2277,12 +2218,6 @@ class Ui_MainWindow(object):
         self.lineEdit_tsC_RadioButton_Custom.setPlaceholderText(QCoreApplication.translate("MainWindow", u"other...", None))
         self.pushButton_tsC_CopyRSL.setText(QCoreApplication.translate("MainWindow", u"-> Copy RSL", None))
         self.pushButton_tsC_PasteRSL.setText(QCoreApplication.translate("MainWindow", u"<- Paste RSL", None))
-        self.lineEdit_rG_config_OpenFile.setText("")
-        self.lineEdit_rG_config_OpenFile.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Type here", None))
-        self.pushButton_rG_config_OpenFile.setText(QCoreApplication.translate("MainWindow", u"Open", None))
-        self.labelBox_rG_config_OpenFile.setText(QCoreApplication.translate("MainWindow", u"Configuration file", None))
-        self.pushButton_rG_preparePage.setText(QCoreApplication.translate("MainWindow", u"Prepare CSV file", None))
-        self.pushButton_rG_importPage.setText(QCoreApplication.translate("MainWindow", u"Import CSV file", None))
         self.lineEdit_rG_rungs_OpenFile.setText("")
         self.lineEdit_rG_rungs_OpenFile.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Type here", None))
         self.pushButton_rG_rungs_OpenFile.setText(QCoreApplication.translate("MainWindow", u"Open", None))
@@ -2291,8 +2226,8 @@ class Ui_MainWindow(object):
         self.lineEdit_rG_fault_OpenFile.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Type here", None))
         self.labelBox_rG_fault_OpenFile.setText(QCoreApplication.translate("MainWindow", u"Fault Template", None))
         self.pushButton_rG_fault_OpenFile.setText(QCoreApplication.translate("MainWindow", u"Open", None))
-        self.pushButton_rG_saveConfiguration.setText(QCoreApplication.translate("MainWindow", u"Save configuration file", None))
         self.pushButton_rG_exportCSV.setText(QCoreApplication.translate("MainWindow", u"export tag CSV file", None))
+        self.pushButton_rG_importCSV.setText(QCoreApplication.translate("MainWindow", u"import tag from CSV file", None))
         self.labelBox_rG_treeHeader.setText(QCoreApplication.translate("MainWindow", u"Rungs Template", None))
         self.pushButton_rG_expand.setText(QCoreApplication.translate("MainWindow", u"Expand", None))
         self.pushButton_rG_collapse.setText(QCoreApplication.translate("MainWindow", u"Collapse", None))
