@@ -122,4 +122,13 @@ class RungGeneratorPage(MainWindow):
         # 1. Open file dialog
         load_file = self.choose_csv_file_load()
         if load_file:
+            # TODO: Loading data from file (headers separately)
+            # with open...
+            headers, rows = self.get_information_from_csv()
+            #
             pass
+
+    def get_information_from_csv(self):
+        # TODO: Reading headers and values rows
+        pass
+        # return headers, rows
