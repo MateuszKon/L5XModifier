@@ -1,6 +1,7 @@
 from L5XeTree import L5XeTree as L5X
 from L5XeTree.modules.RSLogixEncoding import RSLogixEncoding
 from modules.myQt import *
+from modules import Modifier_function
 from widgets.custom_QStandardItems.myQt_rung_generation import *
 from PySide6.QtGui import QStandardItemModel
 
@@ -142,6 +143,18 @@ class L5XModifier:
     def decode_string(string: str, encoder):
         return RSLogixEncoding.decode_string(string, encoder)
 
+    def change_file_element(self, change_element: Modifier_function):
+        # TODO: change file element - make change in file (self.root) with change_element object
+        change_element.make_change(self.root)
+        pass
+
+    def insert_new_rungs(self, rung_list, scope, routine, rung_index):
+        # TODO: insert new rungs into main file in place described by inputs
+        pass
+
+
+class L5XModifier_r_generator(L5XModifier):
+
     def generate_tree_appear_order(self, tree_model):
         routine = self.root.any_program().any_routine()
         i = 0
@@ -170,3 +183,14 @@ class L5XModifier:
             elems_dict[elem_splited[0]] = dict()
         if len(elem_splited) > 1:
             self.build_elements_dict(elems_dict[elem_splited[0]], elem_splited[1:])
+
+    def generate_list_of_changes(self, headers, rows) -> list:
+        # TODO: generate list of changes
+        # prepare list of changes of to main files (list of new tags, changes in description etc)
+        # return list of changes (maybe in form of objects of different classes)
+        pass
+
+    def generate_new_rungs(self, headers, rows) -> list:
+        # TODO: generate new rungs based on template and csv data
+        # return list of L5XRung's
+        pass

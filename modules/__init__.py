@@ -25,3 +25,5 @@ from . my_logger import MyLogger
 # My QTreeView
 from .myqtree_rungs_generator import myQTree_rungs_generator
 from .myqtree_rungs_generator import myQStyleDelegate
+
+from .L5XModifier_changer import Modifier_function

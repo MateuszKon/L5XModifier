@@ -1,5 +1,5 @@
 from main import MainWindow
-from L5XModifier_functions import L5XModifier as L5XMod
+from L5XModifier_functions import L5XModifier, L5XModifier_r_generator
 from PySide6.QtWidgets import QFileDialog
 from PySide6.QtGui import QStandardItemModel, QStandardItem
 from PySide6.QtCore import Qt
@@ -16,9 +16,9 @@ class RungGeneratorPage(MainWindow):
         # Main project object
         self.L5Xmain = L5XMod_main
         # Rungs Template
-        self.L5Xrungs = L5XMod()
+        self.L5Xrungs = L5XModifier_r_generator()
         # Faults Template
-        self.L5Xfaults = L5XMod()
+        self.L5Xfaults = L5XModifier_r_generator()
 
         # SUBCLASS PARAMETERS
         self.current_rung_file = ""
@@ -125,8 +125,18 @@ class RungGeneratorPage(MainWindow):
             # TODO: Loading data from file (headers separately)
             # with open...
             headers, rows = self.get_information_from_csv()
-            #
-            pass
+            # Analize all rows and columns, generating list of changes (new tags, descriptions, etc)
+            elements_list = self.L5Xrungs.generate_list_of_changes(headers, rows)
+            # make changes to main file
+            for element in elements_list:
+                self.L5Xmain.change_file_element(element)
+            # generate new rungs (L5XRung's) based on all rows and template from self.L5Xrungs
+            rung_list = self.L5Xrungs.generate_new_rungs(headers, rows)
+            # put new rungs into self.L5Xmain file or into import file (for import rungs into program)
+            scope = ""
+            routine = ""
+            rung_index = -1
+            self.L5Xmain.insert_new_rungs(rung_list, scope, routine, rung_index)
 
     def get_information_from_csv(self):
         # TODO: Reading headers and values rows
