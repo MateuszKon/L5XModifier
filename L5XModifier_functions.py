@@ -1,7 +1,7 @@
 from L5XeTree import L5XeTree as L5X
 from L5XeTree.modules.RSLogixEncoding import RSLogixEncoding
 from modules.myQt import *
-from modules import Modifier_function
+from modules.L5XModifier_changer import Modifier_function
 from widgets.custom_QStandardItems.myQt_rung_generation import *
 from PySide6.QtGui import QStandardItemModel
 

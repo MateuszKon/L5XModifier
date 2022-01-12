@@ -33,6 +33,7 @@ class RungGeneratorPage(MainWindow):
         self.widgets.pushButton_rG_collapse.clicked.connect(self.collapse_model)
         self.widgets.pushButton_rG_expand.clicked.connect(self.expand_model)
         self.widgets.pushButton_rG_exportCSV.clicked.connect(self.export_tag_csv)
+        self.widgets.pushButton_rG_importCSV.clicked.connect(self.import_tag_CSV)
 
     def rungs_openFile_button(self):
         dialog = QFileDialog()
@@ -124,7 +125,7 @@ class RungGeneratorPage(MainWindow):
         if load_file:
             # TODO: Loading data from file (headers separately)
             # with open...
-            headers, rows = self.get_information_from_csv()
+            headers, rows = self.get_information_from_csv(load_file)
             # Analize all rows and columns, generating list of changes (new tags, descriptions, etc)
             elements_list = self.L5Xrungs.generate_list_of_changes(headers, rows)
             # make changes to main file
@@ -138,7 +139,13 @@ class RungGeneratorPage(MainWindow):
             rung_index = -1
             self.L5Xmain.insert_new_rungs(rung_list, scope, routine, rung_index)
 
-    def get_information_from_csv(self):
-        # TODO: Reading headers and values rows
-        pass
-        # return headers, rows
+    def get_information_from_csv(self, load_file):
+        with open(load_file, newline='') as f_r:
+            dialect = csv.Sniffer().sniff(f_r.read(1024))
+            f_r.seek(0)
+            reader = csv.reader(f_r, dialect=dialect)
+            headers = reader.__next__()
+            rows = list()
+            for row in reader:
+                rows.append(row)
+        return headers, rows
