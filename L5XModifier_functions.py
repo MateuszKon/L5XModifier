@@ -187,6 +187,11 @@ class L5XModifier_r_generator(L5XModifier):
     def generate_list_of_changes(self, headers, rows) -> list:
         # TODO: generate list of changes
         # prepare list of changes of to main files (list of new tags, changes in description etc)
+
+        # parse all headers, depending on what is in header prepare list of subclasses
+        pass
+        # for every row: for every element in list of subclasses: create objects: subclass(row)
+        pass
         # return list of changes (maybe in form of objects of different classes)
         pass
 

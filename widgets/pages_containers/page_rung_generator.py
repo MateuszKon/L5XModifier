@@ -123,8 +123,7 @@ class RungGeneratorPage(MainWindow):
         # 1. Open file dialog
         load_file = self.choose_csv_file_load()
         if load_file:
-            # TODO: Loading data from file (headers separately)
-            # with open...
+            # Loading data from file (headers separately)
             headers, rows = self.get_information_from_csv(load_file)
             # Analize all rows and columns, generating list of changes (new tags, descriptions, etc)
             elements_list = self.L5Xrungs.generate_list_of_changes(headers, rows)
@@ -134,12 +133,15 @@ class RungGeneratorPage(MainWindow):
             # generate new rungs (L5XRung's) based on all rows and template from self.L5Xrungs
             rung_list = self.L5Xrungs.generate_new_rungs(headers, rows)
             # put new rungs into self.L5Xmain file or into import file (for import rungs into program)
+            # TODO: how to define scope, routine, rung_index
             scope = ""
             routine = ""
             rung_index = -1
             self.L5Xmain.insert_new_rungs(rung_list, scope, routine, rung_index)
 
-    def get_information_from_csv(self, load_file):
+    @staticmethod
+    def get_information_from_csv(load_file):
+        # Open file as csv file, detect file dialect, read headers and rows
         with open(load_file, newline='') as f_r:
             dialect = csv.Sniffer().sniff(f_r.read(1024))
             f_r.seek(0)
