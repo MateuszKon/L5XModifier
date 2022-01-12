@@ -131,8 +131,8 @@ class RungGeneratorPage(MainWindow):
             # make changes to main file
             for element in elements_list:
                 self.L5Xmain.change_file_element(element)
-            # generate new rungs (L5XRung's) based on all rows and template from self.L5XRungs
-            rung_list = self.L5Xrungs.generate_new_rungs(headers, rows)
+            # generate new rungs (L5XRung's) based on all list of ModifierFunction and template from self.L5XRungs
+            rung_list = self.L5Xrungs.generate_new_rungs(elements_list)
             # put new rungs into self.L5Xmain file or into import file (for import rungs into program)
             # TODO: how to define scope, routine, rung_index
             scope = ""

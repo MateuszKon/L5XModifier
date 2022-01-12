@@ -154,13 +154,19 @@ class L5XModifier:
 
 class L5XModifier_r_generator(L5XModifier):
 
+    def __init__(self):
+        self.rung_template = list()
+        super().__init__()
+
     def generate_tree_appear_order(self, tree_model):
         routine = self.root.any_program().any_routine()
         i = 0
+        self.rung_template = list()
         for rung in routine.rungs:
             rung_name = "Rung " + str(i)
             rung_item = mQtItem_rung(self.root, rung_name, rung.comment, rung.code)
             tree_model.appendRow(rung_item.get_row())
+            self.rung_template.append(rung_item)
             i += 1
 
     def generate_tree_alphabetical_order(self, tree_alphabetical_model: QStandardItemModel,
@@ -223,7 +229,8 @@ class L5XModifier_r_generator(L5XModifier):
         # return list of changes (maybe in form of objects of different classes)
         return whole_change_list
 
-    def generate_new_rungs(self, headers, rows) -> list:
+    def generate_new_rungs(self, change_list) -> list:
         # TODO: generate new rungs based on template and csv data
+        # change_list - list of ModifierFunction
         # return list of L5XRung's
         pass
