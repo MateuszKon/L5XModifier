@@ -126,11 +126,12 @@ class RungGeneratorPage(MainWindow):
             # Loading data from file (headers separately)
             headers, rows = self.get_information_from_csv(load_file)
             # Analize all rows and columns, generating list of changes (new tags, descriptions, etc)
+            # element_list: list of ModifierFunction
             elements_list = self.L5Xrungs.generate_list_of_changes(headers, rows)
             # make changes to main file
             for element in elements_list:
                 self.L5Xmain.change_file_element(element)
-            # generate new rungs (L5XRung's) based on all rows and template from self.L5Xrungs
+            # generate new rungs (L5XRung's) based on all rows and template from self.L5XRungs
             rung_list = self.L5Xrungs.generate_new_rungs(headers, rows)
             # put new rungs into self.L5Xmain file or into import file (for import rungs into program)
             # TODO: how to define scope, routine, rung_index

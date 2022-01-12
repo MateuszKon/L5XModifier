@@ -1,7 +1,7 @@
 from L5XeTree import L5XeTree as L5X
 from L5XeTree.modules.RSLogixEncoding import RSLogixEncoding
 from modules.myQt import *
-from modules.L5XModifier_changer import Modifier_function
+from modules.L5XModifier_changer import ModifierFunction
 from widgets.custom_QStandardItems.myQt_rung_generation import *
 from PySide6.QtGui import QStandardItemModel
 
@@ -143,10 +143,9 @@ class L5XModifier:
     def decode_string(string: str, encoder):
         return RSLogixEncoding.decode_string(string, encoder)
 
-    def change_file_element(self, change_element: Modifier_function):
-        # TODO: change file element - make change in file (self.root) with change_element object
-        change_element.make_change(self.root)
-        pass
+    def change_file_element(self, change_element: ModifierFunction):
+        # change file element - make change in file (self.root) with change_element object
+        change_element.apply_change_in_root(self.root)
 
     def insert_new_rungs(self, rung_list, scope, routine, rung_index):
         # TODO: insert new rungs into main file in place described by inputs
@@ -186,14 +185,43 @@ class L5XModifier_r_generator(L5XModifier):
 
     def generate_list_of_changes(self, headers, rows) -> list:
         # TODO: generate list of changes
-        # prepare list of changes of to main files (list of new tags, changes in description etc)
+        # prepare list of changes of to main files (list of new tags, changes in description etc, changes to rungs)
 
         # parse all headers, depending on what is in header prepare list of subclasses
-        pass
-        # for every row: for every element in list of subclasses: create objects: subclass(row)
-        pass
+        # patterns for selecting correct type of change
+        pattern_tag_name = r"\{\w+\}"
+        pattern_rung_change = r"Rung \d+\:"
+        pattern_property_change = r":[a-zA-Z]{1,3}\Z"
+        modification_class_list = list()
+        for header in headers:
+            # check if rung modification
+            match = re.search(pattern_rung_change, header)
+            if match:
+                # check what is need to be changed
+                # check name {...}
+                # check other :DT, :DSC, :VAL, :SCP
+                # create object changing tag name (and creating new one if necessary) and so on
+                pass
+            else:
+                # check if global name modification
+                match = re.search(pattern_tag_name, header)
+                if match:
+                    # create object changing tag name
+                    pass
+                else:
+                    # check for other global modyfication :DT, :DSC, :VAL, :SCP
+                    pass
+        whole_change_list = list()
+        # for every row: for every element in list of subclasses:
+        # create objects: class_name(value, header, single_selection)
+        for row in rows:
+            row_change_list = list()
+            for value, header, class_name in zip(row, headers, modification_class_list):
+                # row_change_list.append(object)
+                pass
+            whole_change_list.append(row_change_list)
         # return list of changes (maybe in form of objects of different classes)
-        pass
+        return whole_change_list
 
     def generate_new_rungs(self, headers, rows) -> list:
         # TODO: generate new rungs based on template and csv data
