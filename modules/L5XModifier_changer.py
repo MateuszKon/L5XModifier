@@ -58,6 +58,9 @@ class ModifierNewTag(ModifierFunction):
         # find single rung
         # find single tag for modification
         # modify tag in selected rung and tag in rung.used_tags and in rung.used_tags_parted
+        # find all self.tag_name in rung.original_tag - tag_name might be only the part of element of original_tags
+        # (get index of found tags)
+        self.change_tag()
         pass
 
     def change_in_all_rung(self, rungs_copy):
@@ -69,12 +72,12 @@ class ModifierNewTag(ModifierFunction):
             pass
         pass
 
-    def change_whole_tag(self, mmmmm):
+    def change_tag(self, rung, index_of_tag_to_change, ):
+        # TODO: somehow import mQtItem_rung? to write rung:mQtItem_rung?
         # TODO: change whole tag (whole tag was selected)
-        pass
-
-    def change_part_of_tag(self, mmmmm):
-        # TODO: change part of the tag (part of the tag was selected)
+        # TODO: change_whole_tag and change_part_of_tag should be one function
+        #  (can't tell if it is whole o part tag - in code could be specified more nested element of structure than
+        #  selected to CSV)
         pass
 
 # TODO: subclasses for all cases

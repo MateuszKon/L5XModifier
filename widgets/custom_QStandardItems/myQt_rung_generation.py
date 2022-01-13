@@ -94,7 +94,8 @@ class mQtItem_rung(myQtItem_TemplateItem):
         self.setSelectable(False)
         self.comment = comment
         self.code = rung_code
-        self.used_tags = self.list_used_tags(self.code)
+        self.original_tags = self.list_used_tags(self.code)
+        self.used_tags = list(self.original_tags)
         self.used_tags_parted = self.part_used_tags(self.used_tags)
         self.code_format = self.create_code_format(self.code, self.used_tags)
         for tag in self.used_tags:

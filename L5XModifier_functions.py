@@ -233,6 +233,7 @@ class L5XModifier_r_generator(L5XModifier):
         # TODO: generate new rungs based on template and csv data
         # change_list - list of ModifierFunction (all rows of CSV, each row has list of changes)
         for row_change_list in change_list:
+            # MOVE THIS IMPLEMENTATION INTO myQt_rung_generation.mQtItem_rung, call here function from mQtItem_rung
             # copy self.rung_template and all operation (changes) do on copy (copy: rungs_copy)
             rungs_copy = None
             pass
