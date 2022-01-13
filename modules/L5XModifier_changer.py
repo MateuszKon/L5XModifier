@@ -12,6 +12,11 @@ class ModifierFunction:
         # TODO: virtual function for changing element of L5X file
         pass
 
+    def apply_change_in_rung_template(self, rungs_copy: list):
+        # TODO: virutal function for changing rungs to create new one based on CSV modification
+        # rungs_copy - list of mQtItem_rung
+        pass
+
 
 class ModifierNewTag(ModifierFunction):
 
@@ -22,6 +27,8 @@ class ModifierNewTag(ModifierFunction):
         # check if change is in the beginning of the name
         # (then needs to be check if this tag exist or need to create new one)
         self._beginning_selected = True or False
+        # create name of tag which must be modified (remove { } from header and put into:
+        self.tag_name = ""
         pass
 
     def is_tag_changed(self):
@@ -34,6 +41,40 @@ class ModifierNewTag(ModifierFunction):
             # Check if tag (beggining of the name) exist in tag list of the file (root)
             # create new tag if necessary. Template of the tag is in header (data type, scope etc)
             pass
+        pass
+
+    def apply_change_in_rung_template(self, rungs_copy: list):
+        # TODO: function for changing rungs to create new one based on CSV modification, replacing name of tags
+        # rungs_copy - list of mQtItem_rung
+        # check if all rungs must be checked or just single one (alphabetical order or appear order was selected)
+        # if
+        if True:
+            self.change_in_single_place(rungs_copy)
+        else:
+            self.change_in_all_rung(rungs_copy)
+
+    def change_in_single_place(self, rungs_copy):
+        # TODO: select single rung and place and do modification
+        # find single rung
+        # find single tag for modification
+        # modify tag in selected rung and tag in rung.used_tags and in rung.used_tags_parted
+        pass
+
+    def change_in_all_rung(self, rungs_copy):
+        # TODO: search in all rungs and all places for needed modification
+        for rung in rungs_copy:
+            # search in each rung of rungs_copy for self.tag_name in rung.used_tags, then change whole tag
+            # (change_whole_tag) or just the part of it (change_part_of_tag). Change tag in rung.used_tags and
+            # in rung.used_tags_parted
+            pass
+        pass
+
+    def change_whole_tag(self, mmmmm):
+        # TODO: change whole tag (whole tag was selected)
+        pass
+
+    def change_part_of_tag(self, mmmmm):
+        # TODO: change part of the tag (part of the tag was selected)
         pass
 
 # TODO: subclasses for all cases

@@ -95,6 +95,7 @@ class mQtItem_rung(myQtItem_TemplateItem):
         self.comment = comment
         self.code = rung_code
         self.used_tags = self.list_used_tags(self.code)
+        self.used_tags_parted = self.part_used_tags(self.used_tags)
         self.code_format = self.create_code_format(self.code, self.used_tags)
         for tag in self.used_tags:
             self.appendRow(mQtItem_tag_element(root, tag).get_row())
@@ -109,6 +110,17 @@ class mQtItem_rung(myQtItem_TemplateItem):
             for tag in tags:
                 used_tags.append(tag)
         return used_tags
+
+    @staticmethod
+    def part_used_tags(used_tags):
+        # TODO: seperate each clickable element of the tags into seperate strings (create list of lists)
+        used_tags_parted = list()
+        for tag in used_tags:
+            # every tag seperate into components and create list from it
+            # append created list into list used_tags_parted
+            pass
+        # return all tags parted into components
+        pass
 
     @staticmethod
     def create_code_format(code: str, used_tags):

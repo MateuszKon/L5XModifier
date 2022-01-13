@@ -231,6 +231,16 @@ class L5XModifier_r_generator(L5XModifier):
 
     def generate_new_rungs(self, change_list) -> list:
         # TODO: generate new rungs based on template and csv data
-        # change_list - list of ModifierFunction
+        # change_list - list of ModifierFunction (all rows of CSV, each row has list of changes)
+        for row_change_list in change_list:
+            # copy self.rung_template and all operation (changes) do on copy (copy: rungs_copy)
+            rungs_copy = None
+            pass
+            for single_change in row_change_list:
+                single_change: ModifierFunction
+                # each single_change of class ModifierFunction do apply_change_in_rung_template
+                # on copied self.rung_template
+                pass
+                single_change.apply_change_in_rung_template(rungs_copy)
         # return list of L5XRung's
         pass
