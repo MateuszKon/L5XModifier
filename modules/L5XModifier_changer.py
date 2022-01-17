@@ -151,4 +151,30 @@ class ModifierDescription(ModifierFunction):
         # do only if self.is_rung_modification
         pass
 
-# TODO: subclasses for all cases
+
+class ModifierValue(ModifierFunction):
+    # TODO: some way for changing constant values
+
+    def __init__(self, value, header, single_selection):
+        super().__init__(value, header, single_selection)
+
+    def apply_change_in_root(self, root: L5X.L5XRoot):
+        # TODO: function for changing element of L5X file
+        # if it is not constant, then change is in root
+        pass
+
+    def apply_change_in_rung_template(self, rungs_copy: list):
+        # TODO: function for changing rungs to create new one based on CSV modification
+        # rungs_copy - list of mQtItem_rung
+        # if it is constant, then change is in rung
+        pass
+
+
+class ModifierScope(ModifierFunction):
+
+    def __init__(self, value, header, single_selection):
+        super().__init__(value, header, single_selection)
+
+    def apply_change_in_root(self, root: L5X.L5XRoot):
+        # TODO: function for changing element of L5X file
+        pass
