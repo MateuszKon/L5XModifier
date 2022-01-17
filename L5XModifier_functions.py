@@ -191,43 +191,54 @@ class L5XModifier_r_generator(L5XModifier):
 
     def generate_list_of_changes(self, headers, rows) -> list:
         # TODO: generate list of changes
-        # prepare list of changes of to main files (list of new tags, changes in description etc, changes to rungs)
-        # parse all headers, depending on what is in header prepare list of subclasses
-        # patterns for selecting correct type of change
-        pattern_tag_name = r"\{\w+\}"
-        pattern_rung_change = r"Rung \d+\:"
-        pattern_property_change = r":[a-zA-Z]{1,3}\Z"
-        modification_class_list = list()
-        for header in headers:
-            # check if rung modification
-            match = re.search(pattern_rung_change, header)
-            if match:
-                # check what is need to be changed
-                # check name {...}
-                # check other :DT, :DSC, :VAL, :SCP
-                # create object changing tag name (and creating new one if necessary) and so on
-                pass
-            else:
-                # check if global name modification
-                match = re.search(pattern_tag_name, header)
-                if match:
-                    # create object changing tag name
-                    pass
-                else:
-                    # check for other global modyfication :DT, :DSC, :VAL, :SCP
+        # prepare list of changes of main files (list of new tags, changes in description etc, changes to rungs)
+        # parse all headers, depending on what is in header prepare list of subclasses of ModifierFunction
 
-                    pass
+        # patterns for selecting correct type of change
+        pattern_rung_change = r"Rung \d+\:"
+        pattern_tag_name = r"\{\w+\}"
+        pattern_property_change = r":([a-zA-Z]{1,3})\Z"
+        # dictionary of property modification key names to subclasses of ModifierFunction
+        property_change_dictionary = {"DT": ModifierDataType, "DSC": ModifierDescription, "VAL": ModifierValue,
+                                      "SCP": ModifierScope}
+        modification_class_list = list()  # subclasses of class ModifierFunction
+        rung_modification = list()  # list of bool values: rung modification - True, global modification - False
+        for header in headers:
+            # check if rung modification of global modification
+            rung_modification.append(bool(re.search(pattern_rung_change, header)))
+            # check what is need to be changed
+            # check if name is selected {...}
+            match = re.search(pattern_tag_name, header)
+            if match:
+                # append class name changing tag name (and creating new one if necessary)
+                modification_class_list.append(ModifierNewTag)
+                continue
+            # check other :DT, :DSC, :VAL, :SCP
+            match = re.search(pattern_property_change, header)
+            if match:
+                # append class name changing property
+                # match.group(1) should be one of the key of property_change_dictionary
+                if match.group(1).upper() in property_change_dictionary:
+                    modification_class_list.append(property_change_dictionary[match.group(1).upper()])
+                    continue
+            # if there was no match this part of code will execute:
+            modification_class_list.append(None)
+            print("Part of imported modification are not recognized. Header name is recognized: " + header)
         whole_change_list = list()
-        # for every row: for every element in list of subclasses:
-        # create objects: class_name(value, header, single_selection)
+        # for every row: for every element in list of subclasses: create objects:
+        # class_name(value, header, single_selection)
         for row in rows:
             row_change_list = list()
-            for value, header, class_name in zip(row, headers, modification_class_list):
-                # row_change_list.append(object)
+            for value, header, class_name, rung_modification_bool in zip(row, headers, modification_class_list,
+                                                                         rung_modification):
+                # create subclass of ModifierFunction - name stored in class_name
+                modifier_function_object: ModifierFunction = class_name(value, header, rung_modification_bool)
                 # put row_change_list into function check_name_change to make changes in proper tag
-                pass
+                modifier_function_object.check_name_change(row_change_list)
+                # append to row_change_list
+                row_change_list.append(class_name(value, header, rung_modification_bool))
             whole_change_list.append(row_change_list)
-        # return list of changes (maybe in form of objects of different classes)
+        # return list of changes (in form of objects of different subclasses of ModifierFunction)
         return whole_change_list
 
     def generate_new_rungs(self, change_list) -> list:
