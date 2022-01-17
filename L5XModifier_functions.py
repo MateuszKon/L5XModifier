@@ -190,7 +190,7 @@ class L5XModifier_r_generator(L5XModifier):
             self.build_elements_dict(elems_dict[elem_splited[0]], elem_splited[1:])
 
     def generate_list_of_changes(self, headers, rows) -> list:
-        # TODO: generate list of changes
+        # generate list of changes
         # prepare list of changes of main files (list of new tags, changes in description etc, changes to rungs)
         # parse all headers, depending on what is in header prepare list of subclasses of ModifierFunction
 
