@@ -123,15 +123,32 @@ class ModifierDataType(ModifierFunction):
         pass
 
     def apply_change_in_root(self, root: L5X.L5XRoot):
-        # TODO: virtual function for changing element of L5X file
+        # TODO: function for changing element of L5X file
+        pass
+
+
+class ModifierDescription(ModifierFunction):
+
+    def __init__(self, value, header, single_selection):
+        super().__init__(value, header, single_selection)
+        # store new description
+        # check if it rung description modification:
+        self._is_rung_modification = True or False
+        pass
+
+    @property
+    def is_rung_modification(self):
+        return self._is_rung_modification
+
+    def apply_change_in_root(self, root: L5X.L5XRoot):
+        # TODO: function for changing element of L5X file
+        # do only if not self.is_rung_modification
         pass
 
     def apply_change_in_rung_template(self, rungs_copy: list):
-        # TODO: virutal function for changing rungs to create new one based on CSV modification
+        # TODO: function for changing rungs to create new one based on CSV modification
         # rungs_copy - list of mQtItem_rung
+        # do only if self.is_rung_modification
         pass
-
-
-
 
 # TODO: subclasses for all cases
