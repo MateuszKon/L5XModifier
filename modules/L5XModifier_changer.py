@@ -8,6 +8,26 @@ class ModifierFunction:
         self.value = value  # new value
         self.header = header  # header of modification
         self.single_selection = single_selection  # selected in appear order instead of alphabetical order
+        self._current_tag_name = None
+        self.original_tag_name = self.get_tag_name(header)
+
+    @property
+    def current_tag_name(self):
+        if self._current_tag_name:
+            return self._current_tag_name
+        else:
+            return self.original_tag_name
+
+    @current_tag_name.setter
+    def current_tag_name(self, current_tag_name):
+        self._current_tag_name = current_tag_name
+
+    @staticmethod
+    def get_tag_name(header):
+        # TODO: extract tag name of modification (first part of tag name in header, make sure to handle case when
+        #  it is rung modification)
+        # return name from header
+        pass
 
     def apply_change_in_root(self, root: L5X.L5XRoot):
         # TODO: virtual function for changing element of L5X file
@@ -17,6 +37,16 @@ class ModifierFunction:
         # TODO: virutal function for changing rungs to create new one based on CSV modification
         # rungs_copy - list of mQtItem_rung
         pass
+
+    def check_name_change(self, change_list: list):
+        # function for checking for current tag name in already prepared change_list, to know, which
+        # tag is needed to be modified (DT, DSC etc.)
+        # change_list - list of ModifierFunction (already done)
+        # if none of elements are of the same original_tag_name, current_tag_name stayes None
+        for element in change_list:
+            element: ModifierFunction
+            if self.original_tag_name == element.original_tag_name:
+                self.current_tag_name = element.current_tag_name
 
 
 class ModifierNewTag(ModifierFunction):
@@ -30,6 +60,7 @@ class ModifierNewTag(ModifierFunction):
         self._beginning_selected = True or False
         # create name of tag which must be modified (remove { } from header and put into:
         self.tag_name = ""
+        # modify self._current_tag_name if whole tag is modified
         pass
 
     def is_tag_changed(self):
@@ -82,5 +113,25 @@ class ModifierNewTag(ModifierFunction):
         # in rung change tag in index index_of... Check in rung.original_tags what part must be changed
         # make changes in rung.used_tags and rung.used_tags_parted
         pass
+
+
+class ModifierDataType(ModifierFunction):
+
+    def __init__(self, value, header, single_selection):
+        super().__init__(value, header, single_selection)
+        # store new data_type
+        pass
+
+    def apply_change_in_root(self, root: L5X.L5XRoot):
+        # TODO: virtual function for changing element of L5X file
+        pass
+
+    def apply_change_in_rung_template(self, rungs_copy: list):
+        # TODO: virutal function for changing rungs to create new one based on CSV modification
+        # rungs_copy - list of mQtItem_rung
+        pass
+
+
+
 
 # TODO: subclasses for all cases

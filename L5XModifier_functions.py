@@ -1,7 +1,7 @@
 from L5XeTree import L5XeTree as L5X
 from L5XeTree.modules.RSLogixEncoding import RSLogixEncoding
 from modules.myQt import *
-from modules.L5XModifier_changer import ModifierFunction
+from modules.L5XModifier_changer import *
 from widgets.custom_QStandardItems.myQt_rung_generation import *
 from PySide6.QtGui import QStandardItemModel
 
@@ -192,7 +192,6 @@ class L5XModifier_r_generator(L5XModifier):
     def generate_list_of_changes(self, headers, rows) -> list:
         # TODO: generate list of changes
         # prepare list of changes of to main files (list of new tags, changes in description etc, changes to rungs)
-
         # parse all headers, depending on what is in header prepare list of subclasses
         # patterns for selecting correct type of change
         pattern_tag_name = r"\{\w+\}"
@@ -216,6 +215,7 @@ class L5XModifier_r_generator(L5XModifier):
                     pass
                 else:
                     # check for other global modyfication :DT, :DSC, :VAL, :SCP
+
                     pass
         whole_change_list = list()
         # for every row: for every element in list of subclasses:
@@ -224,6 +224,7 @@ class L5XModifier_r_generator(L5XModifier):
             row_change_list = list()
             for value, header, class_name in zip(row, headers, modification_class_list):
                 # row_change_list.append(object)
+                # put row_change_list into function check_name_change to make changes in proper tag
                 pass
             whole_change_list.append(row_change_list)
         # return list of changes (maybe in form of objects of different classes)
