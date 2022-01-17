@@ -1,4 +1,5 @@
 from L5XeTree import L5XeTree as L5X
+from widgets.custom_QStandardItems.myQt_rung_generation import mQtItem_rung
 
 
 class ModifierFunction:
@@ -72,12 +73,14 @@ class ModifierNewTag(ModifierFunction):
             pass
         pass
 
-    def change_tag(self, rung, index_of_tag_to_change, ):
+    def change_tag(self, rung: mQtItem_rung, index_of_tag_to_change, ):
         # TODO: somehow import mQtItem_rung? to write rung:mQtItem_rung?
         # TODO: change whole tag (whole tag was selected)
         # TODO: change_whole_tag and change_part_of_tag should be one function
         #  (can't tell if it is whole o part tag - in code could be specified more nested element of structure than
         #  selected to CSV)
+        # in rung change tag in index index_of... Check in rung.original_tags what part must be changed
+        # make changes in rung.used_tags and rung.used_tags_parted
         pass
 
 # TODO: subclasses for all cases
