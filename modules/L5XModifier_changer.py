@@ -2,6 +2,7 @@ from L5XeTree import L5XeTree as L5X
 from widgets.custom_QStandardItems.myQt_rung_generation import mQtItem_rung
 import re
 
+
 class ModifierFunction:
 
     def __init__(self, value, header, single_selection):
@@ -36,11 +37,11 @@ class ModifierFunction:
             return None
 
     def apply_change_in_root(self, root: L5X.L5XRoot):
-        # TODO: virtual function for changing element of L5X file
+        # virtual function for changing element of L5X file
         pass
 
     def apply_change_in_rung_template(self, rungs_copy: list):
-        # TODO: virutal function for changing rungs to create new one based on CSV modification
+        # virutal function for changing rungs to create new one based on CSV modification
         # rungs_copy - list of mQtItem_rung
         pass
 
@@ -59,15 +60,20 @@ class ModifierNewTag(ModifierFunction):
 
     def __init__(self, value, header, single_selection):
         super().__init__(value, header, single_selection)
-        # TODO: instantiating new modifier, having new name and template (data_type, scope etc)
+        # Instantiating new modifier. If will be necessary to create new tag, here will be new name
+        #  and template (data_type, scope etc) will be in L5X file under self.original_tag_name tag
         # seperate part of name which changes
-        # check if change is in the beginning of the name
-        # (then needs to be check if this tag exist or need to create new one)
-        self._beginning_selected = True or False
-        # create name of tag which must be modified (remove { } from header and put into:
-        self.tag_name = ""
-        # modify self._current_tag_name if whole tag is modified
-        pass
+        pattern = r"(Rung [0-9]+\:[0-9]+\:)?([\w\.\[\]]+)?\{([\w\.]+)\}"
+        match = re.match(pattern, header)
+        self.changing_part = match.group(3)
+        # check if change is in the beginning of the name - if group(2) is empty, then beginning_selected is True
+        # (later needs to be check if this tag exist or need to create new one)
+        self._beginning_selected = not bool(match.group(2))
+        # modify self._current_tag_name if whole tag is modified (extract tag name from 'value')
+        if self.is_tag_changed():
+            self.current_tag_name = re.search(r"\w+", value)
+        # maybe not? - create name of tag which must be modified (remove { } from header and put into:
+        # self.tag_name = ""
 
     def is_tag_changed(self):
         # Returns information if beggining of the tag was selected. If so, whole tag changes, return True
