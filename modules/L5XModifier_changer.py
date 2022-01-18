@@ -166,6 +166,8 @@ class ModifierValue(ModifierFunction):
 
     def __init__(self, value, header, single_selection):
         super().__init__(value, header, single_selection)
+        # TODO: check new value is a constant or value for tag
+        pass
 
     def apply_change_in_root(self, root: L5X.L5XRoot):
         # TODO: function for changing element of L5X file
@@ -176,6 +178,10 @@ class ModifierValue(ModifierFunction):
         # TODO: function for changing rungs to create new one based on CSV modification
         # rungs_copy - list of mQtItem_rung
         # if it is constant, then change is in rung
+        pass
+
+    def check_name_change(self, change_list: list):
+        # TODO: scan change_list to find if data_type has changed so the new value is tag modification or constant
         pass
 
 
