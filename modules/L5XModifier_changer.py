@@ -1,6 +1,6 @@
 from L5XeTree import L5XeTree as L5X
 from widgets.custom_QStandardItems.myQt_rung_generation import mQtItem_rung
-
+import re
 
 class ModifierFunction:
 
@@ -24,10 +24,16 @@ class ModifierFunction:
 
     @staticmethod
     def get_tag_name(header):
-        # TODO: extract tag name of modification (first part of tag name in header, make sure to handle case when
-        #  it is rung modification)
+        # extract tag name of modification (first part of tag name in header, make sure to handle case when
+        # it is rung modification)
+        # pattern matches begginig of the tag, omiting optional "Rung 1:2:" at the beggining of header
+        pattern = r"(Rung [0-9]+\:)?(([0-9]+\:)|(DSC))?{?(\w+)?}?"
+        match = re.seatch(pattern, header)
         # return name from header
-        pass
+        if match.group(5):
+            return match.group(5)
+        else:
+            return None
 
     def apply_change_in_root(self, root: L5X.L5XRoot):
         # TODO: virtual function for changing element of L5X file
