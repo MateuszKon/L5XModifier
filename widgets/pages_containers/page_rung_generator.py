@@ -122,6 +122,10 @@ class RungGeneratorPage(MainWindow):
     def import_tag_CSV(self):
         # 1. Open file dialog
         load_file = self.choose_csv_file_load()
+        # TODO: how to define scope, routine, rung_index
+        scope = ""
+        routine = ""
+        rung_index = -1
         if load_file:
             # Loading data from file (headers separately)
             headers, rows = self.get_information_from_csv(load_file)
@@ -130,14 +134,10 @@ class RungGeneratorPage(MainWindow):
             elements_list = self.L5Xrungs.generate_list_of_changes(headers, rows)
             # make changes to main file
             for element in elements_list:
-                self.L5Xmain.change_file_element(element)
+                self.L5Xmain.change_file_element(element, scope)
             # generate new rungs (L5XRung's) based on all list of ModifierFunction and template from self.L5XRungs
             rung_list = self.L5Xrungs.generate_new_rungs(elements_list)
             # put new rungs into self.L5Xmain file or into import file (for import rungs into program)
-            # TODO: how to define scope, routine, rung_index
-            scope = ""
-            routine = ""
-            rung_index = -1
             self.L5Xmain.insert_new_rungs(rung_list, scope, routine, rung_index)
 
     @staticmethod

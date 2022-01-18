@@ -143,9 +143,9 @@ class L5XModifier:
     def decode_string(string: str, encoder):
         return RSLogixEncoding.decode_string(string, encoder)
 
-    def change_file_element(self, change_element: ModifierFunction):
+    def change_file_element(self, change_element: ModifierFunction, scope: str):
         # change file element - make change in file (self.root) with change_element object
-        change_element.apply_change_in_root(self.root)
+        change_element.apply_change_in_root(self.root, scope)
 
     def insert_new_rungs(self, rung_list, scope, routine, rung_index):
         # TODO: insert new rungs into main file in place described by inputs

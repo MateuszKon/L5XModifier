@@ -36,7 +36,7 @@ class ModifierFunction:
         else:
             return None
 
-    def apply_change_in_root(self, root: L5X.L5XRoot):
+    def apply_change_in_root(self, root: L5X.L5XRoot, scope: str):
         # virtual function for changing element of L5X file
         pass
 
@@ -49,7 +49,7 @@ class ModifierFunction:
         # function for checking for current tag name in already prepared change_list, to know, which
         # tag is needed to be modified (DT, DSC etc.)
         # change_list - list of ModifierFunction (already done)
-        # if none of elements are of the same original_tag_name, current_tag_name stayes None
+        # if none of elements are of the same original_tag_name, current_tag_name stays None
         for element in change_list:
             element: ModifierFunction
             if self.original_tag_name == element.original_tag_name:
@@ -57,7 +57,7 @@ class ModifierFunction:
 
 
 class ModifierNewTag(ModifierFunction):
-    # TODO: modifing constant value or changing to constant value should be done as ModifierNewTag
+    # TODO: modifying constant value or changing to constant value should be done as ModifierNewTag
 
     def __init__(self, value, header, single_selection):
         super().__init__(value, header, single_selection)
@@ -73,20 +73,38 @@ class ModifierNewTag(ModifierFunction):
         # modify self._current_tag_name if whole tag is modified (extract tag name from 'value')
         if self.is_tag_changed():
             self.current_tag_name = re.search(r"\w+", value)
-        # maybe not? - create name of tag which must be modified (remove { } from header and put into:
-        # self.tag_name = ""
+        # check if new value is a constant instead of a tag
+        pattern = r'(\A\".+"\Z)|(\A[0-9\-][0-9\-.]*\Z)'
+        self.is_constant = bool(re.match(pattern, value))
 
     def is_tag_changed(self):
         # Returns information if beggining of the tag was selected. If so, whole tag changes, return True
         return self._beginning_selected
 
-    def apply_change_in_root(self, root: L5X.L5XRoot):
+    def apply_change_in_root(self, root: L5X.L5XRoot, scope: str):
         # TODO: changing element of L5X file (checking if necessary to create new tag and doing that)
-        if self.is_tag_changed:
+        # check if modification changes tag to another tag
+        if self.is_tag_changed and not self.is_constant:
             # Check if tag (beggining of the name) exist in tag list of the file (root)
+            tag = root.tag(self.current_tag_name, scope=scope)
+            if tag is None and scope != "Controller":
+                tag = root.tag(self.current_tag_name, scope="Controller")
             # create new tag if necessary. Template of the tag is in header (data type, scope etc)
-            pass
-        pass
+            if tag is None:
+                # find original_tag to get to know the data_type and scope
+                original_tag = root.tag(self.original_tag_name, scope=scope)
+                if original_tag is None and scope != "Controller":
+                    original_tag = root.tag(self.original_tag_name, scope="Controller")
+                # if original_tag is found, then get from it data_type and scope, else get default values
+                if original_tag is not None:
+                    new_data_type = original_tag.data_type
+                    new_scope = original_tag.scope
+                else:
+                    new_data_type = "BOOL"
+                    new_scope = "Controller"
+                # create new tag based on template
+                # TODO: NOW
+                root.new_tag()
 
     def apply_change_in_rung_template(self, rungs_copy: list):
         # TODO: function for changing rungs to create new one based on CSV modification, replacing name of tags
@@ -97,6 +115,7 @@ class ModifierNewTag(ModifierFunction):
             self.change_in_single_place(rungs_copy)
         else:
             self.change_in_all_rung(rungs_copy)
+        # handle also constants
 
     def change_in_single_place(self, rungs_copy):
         # TODO: select single rung and place and do modification
@@ -130,7 +149,7 @@ class ModifierNewTag(ModifierFunction):
 
 class ModifierDataType(ModifierFunction):
 
-    def apply_change_in_root(self, root: L5X.L5XRoot):
+    def apply_change_in_root(self, root: L5X.L5XRoot, scope: str):
         # TODO: function for changing element of L5X file
         pass
 
@@ -148,7 +167,7 @@ class ModifierDescription(ModifierFunction):
     def is_rung_modification(self):
         return self._is_rung_modification
 
-    def apply_change_in_root(self, root: L5X.L5XRoot):
+    def apply_change_in_root(self, root: L5X.L5XRoot, scope: str):
         # TODO: function for changing element of L5X file
         # do only if not self.is_rung_modification
         if not self.is_rung_modification:
@@ -165,7 +184,7 @@ class ModifierDescription(ModifierFunction):
 class ModifierValue(ModifierFunction):
     # Modifying only tag values, constant values should be inserted by changing tag name, not value
 
-    def apply_change_in_root(self, root: L5X.L5XRoot):
+    def apply_change_in_root(self, root: L5X.L5XRoot, scope: str):
         # TODO: function for changing element of L5X file
         # it is not constant, so change is in root. Constant values should be inserted by changing tag name, not value
         pass
@@ -173,6 +192,6 @@ class ModifierValue(ModifierFunction):
 
 class ModifierScope(ModifierFunction):
 
-    def apply_change_in_root(self, root: L5X.L5XRoot):
+    def apply_change_in_root(self, root: L5X.L5XRoot, scope: str):
         # TODO: function for changing element of L5X file
         pass
