@@ -129,11 +129,6 @@ class ModifierNewTag(ModifierFunction):
 
 class ModifierDataType(ModifierFunction):
 
-    def __init__(self, value, header, single_selection):
-        super().__init__(value, header, single_selection)
-        # store new data_type
-        pass
-
     def apply_change_in_root(self, root: L5X.L5XRoot):
         # TODO: function for changing element of L5X file
         pass
@@ -144,9 +139,9 @@ class ModifierDescription(ModifierFunction):
     def __init__(self, value, header, single_selection):
         super().__init__(value, header, single_selection)
         # store new description
-        # check if it rung description modification:
-        self._is_rung_modification = True or False
-        pass
+        # check if it rung description modification - if group(2) is not empty, then it is rung desc modification:
+        pattern = r"(Rung [0-9]+\:)?(DSC)?"
+        self._is_rung_modification = bool(re.search(pattern, header).group(2))
 
     @property
     def is_rung_modification(self):
@@ -155,13 +150,15 @@ class ModifierDescription(ModifierFunction):
     def apply_change_in_root(self, root: L5X.L5XRoot):
         # TODO: function for changing element of L5X file
         # do only if not self.is_rung_modification
-        pass
+        if not self.is_rung_modification:
+            pass
 
     def apply_change_in_rung_template(self, rungs_copy: list):
         # TODO: function for changing rungs to create new one based on CSV modification
         # rungs_copy - list of mQtItem_rung
         # do only if self.is_rung_modification
-        pass
+        if self.is_rung_modification:
+            pass
 
 
 class ModifierValue(ModifierFunction):
