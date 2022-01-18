@@ -57,6 +57,7 @@ class ModifierFunction:
 
 
 class ModifierNewTag(ModifierFunction):
+    # TODO: modifing constant value or changing to constant value should be done as ModifierNewTag
 
     def __init__(self, value, header, single_selection):
         super().__init__(value, header, single_selection)
@@ -162,26 +163,11 @@ class ModifierDescription(ModifierFunction):
 
 
 class ModifierValue(ModifierFunction):
-    # TODO: some way for changing constant values
-
-    def __init__(self, value, header, single_selection):
-        super().__init__(value, header, single_selection)
-        # TODO: check new value is a constant or value for tag
-        pass
+    # Modifying only tag values, constant values should be inserted by changing tag name, not value
 
     def apply_change_in_root(self, root: L5X.L5XRoot):
         # TODO: function for changing element of L5X file
-        # if it is not constant, then change is in root
-        pass
-
-    def apply_change_in_rung_template(self, rungs_copy: list):
-        # TODO: function for changing rungs to create new one based on CSV modification
-        # rungs_copy - list of mQtItem_rung
-        # if it is constant, then change is in rung
-        pass
-
-    def check_name_change(self, change_list: list):
-        # TODO: scan change_list to find if data_type has changed so the new value is tag modification or constant
+        # it is not constant, so change is in root. Constant values should be inserted by changing tag name, not value
         pass
 
 
