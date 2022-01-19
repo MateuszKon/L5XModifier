@@ -55,6 +55,12 @@ class ModifierFunction:
             if self.original_tag_name == element.original_tag_name:
                 self.current_tag_name = element.current_tag_name
 
+    def get_original_tag(self, root: L5X.L5XRoot, scope: str):
+        original_tag = root.tag(self.current_tag_name, scope=scope)
+        if original_tag is None and scope != "Controller":
+            original_tag = root.tag(self.current_tag_name, scope="Controller")
+        return original_tag
+
 
 class ModifierNewTag(ModifierFunction):
     # TODO: modifying constant value or changing to constant value should be done as ModifierNewTag
@@ -86,9 +92,7 @@ class ModifierNewTag(ModifierFunction):
         # Check if modification changes tag to another tag
         if self.is_tag_changed and not self.is_constant:
             # Check if tag (beginning of the name) exist in tag list of the file (root)
-            tag = root.tag(self.current_tag_name, scope=scope)
-            if tag is None and scope != "Controller":
-                tag = root.tag(self.current_tag_name, scope="Controller")
+            tag = self.get_original_tag(root, scope)
             # create new tag if necessary. Template of the tag is in header (data type, scope etc)
             if tag is None:
                 # find original_tag to get to know the data_type and scope
@@ -148,9 +152,7 @@ class ModifierDataType(ModifierFunction):
     def apply_change_in_root(self, root: L5X.L5XRoot, scope: str):
         # Function for changing element of L5X file. Changing data_type is data loss action. Changing data_type is done
         #  by creating copy of the tag, the deleting original tag
-        original_tag = root.tag(self.current_tag_name, scope=scope)
-        if original_tag is None and scope != "Controller":
-            original_tag = root.tag(self.current_tag_name, scope="Controller")
+        original_tag = self.get_original_tag(root, scope)
         if original_tag is not None:
             if self.value != original_tag.data_type:
                 if self.value.upper() in L5X.L5XTag.SIMPLE_DATA_TYPE or \
