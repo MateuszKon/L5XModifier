@@ -173,6 +173,9 @@ class ModifierDescription(ModifierFunction):
         # check if it rung description modification - if group(2) is not empty, then it is rung desc modification:
         pattern = r"(Rung [0-9]+\:)?(DSC)?"
         self._is_rung_modification = bool(re.search(pattern, header).group(2))
+        self._is_subelement_modification = bool(re.match(r"[\.\[\]]", header))
+        self.current_whole_tag_name = None  # not only first part of the tag, but also subelement names included
+        # TODO: make property function (getter setter) for self.current_whole_tag_name
 
     @property
     def is_rung_modification(self):
@@ -182,7 +185,11 @@ class ModifierDescription(ModifierFunction):
         # TODO: function for changing element of L5X file
         # do only if not self.is_rung_modification
         if not self.is_rung_modification:
-            pass
+            tag = self.get_original_tag(root, scope)
+            if tag is not None:
+                pass
+            else:
+                raise ValueError("There is no tag " + self.current_tag_name + " for changing description")
 
     def apply_change_in_rung_template(self, rungs_copy: list):
         # TODO: function for changing rungs to create new one based on CSV modification
@@ -190,6 +197,18 @@ class ModifierDescription(ModifierFunction):
         # do only if self.is_rung_modification
         if self.is_rung_modification:
             pass
+
+    def check_name_change(self, change_list: list):
+        # TODO: override check_name_changes to find not only tag name changes, but also whole name including nested
+        #  element if that is the case
+        super().check_name_change(change_list)
+        # do override function only if description modification is of subelement of the tag
+        if self._is_subelement_modification:
+            for element in change_list:
+                if self.original_tag_name == element.original_tag_name:
+                    # if element changes name, check what part of the name, and change it in here
+                    # changes stored in self.current_whole_tag_name
+                    pass
 
 
 class ModifierValue(ModifierFunction):
