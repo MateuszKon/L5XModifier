@@ -82,10 +82,10 @@ class ModifierNewTag(ModifierFunction):
         return self._beginning_selected
 
     def apply_change_in_root(self, root: L5X.L5XRoot, scope: str):
-        # TODO: changing element of L5X file (checking if necessary to create new tag and doing that)
-        # check if modification changes tag to another tag
+        # Changing element of L5X file (checking if necessary to create new tag and doing that)
+        # Check if modification changes tag to another tag
         if self.is_tag_changed and not self.is_constant:
-            # Check if tag (beggining of the name) exist in tag list of the file (root)
+            # Check if tag (beginning of the name) exist in tag list of the file (root)
             tag = root.tag(self.current_tag_name, scope=scope)
             if tag is None and scope != "Controller":
                 tag = root.tag(self.current_tag_name, scope="Controller")
@@ -95,16 +95,12 @@ class ModifierNewTag(ModifierFunction):
                 original_tag = root.tag(self.original_tag_name, scope=scope)
                 if original_tag is None and scope != "Controller":
                     original_tag = root.tag(self.original_tag_name, scope="Controller")
-                # if original_tag is found, then get from it data_type and scope, else get default values
+                # If original_tag is found, then get from it data_type and scope, else get default values
+                # Create new tag
                 if original_tag is not None:
-                    new_data_type = original_tag.data_type
-                    new_scope = original_tag.scope
+                    root.copy_tag(self.current_tag_name, original_tag)
                 else:
-                    new_data_type = "BOOL"
-                    new_scope = "Controller"
-                # create new tag based on template
-                # TODO: NOW
-                root.new_tag()
+                    root.new_tag(self.current_tag_name, "BOOL")
 
     def apply_change_in_rung_template(self, rungs_copy: list):
         # TODO: function for changing rungs to create new one based on CSV modification, replacing name of tags
