@@ -8,6 +8,7 @@ from PySide6.QtGui import QStandardItemModel
 from encodings.aliases import aliases
 import csv
 import re
+import warnings
 
 
 class L5XModifier:
@@ -223,7 +224,7 @@ class L5XModifier_r_generator(L5XModifier):
                     continue
             # if there was no match this part of code will execute:
             modification_class_list.append(None)
-            print("Part of imported modification are not recognized. Header name is recognized: " + header)
+            warnings.warn("Part of imported modification are not recognized. Header name is recognized: " + header)
         whole_change_list = list()
         # for every row: for every element in list of subclasses: create objects:
         # class_name(value, header, single_selection)
@@ -231,12 +232,14 @@ class L5XModifier_r_generator(L5XModifier):
             row_change_list = list()
             for value, header, class_name, rung_modification_bool in zip(row, headers, modification_class_list,
                                                                          rung_modification):
-                # create subclass of ModifierFunction - name stored in class_name
-                modifier_function_object: ModifierFunction = class_name(value, header, rung_modification_bool)
-                # put row_change_list into function check_name_change to make changes in proper tag
-                modifier_function_object.check_name_change(row_change_list)
-                # append to row_change_list
-                row_change_list.append(class_name(value, header, rung_modification_bool))
+                # check if class_name was correctly evaluated
+                if class_name is not None:
+                    # create subclass of ModifierFunction - name stored in class_name
+                    modifier_function_object: ModifierFunction = class_name(value, header, rung_modification_bool)
+                    # put row_change_list into function check_name_change to make changes in proper tag
+                    modifier_function_object.check_name_change(row_change_list)
+                    # append to row_change_list
+                    row_change_list.append(class_name(value, header, rung_modification_bool))
             whole_change_list.append(row_change_list)
         # return list of changes (in form of objects of different subclasses of ModifierFunction)
         return whole_change_list

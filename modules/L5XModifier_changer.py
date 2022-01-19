@@ -146,8 +146,21 @@ class ModifierNewTag(ModifierFunction):
 class ModifierDataType(ModifierFunction):
 
     def apply_change_in_root(self, root: L5X.L5XRoot, scope: str):
-        # TODO: function for changing element of L5X file
-        pass
+        # Function for changing element of L5X file. Changing data_type is data loss action. Changing data_type is done
+        #  by creating copy of the tag, the deleting original tag
+        original_tag = root.tag(self.current_tag_name, scope=scope)
+        if original_tag is None and scope != "Controller":
+            original_tag = root.tag(self.current_tag_name, scope="Controller")
+        if original_tag is not None:
+            if self.value != original_tag.data_type:
+                if self.value.upper() in L5X.L5XTag.SIMPLE_DATA_TYPE or \
+                        self.value in root.get_data_types_all_names():
+                    root.copy_tag(self.current_tag_name, original_tag, data_type=self.value)
+                    root.delete_tag(original_tag)
+                else:
+                    raise ValueError("There is no data_type: " + self.value + " in L5X file")
+        else:
+            raise ValueError("There is no tag " + self.current_tag_name + " for changing data_type")
 
 
 class ModifierDescription(ModifierFunction):

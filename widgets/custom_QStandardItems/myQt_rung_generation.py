@@ -330,7 +330,6 @@ class mQtItem_tag_element(myQtItem_TemplateItem):
                     break
                 else:
                     start_position += dot + size + 3
-
     @staticmethod
     def split_tag_to_parts(string, join_index=False):
         first_splitted = string.split(".")
