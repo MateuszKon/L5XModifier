@@ -174,12 +174,31 @@ class ModifierDescription(ModifierFunction):
         pattern = r"(Rung [0-9]+\:)?(DSC)?"
         self._is_rung_modification = bool(re.search(pattern, header).group(2))
         self._is_subelement_modification = bool(re.match(r"[\.\[\]]", header))
-        self.current_whole_tag_name = None  # not only first part of the tag, but also subelement names included
-        # TODO: make property function (getter setter) for self.current_whole_tag_name
+        self._current_whole_tag_name = None  # not only first part of the tag, but also subelement names included
 
     @property
     def is_rung_modification(self):
         return self._is_rung_modification
+
+    @property
+    def current_whole_tag_name(self):
+        if self._current_whole_tag_name is not None:
+            return self._current_whole_tag_name
+        elif self._is_rung_modification is None:
+            return None
+        else:
+            pattern = r"(Rung [0-9]+\:[0-9]+\:)?([^\:]+)"
+            match = re.match(pattern, self.header)
+            if match:
+                whole_tag_name = match.group(2)
+                whole_tag_name = whole_tag_name.replace("{", "").replace("}", "")
+                return whole_tag_name
+            else:
+                return None
+
+    @current_whole_tag_name.setter
+    def current_whole_tag_name(self, value):
+        self._current_whole_tag_name = value
 
     def apply_change_in_root(self, root: L5X.L5XRoot, scope: str):
         # TODO: function for changing element of L5X file
@@ -205,6 +224,8 @@ class ModifierDescription(ModifierFunction):
         # do override function only if description modification is of subelement of the tag
         if self._is_subelement_modification:
             for element in change_list:
+                # TODO: change this if sentence - if it is alphabetical order compare firstly original_tag_name then all
+                #  subelement of the tag. If it is appear order, then Rung and index in rung should match
                 if self.original_tag_name == element.original_tag_name:
                     # if element changes name, check what part of the name, and change it in here
                     # changes stored in self.current_whole_tag_name
