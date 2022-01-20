@@ -3,6 +3,32 @@ from widgets.custom_QStandardItems.myQt_rung_generation import mQtItem_rung
 import re
 
 
+class PerformedModification:
+
+    def __init__(self):
+        self.original_tag_name = None
+        self.current_tag_name = None
+        # dictionary where key is original_subelement_name of original_tag_name (if subelement or one of it's
+        #  subelements changes) and value is tuple of: current_subelement_name and similar dictionary of it's
+        #  subelements
+        self.tag_elements_dict = dict()
+
+
+class PerfAlphabeticModification(PerformedModification):
+
+    def __init__(self):
+        super().__init__()
+        pass
+
+
+class PerfRungModification(PerformedModification):
+
+    def __init__(self, rung_number, rung_element_index):
+        super().__init__()
+        self.rung_number = rung_number
+        self.rung_element_index = rung_element_index
+
+
 class ModifierFunction:
 
     def __init__(self, value, header, single_selection):

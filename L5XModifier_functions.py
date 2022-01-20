@@ -194,9 +194,11 @@ class L5XModifier_r_generator(L5XModifier):
         # generate list of changes
         # prepare list of changes of main files (list of new tags, changes in description etc, changes to rungs)
         # parse all headers, depending on what is in header prepare list of subclasses of ModifierFunction
-
+        # TODO: Changing this function to parse every possible information from header. Use class storing changes of
+        #  each header (eg. to know which tag description should be changed after changing selected name)
         # patterns for selecting correct type of change
-        pattern_rung_change = r"Rung \d+\:"
+        # TODO: Correct patterns to retrive more information (tag name, rung number, rung element index)
+        pattern_rung_change = r"Rung (\d+)\:((\d+)\:)?"
         pattern_tag_name = r"\{\w+\}"
         pattern_property_change = r":([a-zA-Z]{1,3})\Z"
         # dictionary of property modification key names to subclasses of ModifierFunction
@@ -204,13 +206,20 @@ class L5XModifier_r_generator(L5XModifier):
                                       "SCP": ModifierScope}
         modification_class_list = list()  # subclasses of class ModifierFunction
         rung_modification = list()  # list of bool values: rung modification - True, global modification - False
+        # TODO: Use these lists
+        performed_modification_obj = list()  # list of PerformedModification objects
+        performed_modification_tag_name = list()  # list of tag names of objects PerformedModification (for searching)
         for header in headers:
             # check if rung modification of global modification
+            # TODO: if this is rung modification, get also rung number and run element index (if exist last one)
             rung_modification.append(bool(re.search(pattern_rung_change, header)))
             # check what is need to be changed
             # check if name is selected {...}
             match = re.search(pattern_tag_name, header)
             if match:
+                # TODO: Tag name should be matched, find it in performed_modification_tag_name, if there is no one
+                #  then create PerformedModification object (one of the subclass) and append to
+                #  performed_modification_obj and performed_modification_tag_name
                 # append class name changing tag name (and creating new one if necessary)
                 modification_class_list.append(ModifierNewTag)
                 continue
@@ -230,10 +239,13 @@ class L5XModifier_r_generator(L5XModifier):
         # class_name(value, header, single_selection)
         for row in rows:
             row_change_list = list()
+            # TODO: every modification_class_list must be copied (new_obj = copy(obj) ) for each row
+            #  generate (copied_modification_class_list)
             for value, header, class_name, rung_modification_bool in zip(row, headers, modification_class_list,
                                                                          rung_modification):
                 # check if class_name was correctly evaluated
                 if class_name is not None:
+                    # TODO: find proper obj from copied_modification_class_list and insert into constructor
                     # create subclass of ModifierFunction - name stored in class_name
                     modifier_function_object: ModifierFunction = class_name(value, header, rung_modification_bool)
                     # put row_change_list into function check_name_change to make changes in proper tag
