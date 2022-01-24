@@ -2,6 +2,7 @@ from L5XeTree import L5XeTree as L5X
 from L5XeTree.modules.RSLogixEncoding import RSLogixEncoding
 from modules.myQt import *
 from modules.L5XModifier_changer import *
+from modules import common_functions as CF
 from widgets.custom_QStandardItems.myQt_rung_generation import *
 from PySide6.QtGui import QStandardItemModel
 
@@ -178,7 +179,7 @@ class L5XModifier_r_generator(L5XModifier):
             [appeared_elements.add(element) for element in rung_item.used_tags]
         elems_dict = dict()
         for element in appeared_elements:
-            elem_splited = mQtItem_tag_element.split_tag_to_parts(element, join_index=True)
+            elem_splited = CF.split_tag_to_parts(element, join_index=True)
             self.build_elements_dict(elems_dict, elem_splited)
         for tag in sorted(elems_dict):
             tag_item = mQtItem_alphabetical_tag(self.root, tag, elems_dict[tag])

@@ -1,5 +1,6 @@
 from L5XeTree import L5XeTree as L5X
 
+from modules import common_functions as CF
 from PySide6.QtCore import Qt, QModelIndex, QPersistentModelIndex
 from PySide6.QtGui import QStandardItem, QMouseEvent, QFontMetrics, QPainter
 from PySide6.QtWidgets import QTreeWidgetItem, QTreeView, QStyledItemDelegate, QStyleOptionViewItem
@@ -167,7 +168,7 @@ class mQtItem_alphabetical_tag_virtual(myQtItem_TemplateItem):
             tag: mQtItem_tag_element
             element_name = (self.tag_path + "." + self.text()) if len(self.tag_path) else self.tag.name
             if re.match(element_name, tag.text()):
-                splitted_tag_path = tag.split_tag_to_parts(element_name)
+                splitted_tag_path = CF.split_tag_to_parts(element_name)
                 selected_index = len(splitted_tag_path) - 1
                 tag.alphabetical_selected[selected_index] = not tag.alphabetical_selected[selected_index]
 
@@ -302,7 +303,7 @@ class mQtItem_tag_element(myQtItem_TemplateItem):
         is_tag = not self.tag_element
         super().__init__(root, name, DT_visible=is_tag, Scp_visible=is_tag)
         self.setSelectable(False)
-        self.splited_text = self.split_tag_to_parts(self.text())
+        self.splited_text = CF.split_tag_to_parts(self.text())
         self.selected = list([False for x in range(len(self.splited_text))])
         self.alphabetical_selected = list([False for x in range(len(self.splited_text))])
         self.whole_selected = False
@@ -330,27 +331,9 @@ class mQtItem_tag_element(myQtItem_TemplateItem):
                     break
                 else:
                     start_position += dot + size + 3
-    @staticmethod
-    def split_tag_to_parts(string, join_index=False):
-        first_splitted = string.split(".")
-        splitted = list()
-        pattern = r"(\[)([\w\.\[\]]+)(\])"
-        for element in first_splitted:
-            match = re.search(pattern, element)
-            if match:
-                splitted.append(element[:match.start()])
-                if join_index:
-                    splitted.append(match.group())
-                else:
-                    [splitted.append(match.group(i)) for i in range(1, 4)]
-                if len(element[match.end():]):
-                    splitted.append(element[match.end():])
-            else:
-                splitted.append(element)
-        return splitted
 
     def update_tag_element(self):
-        self.splited_text = self.split_tag_to_parts(self.text())
+        self.splited_text = CF.split_tag_to_parts(self.text())
         self.selected = list([False for x in range(len(self.splited_text))])
         self.alphabetical_selected = list([False for x in range(len(self.splited_text))])
         self.whole_selected = False
