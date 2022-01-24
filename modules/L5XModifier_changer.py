@@ -7,11 +7,33 @@ class PerformedModification:
 
     def __init__(self):
         self.original_tag_name = None
-        self.current_tag_name = None
+        self._current_tag_name = None
         # dictionary where key is original_subelement_name of original_tag_name (if subelement or one of it's
         #  subelements changes) and value is tuple of: current_subelement_name and similar dictionary of it's
         #  subelements
         self.tag_elements_dict = dict()
+
+    @property
+    def current_tag_name(self):
+        return self._current_tag_name if self._current_tag_name is not None else self.original_tag_name
+
+    @current_tag_name.setter
+    def current_tag_name(self, value):
+        self._current_tag_name = value
+
+    def add_tag_element(self, tag_element_path, new_element_name=None):
+        # TODO: adding to self.tag_elements_dict element described in tag_element_path. If new_element_name is not None
+        #  then change value of current_element_name (first value in tuple od dictionary)
+        # Seperate tag_element_path into parts, search through dictionary (or create keys with values) for every element
+        #  of created path from tag_element_path
+        pass
+
+    def current_tag_element_path(self, tag_element_path):
+        # TODO: Check if this object containes prepared tag_element_path in self.tag_elements_dict (if so, it means,
+        #  that this object will modify name of element in that path), then return current name of tag element. Return
+        #  original name, if it wasn't changed. Return None if there is not such path.
+        # Seperate tag_element_path into parts, then search in self.tag_elements_dict to find corrent element
+        pass
 
 
 class PerfAlphabeticModification(PerformedModification):

@@ -198,7 +198,7 @@ class L5XModifier_r_generator(L5XModifier):
         #  each header (eg. to know which tag description should be changed after changing selected name)
         # patterns for selecting correct type of change
         # TODO: Correct patterns to retrive more information (tag name, rung number, rung element index)
-        pattern_rung_change = r"Rung (\d+)\:((\d+)\:)?"
+        pattern_rung_change = r"Rung (\d+)\:((\d+)\:)?"  # group(1)- rung number, group(3)- rung element index
         pattern_tag_name = r"\{\w+\}"
         pattern_property_change = r":([a-zA-Z]{1,3})\Z"
         # dictionary of property modification key names to subclasses of ModifierFunction
@@ -219,7 +219,8 @@ class L5XModifier_r_generator(L5XModifier):
             if match:
                 # TODO: Tag name should be matched, find it in performed_modification_tag_name, if there is no one
                 #  then create PerformedModification object (one of the subclass) and append to
-                #  performed_modification_obj and performed_modification_tag_name
+                #  performed_modification_obj and performed_modification_tag_name. If it is rung modification then
+                #  insert alphabetical modification if exist into constructor of PerfRungModification
                 # append class name changing tag name (and creating new one if necessary)
                 modification_class_list.append(ModifierNewTag)
                 continue
@@ -245,7 +246,8 @@ class L5XModifier_r_generator(L5XModifier):
                                                                          rung_modification):
                 # check if class_name was correctly evaluated
                 if class_name is not None:
-                    # TODO: find proper obj from copied_modification_class_list and insert into constructor
+                    # TODO: find proper obj from copied_modification_class_list and insert into constructor (find by
+                    #  alphabetical name, or by appear order if it exist and it is that case)
                     # create subclass of ModifierFunction - name stored in class_name
                     modifier_function_object: ModifierFunction = class_name(value, header, rung_modification_bool)
                     # put row_change_list into function check_name_change to make changes in proper tag
