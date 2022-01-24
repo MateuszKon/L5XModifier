@@ -10,6 +10,7 @@ from encodings.aliases import aliases
 import csv
 import re
 import warnings
+import copy
 
 
 class L5XModifier:
@@ -194,44 +195,80 @@ class L5XModifier_r_generator(L5XModifier):
     def generate_list_of_changes(self, headers, rows) -> list:
         # generate list of changes
         # prepare list of changes of main files (list of new tags, changes in description etc, changes to rungs)
-        # parse all headers, depending on what is in header prepare list of subclasses of ModifierFunction
-        # TODO: Changing this function to parse every possible information from header. Use class storing changes of
-        #  each header (eg. to know which tag description should be changed after changing selected name)
-        # patterns for selecting correct type of change
-        # TODO: Correct patterns to retrive more information (tag name, rung number, rung element index)
-        pattern_rung_change = r"Rung (\d+)\:((\d+)\:)?"  # group(1)- rung number, group(3)- rung element index
-        pattern_tag_name = r"\{\w+\}"
-        pattern_property_change = r":([a-zA-Z]{1,3})\Z"
+        # parse all headers, depending on what is in header prepare list of subclasses of ModifierFunction. Use class
+        # storing changes of each header (eg. to know which tag description should be changed after changing selected name)
+
+        # Correct patterns to retrieve more information (tag name, rung number, rung element index)
+        # is_r - Rung format exist; r_num - rung number; r_elem - rung element index; tag - whole tag (with {}),
+        #  is_sel - {tag} part without { and }, prop - property change
+        pattern = r"(Rung (?P<r_num>\d+)\:((?P<r_elem>\d+)\:)?)?" \
+                  r"(?P<tag>([\w\.\[\]]+)?(\{(?P<sel_tag>[\w\.\[\]]+)\})?([\w\.\[\]]+)?)" \
+                  r"(:(?P<prop>[a-zA-Z]{1,3})\Z)?"
+
         # dictionary of property modification key names to subclasses of ModifierFunction
         property_change_dictionary = {"DT": ModifierDataType, "DSC": ModifierDescription, "VAL": ModifierValue,
                                       "SCP": ModifierScope}
+
+        # The same size lists (for creating list of changes for every row). Those lists contains info from headers
         modification_class_list = list()  # subclasses of class ModifierFunction
+        modification_header_list = list()  # informations parsed from header, each element is a dictionary
+        # TODO: remove rung_modification use bool(modification_header_list["rung_number"]) instead
         rung_modification = list()  # list of bool values: rung modification - True, global modification - False
-        # TODO: Use these lists
+
+        # Dictionaries for each tag modified or modified exact tag used in rung in exact place. In those objects will be
+        #  stored info of current tag name if it changed (for each row will be created copy of each object)
         performed_modification_obj_dict = dict()  # dict of PerfAlphabeticModification obj as values, tag_name as keys
         performed_modification_rung_obj_dict = dict()  # dict of PerfRungModification obj as values, tag_name as keys
+
         for header in headers:
-            # check if rung modification of global modification
-            # TODO: if this is rung modification, get also rung number and run element index (if exist last one)
-            rung_modification.append(bool(re.search(pattern_rung_change, header)))
+            # match and parse every information from header
+            match = re.match(pattern, header)
+            modification_header = {"rung_number": match.group("r_num"), "rung_element_index": match.group("r_elem"),
+                                   "tag_name": match.group("tag"), "selected_tag_element": match.group("sel_tag"),
+                                   "selected_property":  match.group("prop")}
+            # append modification_header
+            modification_header_list.append(modification_header)
+            # check if rung modification of global modification (is there value or it is None)
+            is_rung_modification = bool(modification_header["rung_number"])
+            rung_modification.append(is_rung_modification)
+
             # check what is need to be changed
             # check if name is selected {...}
-            match = re.search(pattern_tag_name, header)
-            if match:
-                # TODO: Tag name should be matched, find it in performed_modification_obj_dict or
-                #  performed_modification_rung_obj_dictkeys, if there is no one
+            if modification_header["selected_tag_element"]:
+                # Tag name should be matched, find it in performed_modification_obj_dict or rung position in
+                #  performed_modification_rung_obj_dict keys (depending on alphabetical/appear order), if there is none,
                 #  then create PerformedModification object (one of the subclass) and append to appropriate dict
-                # append class name changing tag name (and creating new one if necessary)
+                # Remove { and  } from tag name, then get first part (only to first . or [ )
+                tag_beginning = str(modification_header["tag_name"]).replace("{", "").replace("}", "")
+                tag_beginning = re.match("\w+", tag_beginning).group()
+                if is_rung_modification:
+                    rung_place = modification_header["rung_number"] + ":" + modification_header["rung_element_index"]
+                    if rung_place not in performed_modification_rung_obj_dict:
+                        # Create new object
+                        performed_modification_rung_obj_dict[rung_place] = PerfRungModification(
+                            tag_beginning, None, modification_header["rung_number"],
+                            modification_header["rung_element_index"])
+                else:
+                    if tag_beginning not in performed_modification_obj_dict:
+                        # Create new object
+                        performed_modification_obj_dict[tag_beginning] = PerfAlphabeticModification(tag_beginning, None)
+
+                # append class name changing tag name (and creating new one if necessary) into list of changes
                 modification_class_list.append(ModifierNewTag)
+                # jump to next loop iteration
                 continue
-            # check other :DT, :DSC, :VAL, :SCP
-            match = re.search(pattern_property_change, header)
-            if match:
+
+            # check property change: :DT, :DSC, :VAL, :SCP (there is value or None)
+            if selected_property:
                 # append class name changing property
-                # match.group(1) should be one of the key of property_change_dictionary
-                if match.group(1).upper() in property_change_dictionary:
-                    modification_class_list.append(property_change_dictionary[match.group(1).upper()])
+                # selected_property should be one of the key of property_change_dictionary
+                selected_property = selected_property.upper()
+                if selected_property in property_change_dictionary:
+                    # append class name changing property into list of changes
+                    modification_class_list.append(property_change_dictionary[selected_property])
+                    # jump to next loop iteration
                     continue
+
             # if there was no match this part of code will execute:
             modification_class_list.append(None)
             warnings.warn("Part of imported modification are not recognized. Header name is recognized: " + header)
@@ -242,6 +279,9 @@ class L5XModifier_r_generator(L5XModifier):
             row_change_list = list()
             # TODO: every modification_class_list must be copied (new_obj = copy(obj) ) for each row
             #  generate (copied_modification_class_list)
+            copied_performed_modification_obj_dict = copy.deepcopy(performed_modification_obj_dict)
+            copied_performed_modification_rung_obj_dict = copy.deepcopy(performed_modification_rung_obj_dict)
+            # TODO: add modification_header_list to zip
             for value, header, class_name, rung_modification_bool in zip(row, headers, modification_class_list,
                                                                          rung_modification):
                 # check if class_name was correctly evaluated
