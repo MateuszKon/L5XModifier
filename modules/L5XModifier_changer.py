@@ -5,13 +5,16 @@ import re
 
 class PerformedModification:
 
-    def __init__(self):
-        self.original_tag_name = None
+    def __init__(self, tag_name, list_of_tag_elements):
+        self.original_tag_name = tag_name
         self._current_tag_name = None
         # dictionary where key is original_subelement_name of original_tag_name (if subelement or one of it's
         #  subelements changes) and value is tuple of: current_subelement_name and similar dictionary of it's
         #  subelements
         self.tag_elements_dict = dict()
+        # generating self.tag_elements_dict by list_of_tag_elements using add_tag_element
+        for element in list_of_tag_elements:
+            self.add_tag_element(element)
 
     @property
     def current_tag_name(self):
@@ -20,6 +23,11 @@ class PerformedModification:
     @current_tag_name.setter
     def current_tag_name(self, value):
         self._current_tag_name = value
+
+    def is_this_obj(self, tag_name, **kwargs):
+        # return True if this is the object modifying this tag_name. kwargs used for subclass implementation
+        #  (i.e. rung_number, rung_element_index etc.)
+        return self.original_tag_name == tag_name
 
     def add_tag_element(self, tag_element_path, new_element_name=None):
         # TODO: adding to self.tag_elements_dict element described in tag_element_path. If new_element_name is not None
@@ -32,28 +40,44 @@ class PerformedModification:
         # TODO: Check if this object containes prepared tag_element_path in self.tag_elements_dict (if so, it means,
         #  that this object will modify name of element in that path), then return current name of tag element. Return
         #  original name, if it wasn't changed. Return None if there is not such path.
-        # Seperate tag_element_path into parts, then search in self.tag_elements_dict to find corrent element
+        # Seperate tag_element_path into parts, then search in self.tag_elements_dict to find current element
         pass
 
 
 class PerfAlphabeticModification(PerformedModification):
 
-    def __init__(self):
-        super().__init__()
-        pass
+    pass
 
 
 class PerfRungModification(PerformedModification):
 
-    def __init__(self, rung_number, rung_element_index):
-        super().__init__()
+    def __init__(self, tag_name, list_of_tag_elements, rung_number, rung_element_index):
+        super().__init__(tag_name, list_of_tag_elements)
         self.rung_number = rung_number
         self.rung_element_index = rung_element_index
+        self._alphabetical_obj = None  # PerfAlphabeticModification modifying the same tag name - connected by
+        #  find_alphabetical_obj
+        self._is_alphabetical_searched = False  # find_alphabetical_obj function was already used on self
+
+    def is_this_obj(self, tag_name, **kwargs):
+        # TODO: return True if this is the object modifying this tag_name. kwargs used for subclass implementation
+        #  (i.e. rung_number, rung_element_index etc.)
+        if super().is_this_obj(tag_name):
+            pass
+        else:
+            return False
+
+    def find_alphabetical_obj(self, performed_modification_objs):
+        # TODO: performed_modification_objs is a list of PerformedModification, search for PerfAlphabeticModification of
+        #  the same tag name and put it into _alphabetical_obj if _is_alphabetical_searched is False. In the end, put
+        #  True into that
+        pass
 
 
 class ModifierFunction:
 
     def __init__(self, value, header, single_selection):
+        # TODO: add PerformedModification as input, maybe use some function of this obj to update it's content
         self.value = value  # new value
         self.header = header  # header of modification
         self.single_selection = single_selection  # selected in appear order instead of alphabetical order

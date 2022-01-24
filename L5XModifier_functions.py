@@ -208,8 +208,8 @@ class L5XModifier_r_generator(L5XModifier):
         modification_class_list = list()  # subclasses of class ModifierFunction
         rung_modification = list()  # list of bool values: rung modification - True, global modification - False
         # TODO: Use these lists
-        performed_modification_obj = list()  # list of PerformedModification objects
-        performed_modification_tag_name = list()  # list of tag names of objects PerformedModification (for searching)
+        performed_modification_obj_dict = dict()  # dict of PerfAlphabeticModification obj as values, tag_name as keys
+        performed_modification_rung_obj_dict = dict()  # dict of PerfRungModification obj as values, tag_name as keys
         for header in headers:
             # check if rung modification of global modification
             # TODO: if this is rung modification, get also rung number and run element index (if exist last one)
@@ -218,10 +218,9 @@ class L5XModifier_r_generator(L5XModifier):
             # check if name is selected {...}
             match = re.search(pattern_tag_name, header)
             if match:
-                # TODO: Tag name should be matched, find it in performed_modification_tag_name, if there is no one
-                #  then create PerformedModification object (one of the subclass) and append to
-                #  performed_modification_obj and performed_modification_tag_name. If it is rung modification then
-                #  insert alphabetical modification if exist into constructor of PerfRungModification
+                # TODO: Tag name should be matched, find it in performed_modification_obj_dict or
+                #  performed_modification_rung_obj_dictkeys, if there is no one
+                #  then create PerformedModification object (one of the subclass) and append to appropriate dict
                 # append class name changing tag name (and creating new one if necessary)
                 modification_class_list.append(ModifierNewTag)
                 continue
@@ -248,7 +247,8 @@ class L5XModifier_r_generator(L5XModifier):
                 # check if class_name was correctly evaluated
                 if class_name is not None:
                     # TODO: find proper obj from copied_modification_class_list and insert into constructor (find by
-                    #  alphabetical name, or by appear order if it exist and it is that case)
+                    #  alphabetical name, or by appear order if it exist and it is that case). If it is the latter, then
+                    #  check if it has connected alphabetical order obj, if no, find it and connect to this object
                     # create subclass of ModifierFunction - name stored in class_name
                     modifier_function_object: ModifierFunction = class_name(value, header, rung_modification_bool)
                     # put row_change_list into function check_name_change to make changes in proper tag
