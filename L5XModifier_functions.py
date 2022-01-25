@@ -240,7 +240,7 @@ class L5XModifier_r_generator(L5XModifier):
                 #  then create PerformedModification object (one of the subclass) and append to appropriate dict
                 # Remove { and  } from tag name, then get first part (only to first . or [ )
                 tag_beginning = str(modification_header["tag_name"]).replace("{", "").replace("}", "")
-                tag_beginning = re.match("\w+", tag_beginning).group()
+                tag_beginning = re.match(r"\w+", tag_beginning).group()
                 if is_rung_modification:
                     rung_place = modification_header["rung_number"] + ":" + modification_header["rung_element_index"]
                     if rung_place not in performed_modification_rung_obj_dict:
@@ -277,18 +277,34 @@ class L5XModifier_r_generator(L5XModifier):
         # class_name(value, header, single_selection)
         for row in rows:
             row_change_list = list()
-            # TODO: every modification_class_list must be copied (new_obj = copy(obj) ) for each row
+            # every modification_class_list must be copied (new_obj = copy(obj) ) for each row
             #  generate (copied_modification_class_list)
             copied_performed_modification_obj_dict = copy.deepcopy(performed_modification_obj_dict)
             copied_performed_modification_rung_obj_dict = copy.deepcopy(performed_modification_rung_obj_dict)
-            # TODO: add modification_header_list to zip
-            for value, header, class_name, rung_modification_bool in zip(row, headers, modification_class_list,
-                                                                         rung_modification):
+            for value, header, class_name, header_info in zip(row, headers, modification_class_list,
+                                                              modification_header_list):
                 # check if class_name was correctly evaluated
                 if class_name is not None:
+                    # Rung modification bool is true if rung_number is not None (modification is of appear order)
+                    rung_modification_bool = bool(header_info["rung_number"])
                     # TODO: find proper obj from copied_modification_class_list and insert into constructor (find by
                     #  alphabetical name, or by appear order if it exist and it is that case). If it is the latter, then
                     #  check if it has connected alphabetical order obj, if no, find it and connect to this object
+                    if header_info["tag_name"] in copied_performed_modification_obj_dict:
+                        modification_obj = copied_performed_modification_obj_dict[header_info["tag_name"]]
+                    else:
+                        modification_obj = None
+                    if rung_modification_bool:
+                        rung_place = header_info["rung_number"] + ":" + header_info["rung_element_index"]
+                        if rung_place in copied_performed_modification_rung_obj_dict:
+                            pass
+
+                    # modification_header = {"rung_number": match.group("r_num"),
+                    #                        "rung_element_index": match.group("r_elem"),
+                    #                        "tag_name": match.group("tag"),
+                    #                        "selected_tag_element": match.group("sel_tag"),
+                    #                        "selected_property": match.group("prop")}
+
                     # create subclass of ModifierFunction - name stored in class_name
                     modifier_function_object: ModifierFunction = class_name(value, header, rung_modification_bool)
                     # put row_change_list into function check_name_change to make changes in proper tag
