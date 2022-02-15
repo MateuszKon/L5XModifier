@@ -1,7 +1,7 @@
 from main import MainWindow
 import os
 from PySide6.QtWidgets import QFileDialog
-from PySide6.QtGui import QStandardItemModel
+from PySide6.QtGui import QStandardItemModel, QGuiApplication
 from PySide6.QtCore import Qt
 
 
@@ -14,6 +14,7 @@ class ExportTagToCSV(MainWindow):
 
         # SUBCLASS PARAMETERS
         self.currentFile = ""
+        self.clipboard = QGuiApplication.clipboard()
 
         # SIGNALS AND SLOTS CONNECTIONS
         self.widgets.pushButton_tE_OpenFile.clicked.connect(self.openFile_button)

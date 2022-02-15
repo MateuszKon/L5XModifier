@@ -1,3 +1,4 @@
+from PySide6.QtGui import QGuiApplication
 from main import MainWindow
 import warnings
 
@@ -10,7 +11,7 @@ class StringConverter(MainWindow):
         self.L5XMod = L5XMod
 
         # SUBCLASS PARAMETERS
-        pass
+        self.clipboard = QGuiApplication.clipboard()
 
         # SIGNALS AND SLOTS CONNECTIONS
         self.widgets.lineEdit_tsC_RadioButton_Custom.editingFinished.connect(self.radioButtons_custom_check)
