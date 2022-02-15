@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1012</width>
-    <height>567</height>
+    <width>1205</width>
+    <height>622</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -555,7 +555,7 @@ Button */
 
 </string>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_6">
+   <layout class="QVBoxLayout" name="verticalLayout_14">
     <property name="spacing">
      <number>0</number>
     </property>
@@ -1822,8 +1822,8 @@ p, li { white-space: pre-wrap; }
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>910</width>
-                            <height>450</height>
+                            <width>1103</width>
+                            <height>505</height>
                            </rect>
                           </property>
                           <layout class="QHBoxLayout" name="horizontalLayout_7" stretch="1,2">
@@ -2458,8 +2458,8 @@ p, li { white-space: pre-wrap; }
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>388</width>
-                            <height>349</height>
+                            <width>910</width>
+                            <height>450</height>
                            </rect>
                           </property>
                           <layout class="QVBoxLayout" name="verticalLayout_20">

@@ -7,10 +7,11 @@ from PySide6.QtCore import Qt
 
 class ExportTagToCSV(MainWindow):
 
-    def __init__(self, widgets, L5XMod):
+    def __init__(self, widgets, L5XMod, status_bar):
         # COPIED FROM PARENT
         self.widgets = widgets
         self.L5XMod = L5XMod
+        self.status_bar = status_bar
 
         # SUBCLASS PARAMETERS
         self.currentFile = ""
@@ -49,15 +50,15 @@ class ExportTagToCSV(MainWindow):
             self.widgets.lineEdit_tE_OpenFile.setText(self.currentFile)
 
     def openFile_changed(self):
-        self.clear_error()
-        text = self.widgets.lineEdit_tE_OpenFile.text()
-        ext = os.path.splitext(text)[-1].lower()
-        if os.path.exists(text) and ext == ".l5x":
-            self.currentFile = text
-            self.L5XMod.open_file(text)
-            self.chooseScope_populate()
-        else:
-            self.openFile_button()
+        with self.status_bar:
+            text = self.widgets.lineEdit_tE_OpenFile.text()
+            ext = os.path.splitext(text)[-1].lower()
+            if os.path.exists(text) and ext == ".l5x":
+                self.currentFile = text
+                self.L5XMod.open_file(text)
+                self.chooseScope_populate()
+            else:
+                self.openFile_button()
 
     def chooseScope_populate(self):
         self.widgets.comboBox_tE_ChooseScope.clear()
@@ -76,24 +77,24 @@ class ExportTagToCSV(MainWindow):
         self.widgets.listWidget_tE_ChooseTag.addItems(filter_text)
 
     def tagTree_populate(self):
-        self.clear_error()
         if self.widgets.listWidget_tE_ChooseTag.currentItem() is not None:
-            top_most_model = QStandardItemModel(0, 3)
-            top_most_model.setHeaderData(0, Qt.Horizontal, "Name")
-            top_most_model.setHeaderData(1, Qt.Horizontal, "Data Type")
-            top_most_model.setHeaderData(2, Qt.Horizontal, "Value")
-            self.widgets.treeView_tE_TagTree.setModel(top_most_model)
-            tag_name = self.widgets.listWidget_tE_ChooseTag.currentItem().text()
-            scope = self.widgets.comboBox_tE_ChooseScope.currentText()
-            encoder = self.radioButtons_get_encoder()
-            print_headers = self.widgets.checkBox_tE_PrintHeaders.isChecked()
-            concatenate = self.widgets.checkBox_tE_ConcatenatePath.isChecked()
-            tag_tuple = self.L5XMod.get_tag_info_tuple(tag_name, scope, encoder=encoder)
-            self.L5XMod.insert_into_tree(top_most_model, tag_tuple, print_headers, concatenate, encoder=encoder)
-            self.widgets.treeView_tE_TagTree.expandAll()
-            self.widgets.treeView_tE_TagTree.resizeColumnToContents(2)
-            self.widgets.treeView_tE_TagTree.resizeColumnToContents(1)
-            self.widgets.treeView_tE_TagTree.resizeColumnToContents(0)
+            with self.status_bar:
+                top_most_model = QStandardItemModel(0, 3)
+                top_most_model.setHeaderData(0, Qt.Horizontal, "Name")
+                top_most_model.setHeaderData(1, Qt.Horizontal, "Data Type")
+                top_most_model.setHeaderData(2, Qt.Horizontal, "Value")
+                self.widgets.treeView_tE_TagTree.setModel(top_most_model)
+                tag_name = self.widgets.listWidget_tE_ChooseTag.currentItem().text()
+                scope = self.widgets.comboBox_tE_ChooseScope.currentText()
+                encoder = self.radioButtons_get_encoder()
+                print_headers = self.widgets.checkBox_tE_PrintHeaders.isChecked()
+                concatenate = self.widgets.checkBox_tE_ConcatenatePath.isChecked()
+                tag_tuple = self.L5XMod.get_tag_info_tuple(tag_name, scope, encoder=encoder)
+                self.L5XMod.insert_into_tree(top_most_model, tag_tuple, print_headers, concatenate, encoder=encoder)
+                self.widgets.treeView_tE_TagTree.expandAll()
+                self.widgets.treeView_tE_TagTree.resizeColumnToContents(2)
+                self.widgets.treeView_tE_TagTree.resizeColumnToContents(1)
+                self.widgets.treeView_tE_TagTree.resizeColumnToContents(0)
 
     def radioButtons_get_encoder(self):
         radioButtons = {self.widgets.radioButton_tE_PL: "Windows-1250", self.widgets.radioButton_tE_GFS: "Windows-1252",
@@ -119,11 +120,11 @@ class ExportTagToCSV(MainWindow):
                                  "this tag")
 
     def export_CSV(self):
-        self.clear_error()
         save_file = self.choose_csv_file_save()
         if save_file:
             output_encoder = self.RB_radioButtons_get_encoder()
-            self.L5XMod.export_tag_to_csv(self.widgets.treeView_tE_TagTree, save_file, output_encoder)
+            with self.status_bar:
+                self.L5XMod.export_tag_to_csv(self.widgets.treeView_tE_TagTree, save_file, output_encoder)
 
     def import_CSV(self):
         self.clear_error()
@@ -132,5 +133,6 @@ class ExportTagToCSV(MainWindow):
             file_encoder = self.RB_radioButtons_get_encoder()
             tag_encoder = self.radioButtons_get_encoder()
             scope = self.widgets.comboBox_tE_ChooseScope.currentText()
-            self.L5XMod.import_tag_from_csv(load_file, scope=scope, file_encoding=file_encoder, encoding=tag_encoder)
-            self.tagTree_populate()
+            with self.status_bar:
+                self.L5XMod.import_tag_from_csv(load_file, scope=scope, file_encoding=file_encoder, encoding=tag_encoder)
+                self.tagTree_populate()

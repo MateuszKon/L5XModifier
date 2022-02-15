@@ -21,6 +21,7 @@
 
 import sys
 import os
+import platform
 
 from PySide6.QtCore import *  # type: ignore
 from PySide6.QtGui import *  # type: ignore
@@ -58,10 +59,11 @@ class MainWindow(QMainWindow):
         self.widgets = self.ui
 
         self.widgets.version.setText(VERSION)
+        self.status_bar = StatusBar(self.widgets.errorLabel)
 
         # INITIALIZE PAGES FUNCTIONALITY
-        self.tE = ExportTagToCSV(self.widgets, self.L5XMod)
-        self.sC = StringConverter(self.widgets, self.L5XMod)
+        self.tE = ExportTagToCSV(self.widgets, self.L5XMod, self.status_bar)
+        self.sC = StringConverter(self.widgets, self.L5XMod, self.status_bar)
 
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
         # ///////////////////////////////////////////////////////////////
@@ -145,14 +147,14 @@ class MainWindow(QMainWindow):
         self.widgets.errorLabel.clear()
 
     def save_file(self):
-        self.clear_error()
-        dialog = QFileDialog()
-        dialog.setNameFilters(["RSLogix L5X files (*.L5X)"])
-        dialog.setAcceptMode(QFileDialog.AcceptSave)
-        dialog.setFileMode(QFileDialog.FileMode(0))
-        if dialog.exec():
-            file_name = dialog.selectedFiles()[0]
-            self.L5XMod.save_file(file_name)
+        with self.status_bar:
+            dialog = QFileDialog()
+            dialog.setNameFilters(["RSLogix L5X files (*.L5X)"])
+            dialog.setAcceptMode(QFileDialog.AcceptSave)
+            dialog.setFileMode(QFileDialog.FileMode(0))
+            if dialog.exec():
+                file_name = dialog.selectedFiles()[0]
+                self.L5XMod.save_file(file_name)
 
     def RB_radioButtons_get_encoder(self):
         radioButtons = {self.widgets.radioButton_RB_ExpEnc_UTF: "UTF-8"}
@@ -177,7 +179,6 @@ class MainWindow(QMainWindow):
         UIFunctions.open_right_toolbox(self, toolbox_buttons[btn])
 
     def choose_csv_file_save(self):
-        self.clear_error()
         dialog = QFileDialog()
         dialog.setDefaultSuffix("cal")
         dialog.setNameFilters(["CSV (*.csv)", "All files (*.*)"])
@@ -188,7 +189,6 @@ class MainWindow(QMainWindow):
             return dialog.selectedFiles()[0]
 
     def choose_csv_file_load(self):
-        self.clear_error()
         dialog = QFileDialog()
         dialog.setDefaultSuffix("cal")
         dialog.setNameFilters(["CSV (*.csv)", "All files (*.*)"])
@@ -201,7 +201,7 @@ class MainWindow(QMainWindow):
     # Post here your functions for clicked buttons
     # ///////////////////////////////////////////////////////////////
     def buttonClick(self):
-        self.clear_error()
+        self.status_bar.clear_error()
 
         # GET BUTTON CLICKED
         btn = self.sender()
@@ -245,7 +245,9 @@ if __name__ == "__main__":
     if not os.path.isdir(directory + "\\log"):
         os.mkdir(directory + "\\log")
     log_file_path = directory + '\\log\\log_{}.txt'.format(datetime.now().strftime("%Y%m%d_%H%M%S"))
-    sys.stdout = MyLogger(sys.stdout, log_file_path)
+    my_logger = MyLogger(sys.stdout, sys.excepthook, log_file_path)
+    sys.stdout = my_logger
+    sys.excepthook = my_logger.exception_handler
 
     # GUI START
     app = QApplication(sys.argv)
@@ -259,4 +261,4 @@ if __name__ == "__main__":
     sys.exit(app.exec())
 
     # CLOSE LOG FILE
-    # sys.stdout.close()
+    sys.stdout.close()

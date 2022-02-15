@@ -5,10 +5,11 @@ import warnings
 
 class StringConverter(MainWindow):
 
-    def __init__(self, widgets, L5XMod):
+    def __init__(self, widgets, L5XMod, status_bar):
         # COPIED FROM PARENT
         self.widgets = widgets
         self.L5XMod = L5XMod
+        self.status_bar = status_bar
 
         # SUBCLASS PARAMETERS
         self.clipboard = QGuiApplication.clipboard()
@@ -67,17 +68,17 @@ class StringConverter(MainWindow):
         self.widgets.textEdit_tsC_SimpleText.blockSignals(False)
 
     def CopyTest_clicked(self):
-        self.clear_error()
-        self.clipboard.setText(self.widgets.textEdit_tsC_SimpleText.toPlainText())
+        with self.status_bar:
+            self.clipboard.setText(self.widgets.textEdit_tsC_SimpleText.toPlainText())
 
     def CopyRSL_clicked(self):
-        self.clear_error()
-        self.clipboard.setText(self.widgets.textEdit_tsC_RSLogixText.toPlainText())
+        with self.status_bar:
+            self.clipboard.setText(self.widgets.textEdit_tsC_RSLogixText.toPlainText())
 
     def PasteText_clicked(self):
-        self.clear_error()
-        self.widgets.textEdit_tsC_SimpleText.setPlainText(self.clipboard.text())
+        with self.status_bar:
+            self.widgets.textEdit_tsC_SimpleText.setPlainText(self.clipboard.text())
 
     def PasteRSL_clicked(self):
-        self.clear_error()
-        self.widgets.textEdit_tsC_RSLogixText.setPlainText(self.clipboard.text())
+        with self.status_bar:
+            self.widgets.textEdit_tsC_RSLogixText.setPlainText(self.clipboard.text())

@@ -21,3 +21,6 @@ from . dialog_box import MyDialog
 
 # Logger
 from . my_logger import MyLogger
+
+# Status Bar
+from . status_bar import StatusBar
