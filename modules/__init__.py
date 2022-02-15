@@ -13,17 +13,11 @@
 # https://doc.qt.io/qtforpython/licenses.html
 #
 # ///////////////////////////////////////////////////////////////
-from PySide6.QtCore import *
-from PySide6.QtGui import *
-from PySide6.QtWidgets import *
 
 # GUI FILE
 from . ui_main import Ui_MainWindow
 from . ui_dialog_box import Ui_MyDialog
 from . dialog_box import MyDialog
-
-# APP SETTINGS
-from . app_settings import Settings
 
 # Logger
 from . my_logger import MyLogger

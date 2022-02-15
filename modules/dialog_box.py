@@ -1,5 +1,8 @@
 from modules import *
 
+from PySide6.QtCore import *
+from PySide6.QtGui import *
+from PySide6.QtWidgets import *
 
 class MyDialog(QDialog):
     def __init__(self, parent=None):

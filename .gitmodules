@@ -1,4 +1,4 @@
 [submodule "L5XeTree"]
 	path = L5XeTree
-	url = git@github.com:MateuszKon/L5XeTree.git
-	branch = new_tags_generation
+	url = https://github.com/MateuszKon/L5XeTree.git
+	branch = main
