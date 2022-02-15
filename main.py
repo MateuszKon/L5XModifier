@@ -39,7 +39,7 @@ from datetime import datetime
 # SET AS GLOBAL WIDGETS
 # ///////////////////////////////////////////////////////////////
 # widgets = None
-VERSION = "v1.2.2"
+VERSION = "v1.2.3"
 
 # GLOBAL_STATE = False
 # GLOBAL_TITLE_BAR = True

@@ -84,7 +84,7 @@ class L5XModifier:
 
     def import_tag_from_csv(self, load_file, scope="Controller", file_encoding=None, encoding=None):
         with open(load_file, 'r', encoding=file_encoding, newline='') as f_r:
-            dialect = csv.Sniffer().sniff(f_r.read(1000))
+            dialect = csv.Sniffer().sniff(f_r.readline())
             f_r.seek(0)
             reader = csv.DictReader(f_r, dialect=dialect)
             if "Name" in reader.fieldnames and "Value" in reader.fieldnames:
